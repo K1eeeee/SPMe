@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pybamm-w10-aging"
+version = "0.1.0"
+description = "W10 3C SPMe aging-model construction for PyBaMM"
+requires-python = ">=3.12"
+dependencies = ["pybamm>=26.7.1,<26.8", "numpy>=2.0", "scipy>=1.14"]
+
+[project.scripts]
+pybamm-w10 = "pybamm_w10.cli:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.setuptools.packages.find]
+where = ["src"]

@@ -1,0 +1,9 @@
+Command:
+  C:\Users\Lenovo\anaconda3\envs\battery\python.exe -m pytest -q -p no:cacheprovider
+
+Working directory:
+  E:\battery
+
+Result:
+  ....................                                                     [100%]
+  20 passed in 17.36s

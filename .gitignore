@@ -1,0 +1,32 @@
+# Local datasets and generated simulation artifacts
+/data/
+/outputs/
+/tmp/
+
+# Local test/runtime scratch directories
+/.test-tmp-stage-local/
+/pytest-cache-files-*/
+
+# Python caches and build artifacts
+__pycache__/
+*.py[cod]
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+dist/
+build/
+*.egg-info/
+
+# Local environments and editor files
+.venv/
+venv/
+env/
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS metadata
+Thumbs.db
+.DS_Store

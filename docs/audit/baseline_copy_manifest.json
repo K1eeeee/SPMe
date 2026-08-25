@@ -1,0 +1,62 @@
+{
+  "manifest_schema_version": 1,
+  "copy_source_root": "E:\\battery",
+  "copy_target_root": "E:\\battery\\new",
+  "copied_at": "2026-08-18",
+  "copy_exclusions": [
+    "__pycache__",
+    ".pytest_cache",
+    "pytest-cache-files-*",
+    "tmp",
+    "virtual environments",
+    "generated outputs"
+  ],
+  "copy_verification": "Each target_sha256_at_copy matched source_sha256 immediately after the isolated copy. README.md is subsequently changed only in the isolated workspace as required by Phase A.",
+  "copied_artifacts": [
+    {"path":"docs/superpowers/plans/2026-08-18-pybamm-w10-event-and-m50t-calibration-implementation-plan.md","size_bytes":27116,"source_sha256":"8e43ba6df18fdaf94c3946f6c2230adf60793df5e15725ba7c6b98f53f514b57","target_sha256_at_copy":"8e43ba6df18fdaf94c3946f6c2230adf60793df5e15725ba7c6b98f53f514b57"},
+    {"path":"docs/superpowers/specs/2026-08-17-pybamm-w10-3c-aging-design.md","size_bytes":18715,"source_sha256":"b7a682906a5070f34c246e1660880f1f7849653fb7e10d799ec0f8e8310e5bcf","target_sha256_at_copy":"b7a682906a5070f34c246e1660880f1f7849653fb7e10d799ec0f8e8310e5bcf"},
+    {"path":"docs/superpowers/specs/2026-08-17-pybamm-w10-formal-readiness-design.md","size_bytes":17156,"source_sha256":"3c4d9869277567d1edcdbd265da1508f54c9322ceaee3ca6ca90a5ffc82eec98","target_sha256_at_copy":"3c4d9869277567d1edcdbd265da1508f54c9322ceaee3ca6ca90a5ffc82eec98"},
+    {"path":"docs/superpowers/specs/2026-08-18-pybamm-w10-event-resilience-remediation-design.md","size_bytes":19843,"source_sha256":"87ced7046894009a0f0d9860c45373f9e291143a7187bb7ba197747364941d5c","target_sha256_at_copy":"87ced7046894009a0f0d9860c45373f9e291143a7187bb7ba197747364941d5c"},
+    {"path":"docs/superpowers/specs/2026-08-18-pybamm-w10-m50t-quantitative-calibration-design.md","size_bytes":19795,"source_sha256":"db69b49a4776d2b45620754f453f3598b9bf55463df278f3e78b3bc38f43b02c","target_sha256_at_copy":"db69b49a4776d2b45620754f453f3598b9bf55463df278f3e78b3bc38f43b02c"},
+    {"path":"pyproject.toml","size_bytes":472,"source_sha256":"44eaa61917fec2d22658fc2b36b125c89885da0d87cbc2dfd9e19660d798358f","target_sha256_at_copy":"44eaa61917fec2d22658fc2b36b125c89885da0d87cbc2dfd9e19660d798358f"},
+    {"path":"README.md","size_bytes":2358,"source_sha256":"2c63742de819085dcb6a4eda8932ae495d87ace4d33df3a0e1a9456b14b84ab0","target_sha256_at_copy":"2c63742de819085dcb6a4eda8932ae495d87ace4d33df3a0e1a9456b14b84ab0"},
+    {"path":"scripts/run_pybamm_w10.py","size_bytes":422,"source_sha256":"caa488b9cb1d83c155e46e8b31782c6c392ebc58741dc96fbf86916db880e197","target_sha256_at_copy":"caa488b9cb1d83c155e46e8b31782c6c392ebc58741dc96fbf86916db880e197"},
+    {"path":"src/pybamm_w10/__init__.py","size_bytes":188,"source_sha256":"c31c575201043720f387d4e86f47310e765c67e86280d43871221b467b3fb947","target_sha256_at_copy":"c31c575201043720f387d4e86f47310e765c67e86280d43871221b467b3fb947"},
+    {"path":"src/pybamm_w10/__main__.py","size_bytes":48,"source_sha256":"935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d","target_sha256_at_copy":"935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d"},
+    {"path":"src/pybamm_w10/backend.py","size_bytes":15694,"source_sha256":"c47e0e21182a1c2a997e08b418206921a909807f773f46da6a8babf8b6830604","target_sha256_at_copy":"c47e0e21182a1c2a997e08b418206921a909807f773f46da6a8babf8b6830604"},
+    {"path":"src/pybamm_w10/cli.py","size_bytes":2876,"source_sha256":"69cd96b9f5eb137d7f4cc786d0bdebe9b11575d994af5feb32eb07cdc4a5ab53","target_sha256_at_copy":"69cd96b9f5eb137d7f4cc786d0bdebe9b11575d994af5feb32eb07cdc4a5ab53"},
+    {"path":"src/pybamm_w10/config.py","size_bytes":3610,"source_sha256":"6b87253f4dbe1cc453e1cb4a512cadb713a3ed588e8d66333fea9facb8f69f81","target_sha256_at_copy":"6b87253f4dbe1cc453e1cb4a512cadb713a3ed588e8d66333fea9facb8f69f81"},
+    {"path":"src/pybamm_w10/diagnostics.py","size_bytes":4816,"source_sha256":"fbf32dfa50dbbca0c366f12d04b023a8bf4c154278fc1411ae0d6b3a491697d9","target_sha256_at_copy":"fbf32dfa50dbbca0c366f12d04b023a8bf4c154278fc1411ae0d6b3a491697d9"},
+    {"path":"src/pybamm_w10/figures.py","size_bytes":6111,"source_sha256":"b268646d888e502269034e2b0c3b67bf952e6362392f0580d5ce7f70d27a7db9","target_sha256_at_copy":"b268646d888e502269034e2b0c3b67bf952e6362392f0580d5ce7f70d27a7db9"},
+    {"path":"src/pybamm_w10/model.py","size_bytes":2792,"source_sha256":"8940185cb9c971aed0cfd50156fb6497e52037f3823871efbac4682a4ab2d7a3","target_sha256_at_copy":"8940185cb9c971aed0cfd50156fb6497e52037f3823871efbac4682a4ab2d7a3"},
+    {"path":"src/pybamm_w10/output.py","size_bytes":17702,"source_sha256":"75e34f37fedeaa0d8907b50afef1b209de8500e61b03b49707f5a09296348b00","target_sha256_at_copy":"75e34f37fedeaa0d8907b50afef1b209de8500e61b03b49707f5a09296348b00"},
+    {"path":"src/pybamm_w10/protocol.py","size_bytes":6238,"source_sha256":"ebc8d2f4416eb84d0dd08f12db3173fc5305637c172a9c137ce24f23cae24be1","target_sha256_at_copy":"ebc8d2f4416eb84d0dd08f12db3173fc5305637c172a9c137ce24f23cae24be1"},
+    {"path":"src/pybamm_w10/runner.py","size_bytes":20229,"source_sha256":"49da1fc8bdb6c68ef08e2fe752d9ebff2376afd66c4827f52aa7ffacec3c616e","target_sha256_at_copy":"49da1fc8bdb6c68ef08e2fe752d9ebff2376afd66c4827f52aa7ffacec3c616e"},
+    {"path":"src/pybamm_w10/smoke.py","size_bytes":10671,"source_sha256":"920f1a45654251015800974314dd5e18ded4d10ab4acf1209bb76e45b1ba5b7b","target_sha256_at_copy":"920f1a45654251015800974314dd5e18ded4d10ab4acf1209bb76e45b1ba5b7b"},
+    {"path":"src/pybamm_w10/types.py","size_bytes":4042,"source_sha256":"981668e9991d7b87c8824f2abf8f227cc8aeba9aecab45db37714de26fafa15a","target_sha256_at_copy":"981668e9991d7b87c8824f2abf8f227cc8aeba9aecab45db37714de26fafa15a"},
+    {"path":"src/pybamm_w10/udds.py","size_bytes":12629,"source_sha256":"c10d785ff0264a5c071fd0099ab7444b7268ad26fb6a4b4ce02b9cecada10ae7","target_sha256_at_copy":"c10d785ff0264a5c071fd0099ab7444b7268ad26fb6a4b4ce02b9cecada10ae7"},
+    {"path":"tests/conftest.py","size_bytes":335,"source_sha256":"a68ee9123817d97ef7e56adeaf168d92a76e67e8110c0dd95c81e16d0e0d6708","target_sha256_at_copy":"a68ee9123817d97ef7e56adeaf168d92a76e67e8110c0dd95c81e16d0e0d6708"},
+    {"path":"tests/test_config_and_diagnostics.py","size_bytes":2815,"source_sha256":"a586e8d40310eadcaef8f9c6796052076284c7807442aeeb88a74f711513a069","target_sha256_at_copy":"a586e8d40310eadcaef8f9c6796052076284c7807442aeeb88a74f711513a069"},
+    {"path":"tests/test_model_construction.py","size_bytes":1314,"source_sha256":"f7a6f9c0ab153c4bcd1eff298660658039898ad471f6c117d653ce7fda25ad2d","target_sha256_at_copy":"f7a6f9c0ab153c4bcd1eff298660658039898ad471f6c117d653ce7fda25ad2d"},
+    {"path":"tests/test_output_transactions.py","size_bytes":5158,"source_sha256":"4def98933dd2a7e220ba5d17647f502b0d3c4e6c9415a1c876fa8808c5ef4376","target_sha256_at_copy":"4def98933dd2a7e220ba5d17647f502b0d3c4e6c9415a1c876fa8808c5ef4376"},
+    {"path":"tests/test_runner_checkpoint_order.py","size_bytes":3014,"source_sha256":"ee295132d9870536226c15d3c140ad3fff80b929480538f719cfbc6f8fd53f01","target_sha256_at_copy":"ee295132d9870536226c15d3c140ad3fff80b929480538f719cfbc6f8fd53f01"},
+    {"path":"tests/test_udds_and_protocol.py","size_bytes":4266,"source_sha256":"195897d3891c3b6cfecf552aac7a8c2e3385ee35cd451002787a072f32f55a35","target_sha256_at_copy":"195897d3891c3b6cfecf552aac7a8c2e3385ee35cd451002787a072f32f55a35"}
+  ],
+  "legacy_formal_run": {
+    "root": "E:\\battery\\outputs\\pybamm_w10\\virtual-formal-001",
+    "files": [
+      {"path":".run.lock","size_bytes":406,"sha256":"fc116a26b0be408f68c4103285fe9c3c835b619cf08c1cad083b4876e1d40fde"},
+      {"path":"checkpoints/cycle-000.pkl","size_bytes":2569,"sha256":"8451f7ddfe1888f2d59bd4ec457d4fafcc46925e217174e0932f1af69487db18"},
+      {"path":"environment.json","size_bytes":1462,"sha256":"1542634257104066f715d859d964774735abcd539adf61a64211fd12b808e8de"},
+      {"path":"initial_state.json","size_bytes":926,"sha256":"8795a8f209c02442913f84f372456cb270e9939942506b1c647babfd00e3769b"},
+      {"path":"output_manifest.json","size_bytes":2514,"sha256":"8c31242437c6774f0ce1f662eb39aa289faaaaf81b09fbbbe0d07c74e7ff605f"},
+      {"path":"rpt_summary.csv","size_bytes":729,"sha256":"38277f6f48e1e8dd98c1b9a40c5529d28524b99884e981e0c85847d6f89f6ccf"},
+      {"path":"run.log","size_bytes":24,"sha256":"f49349b59fc2c0c599488db0e7952b0b7b4cb737d227fa21189ddb69371254b5"},
+      {"path":"run_config.json","size_bytes":1279,"sha256":"c91abe27902a18db808efbbd3cc2cb2f69a6f66d3401a8210332ab84aa24632e"},
+      {"path":"run_status.json","size_bytes":235,"sha256":"649a00edee2f104eb26a179c726564528d1e827efe7dd152425953e0a1331371"},
+      {"path":"timeseries/rpt-node-000.csv","size_bytes":5158160,"sha256":"cb202a031a7225df5afccf61a6fc9d0bf63c315c36561d9d7309b77e4e08a49a"},
+      {"path":"udds_profile.csv","size_bytes":68050,"sha256":"6a267192724fdba7dc7ebf1281cf0ead759a51c1f8a4b28f2d1d26614f9dafca"},
+      {"path":"udds_validation.json","size_bytes":76262,"sha256":"f3fb566e377924b2866864253379947d18c330202aa1c9764f903212b18ad4f9"}
+    ]
+  }
+}

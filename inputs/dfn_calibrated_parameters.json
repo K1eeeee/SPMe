@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "calibration_id": "OKane2022-M50T-W10-v1",
+  "calibration_status": "CAPACITY_CALIBRATED",
+  "parameters": {
+    "capacity_scale_factor": 0.95630859375,
+    "sei_scale": 1.0,
+    "plating_scale": 1.0,
+    "lam_scale": 1.0
+  },
+  "parameter_keys": {
+    "capacity_scale_factor": [
+      "Electrode width [m]"
+    ],
+    "sei_scale": [
+      "SEI solvent diffusivity [m2.s-1]"
+    ],
+    "plating_scale": [
+      "Lithium plating kinetic rate constant [m.s-1]"
+    ],
+    "lam_scale": [
+      "Negative electrode LAM constant proportional term [s-1]",
+      "Positive electrode LAM constant proportional term [s-1]"
+    ]
+  },
+  "degradation_parameter_status": "not_calibrated",
+  "model": "DFN",
+  "mode": "strict-w10",
+  "full_dfn_confirmed": false,
+  "holdout_accessed": false,
+  "fingerprint": "9c8aead9f4bf05af9e660ec7a734405445f12b1f2118e021ac363435c88b5c40"
+}

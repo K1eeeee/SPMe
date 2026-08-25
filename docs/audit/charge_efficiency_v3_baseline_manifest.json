@@ -1,0 +1,30 @@
+{
+  "manifest_schema_version": 1,
+  "purpose": "Pre-implementation audit baseline for charge-efficiency schema 3 work",
+  "captured_at_local": "2026-08-23T00:00:00+08:00",
+  "workspace": "E:\\SPMe",
+  "python_version": "3.12.13",
+  "pybamm_version": "26.7.1.0",
+  "baseline_pytest": {
+    "command": "C:\\Users\\Lenovo\\anaconda3\\envs\\battery\\python.exe -m pytest -q -p no:cacheprovider",
+    "result": "87 passed in 20.39s"
+  },
+  "source_tree_hashes": {
+    "src": {"file_count": 25, "sha256": "05b272e90fa2ce75ece233defb841c32f754cbb5e52fe403543147b1d316e85c"},
+    "tests": {"file_count": 30, "sha256": "af141fb776302804f5133e6a294513b8e0b5e8ced4b8301543461c60bba49486"},
+    "scripts": {"file_count": 2, "sha256": "7516f6a6855e885e32faa12b7f579c5266710084bd350dca6308086a82653029"}
+  },
+  "key_file_hashes": {
+    "README.md": "a0b3a53233ce3f866b16d5f19b135fa28638fc642d43f874d3e2e41a62d73dbc",
+    "pyproject.toml": "b910028b993775eac7061794499d45132c8d837e4807fb6f31203b5170281a33",
+    "docs/superpowers/specs/2026-08-21-spme-charge-efficiency-soc-design.md": "0845cd90af58c0d49025b2ab607f4e2f4d5f3a08bfee34378fb301289a29cd66",
+    "docs/superpowers/plans/2026-08-23-spme-charge-efficiency-soc-implementation-plan.md": "51eb5feebf4ddc2b737554816e0647bf8b1a76b5c49340caee0f503917b28317"
+  },
+  "legacy_output": {
+    "present": true,
+    "path": "outputs/pybamm_spme/w10-soh-comparison-v1",
+    "output_schema_version": 2,
+    "checkpoint_schema_version": 3,
+    "migration_performed": false
+  }
+}
