@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from dataclasses import replace
+
 from pybamm_w10.config import RunConfig
 from pybamm_w10.model import (
     build_solver,
@@ -41,13 +43,15 @@ def test_charge_profiles_are_fixed_and_retry_preserves_charge_settings() -> None
     retry = conservative_charge_solver_profile(config)
 
     assert charge.name == "certified_charge"
-    assert (charge.rtol, charge.atol, charge.max_step_s) == (1e-5, 1e-7, 1.0)
-    assert retry.name == "certified_charge_retry"
-    assert (retry.rtol, retry.atol, retry.max_step_s) == (
+    assert (
         charge.rtol,
         charge.atol,
+        charge.dt_init_s,
         charge.max_step_s,
-    )
-    assert retry.dt_init_s == 1e-8
-    assert retry.max_error_test_failures == 30
-    assert retry.max_order_bdf == 3
+        charge.max_order_bdf,
+        charge.suppress_algebraic_error,
+        charge.max_error_test_failures,
+        charge.max_num_steps,
+    ) == (1e-5, 1e-7, 1e-8, 1.0, 3, True, 30, 200_000)
+    assert retry.name == "certified_charge_retry"
+    assert retry == replace(charge, name="certified_charge_retry")

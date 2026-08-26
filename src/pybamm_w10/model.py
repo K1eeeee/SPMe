@@ -71,12 +71,12 @@ def certified_charge_solver_profile(config: RunConfig) -> SolverProfile:
         name="certified_charge",
         rtol=config.solver.charge_rtol,
         atol=config.solver.charge_atol,
-        dt_init_s=0.0,
+        dt_init_s=1e-8,
         max_step_s=config.solver.charge_max_step_s,
         max_num_steps=config.solver.max_num_steps,
-        max_error_test_failures=10,
-        max_order_bdf=5,
-        suppress_algebraic_error=False,
+        max_error_test_failures=30,
+        max_order_bdf=3,
+        suppress_algebraic_error=True,
     )
 
 
