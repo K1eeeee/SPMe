@@ -1,0 +1,13 @@
+{
+  "state": "CALIBRATION_FAILED",
+  "reason": null,
+  "parameter_fingerprint": "20604635840569a0ba3ccfd0afee06c0d5383e29db541b60cd526d9b284ea51c",
+  "history": [
+    "AGING_CALIBRATION_READY",
+    "PROBING",
+    "COMBINATIONS_PROPOSED",
+    "SPME_CALIBRATED",
+    "CALIBRATION_FAILED"
+  ],
+  "holdout_accessed": false
+}

@@ -1,0 +1,7 @@
+{
+  "passed": false,
+  "status": "NUMERICAL_FAILURE",
+  "failure_class": "NUMERICALLY_CENSORED",
+  "soh_25_pct": null,
+  "criteria": "successful finite cycle-0/cycle-25 RPT only; no SOH threshold"
+}

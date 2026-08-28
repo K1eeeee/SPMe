@@ -1,0 +1,29 @@
+{
+  "status": "EXCLUDED_FROM_STAGE1_FIT",
+  "candidate_ids": [
+    "PLATING-M",
+    "PLATING-H"
+  ],
+  "parameter_scales": {
+    "PLATING-M": [
+      1.0,
+      3.16,
+      1.0
+    ],
+    "PLATING-H": [
+      1.0,
+      10.0,
+      1.0
+    ]
+  },
+  "replacement": {
+    "candidate_id": "PLATING-1P5",
+    "scales": [
+      1.0,
+      1.5,
+      1.0
+    ],
+    "resume_policy": "START_FROM_CYCLE_ZERO"
+  },
+  "old_directories_retained_read_only_for_audit": true
+}

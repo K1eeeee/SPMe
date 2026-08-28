@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "status": "PAUSED",
+  "failure_class": "COMPLETED",
+  "soh_25_pct": 99.71193128904235,
+  "criteria": "successful finite cycle-0/cycle-25 RPT only; no SOH threshold"
+}

@@ -1,0 +1,33 @@
+{
+  "original_run_context_fingerprint": "15b007a75af214cd8b8aefbc934ba6c02d036fcb916a316298ee65e28366baef",
+  "amended_run_context_fingerprint": "0b856a798074c0475bf15a43417ce06ffaab6ead395d115a97c59095565bcd8e",
+  "original_source_sha256": "edc3672ccac972b0086f8a8332b9424be1c8a3baa6e8df853297c5aaefa6af58",
+  "current_source_sha256": "4f97f40c5a88ec6b67179b87beef7f87447bef3cde08b78270b8edbb6a3ca11d",
+  "changed_source_files": [
+    "src/pybamm_w10/calibration/aging.py",
+    "src/pybamm_w10/calibration/surrogate.py",
+    "src/pybamm_w10/charge_efficiency.py",
+    "src/pybamm_w10/model.py"
+  ],
+  "compatibility_audit": "resume_compatibility.json",
+  "completed_candidates_reused_read_only": [
+    "BASELINE",
+    "SEI-M",
+    "LAM-M",
+    "LAM-H"
+  ],
+  "failed_candidates_resumed_from_committed_prefix": {
+    "SEI-H": "cycle-032.pkl"
+  },
+  "retired_candidates_excluded": [
+    "PLATING-M",
+    "PLATING-H"
+  ],
+  "new_candidates_start_from_cycle_zero": {
+    "PLATING-1P5": [
+      1.0,
+      1.5,
+      1.0
+    ]
+  }
+}

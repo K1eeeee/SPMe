@@ -1,0 +1,136 @@
+{
+  "audit_schema_version": 1,
+  "original_parameter_set": "OKane2022",
+  "model": "SPMe",
+  "parameters": {
+    "nominal_cell_capacity_ah": {
+      "parameter": "Nominal cell capacity [A.h]",
+      "original": 5.0,
+      "effective": 4.85,
+      "source": "m50t_experimental_override"
+    },
+    "upper_cutoff_voltage_v": {
+      "parameter": "Upper voltage cut-off [V]",
+      "original": 4.2,
+      "effective": 4.2,
+      "source": "m50t_experimental_override"
+    },
+    "lower_cutoff_voltage_v": {
+      "parameter": "Lower voltage cut-off [V]",
+      "original": 2.5,
+      "effective": 2.5,
+      "source": "m50t_experimental_override"
+    },
+    "ambient_temperature_k": {
+      "parameter": "Ambient temperature [K]",
+      "original": 298.15,
+      "effective": 296.15,
+      "source": "m50t_experimental_override"
+    },
+    "initial_temperature_k": {
+      "parameter": "Initial temperature [K]",
+      "original": 298.15,
+      "effective": 296.15,
+      "source": "m50t_experimental_override"
+    },
+    "cell_volume_m3": {
+      "parameter": "Cell volume [m3]",
+      "original": 2.42e-05,
+      "effective": 2.5560697525122368e-05,
+      "source": "m50t_experimental_override"
+    },
+    "cell_cooling_surface_area_m2": {
+      "parameter": "Cell cooling surface area [m2]",
+      "original": 0.00531,
+      "effective": 0.00549084045410652,
+      "source": "m50t_experimental_override"
+    },
+    "electrode_width_m": {
+      "parameter": "Electrode width [m]",
+      "original": 1.58,
+      "effective": 1.510967578125,
+      "source": "okane2022_original"
+    },
+    "electrode_height_m": {
+      "parameter": "Electrode height [m]",
+      "original": 0.065,
+      "effective": 0.065,
+      "source": "okane2022_original"
+    },
+    "negative_electrode_thickness_m": {
+      "parameter": "Negative electrode thickness [m]",
+      "original": 8.52e-05,
+      "effective": 8.52e-05,
+      "source": "okane2022_original"
+    },
+    "positive_electrode_thickness_m": {
+      "parameter": "Positive electrode thickness [m]",
+      "original": 7.56e-05,
+      "effective": 7.56e-05,
+      "source": "okane2022_original"
+    }
+  },
+  "external_cylindrical_geometry": {
+    "diameter_m": 0.02144,
+    "length_m": 0.0708,
+    "mass_kg": 0.06925,
+    "source": "m50t_experimental_override"
+  },
+  "theoretical_capacity_window_ah": {
+    "negative": {
+      "theoretical_capacity_ah": 5.5729983712737,
+      "active_material_volume_fraction": 0.75,
+      "maximum_concentration_mol_m3": 33133.0,
+      "initial_stoichiometry": 0.9013973983641687,
+      "minimum_stoichiometry": 0.0,
+      "maximum_stoichiometry": 1.0
+    },
+    "positive": {
+      "theoretical_capacity_ah": 8.35079124462399,
+      "active_material_volume_fraction": 0.665,
+      "maximum_concentration_mol_m3": 63104.0,
+      "initial_stoichiometry": 0.2699987322515213,
+      "minimum_stoichiometry": 0.0,
+      "maximum_stoichiometry": 1.0
+    }
+  },
+  "stoichiometry_endpoints": {
+    "negative": {
+      "initial_stoichiometry": 0.9013973983641687,
+      "minimum_stoichiometry": 0.0,
+      "maximum_stoichiometry": 1.0
+    },
+    "positive": {
+      "initial_stoichiometry": 0.2699987322515213,
+      "minimum_stoichiometry": 0.0,
+      "maximum_stoichiometry": 1.0
+    }
+  },
+  "calibration": {
+    "capacity_scale_factor": {
+      "value": 0.95630859375,
+      "allowed": true,
+      "source": "not_calibrated"
+    },
+    "sei_scale": {
+      "value": 10.0,
+      "allowed": true,
+      "source": "not_calibrated"
+    },
+    "plating_scale": {
+      "value": 2.044760292534257,
+      "allowed": true,
+      "source": "not_calibrated"
+    },
+    "lam_scale": {
+      "value": 10.0,
+      "allowed": true,
+      "source": "not_calibrated"
+    }
+  },
+  "calibration_source_model": "DFN",
+  "rpt": {
+    "cycle_0_capacity_ah": 4.86364618924218
+  },
+  "fingerprint": "cb4401e3fd9d340025a67db2247f9585b554047257a98b0de07f42400c5ecc0e"
+}

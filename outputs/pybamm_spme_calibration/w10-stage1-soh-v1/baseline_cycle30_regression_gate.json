@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "status": "PAUSED",
+  "completed_cycle": 75,
+  "last_completed_cycle_result": 75,
+  "failure_class": "COMPLETED",
+  "formal_numerical_gate": true,
+  "resume_validation_entrypoint": "W10Runner"
+}

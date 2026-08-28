@@ -1,0 +1,13 @@
+{
+  "phase": "STEP6_UDDS",
+  "stage": "step6_udds",
+  "completed_cycles": 58,
+  "transaction": 60,
+  "current_cycle": 59,
+  "solver_attempt": 1,
+  "solver_profile": "general_protocol",
+  "status": "TERMINATED",
+  "business_status": "NUMERICAL_FAILURE",
+  "heartbeat_sequence": 160,
+  "updated_at_utc": "2026-08-27T18:09:51.412621+00:00"
+}

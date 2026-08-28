@@ -1,0 +1,260 @@
+{
+  "baseline": {
+    "candidate_id": "BASELINE",
+    "scales": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "source": "fixed-baseline",
+    "parent_candidate": null,
+    "stage": "BASELINE"
+  },
+  "baseline_probe": {
+    "candidate": {
+      "candidate_id": "BASELINE",
+      "scales": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "source": "fixed-baseline",
+      "parent_candidate": null,
+      "stage": "BASELINE"
+    },
+    "soh_25_pct": 99.81098292504991,
+    "soh_75_pct": 99.60934371913298,
+    "numerically_censored": false,
+    "retry_count": 0,
+    "failure_class": "COMPLETED"
+  },
+  "probes": {
+    "sei": [
+      {
+        "candidate": {
+          "candidate_id": "SEI-M",
+          "scales": [
+            3.16,
+            1.0,
+            1.0
+          ],
+          "source": "fixed-mid-probe",
+          "parent_candidate": null,
+          "stage": "PROBE"
+        },
+        "soh_25_pct": 99.71193128904235,
+        "soh_75_pct": 99.43536961266126,
+        "numerically_censored": false,
+        "retry_count": 0,
+        "failure_class": "COMPLETED"
+      },
+      {
+        "candidate": {
+          "candidate_id": "SEI-H",
+          "scales": [
+            10.0,
+            1.0,
+            1.0
+          ],
+          "source": "adaptive-high-probe",
+          "parent_candidate": "SEI-M",
+          "stage": "PROBE"
+        },
+        "soh_25_pct": 99.53195981025357,
+        "soh_75_pct": null,
+        "numerically_censored": true,
+        "retry_count": 2,
+        "failure_class": "NUMERICALLY_CENSORED"
+      }
+    ],
+    "plating": [
+      {
+        "candidate": {
+          "candidate_id": "PLATING-1P5",
+          "scales": [
+            1.0,
+            1.5,
+            1.0
+          ],
+          "source": "fixed-plating-1p5-probe",
+          "parent_candidate": null,
+          "stage": "PROBE"
+        },
+        "soh_25_pct": 99.79449509550922,
+        "soh_75_pct": 99.56638051771044,
+        "numerically_censored": false,
+        "retry_count": 0,
+        "failure_class": "COMPLETED"
+      }
+    ],
+    "lam": [
+      {
+        "candidate": {
+          "candidate_id": "LAM-M",
+          "scales": [
+            1.0,
+            1.0,
+            3.16
+          ],
+          "source": "fixed-mid-probe",
+          "parent_candidate": null,
+          "stage": "PROBE"
+        },
+        "soh_25_pct": 99.78776269983223,
+        "soh_75_pct": 99.54142521960235,
+        "numerically_censored": false,
+        "retry_count": 0,
+        "failure_class": "COMPLETED"
+      },
+      {
+        "candidate": {
+          "candidate_id": "LAM-H",
+          "scales": [
+            1.0,
+            1.0,
+            10.0
+          ],
+          "source": "adaptive-high-probe",
+          "parent_candidate": "LAM-M",
+          "stage": "PROBE"
+        },
+        "soh_25_pct": 99.7336579749329,
+        "soh_75_pct": 99.37852118366564,
+        "numerically_censored": false,
+        "retry_count": 0,
+        "failure_class": "COMPLETED"
+      }
+    ]
+  },
+  "high_probe_candidates": [
+    {
+      "candidate_id": "SEI-H",
+      "scales": [
+        10.0,
+        1.0,
+        1.0
+      ],
+      "source": "adaptive-high-probe",
+      "parent_candidate": "SEI-M",
+      "stage": "PROBE"
+    },
+    {
+      "candidate_id": "LAM-H",
+      "scales": [
+        1.0,
+        1.0,
+        10.0
+      ],
+      "source": "adaptive-high-probe",
+      "parent_candidate": "LAM-M",
+      "stage": "PROBE"
+    }
+  ],
+  "retired_candidate_ids": [
+    "PLATING-M",
+    "PLATING-H"
+  ],
+  "fixed_plating_probe": {
+    "candidate_id": "PLATING-1P5",
+    "scales": [
+      1.0,
+      1.5,
+      1.0
+    ],
+    "high_probe_disabled": true
+  },
+  "high_probe_reasons": {
+    "sei": [
+      "cycle75_response_too_small"
+    ],
+    "plating": [
+      "cycle75_response_too_small"
+    ],
+    "lam": [
+      "cycle75_response_too_small"
+    ]
+  },
+  "representatives": {
+    "sei": {
+      "candidate": {
+        "candidate_id": "SEI-M",
+        "scales": [
+          3.16,
+          1.0,
+          1.0
+        ],
+        "source": "fixed-mid-probe",
+        "parent_candidate": null,
+        "stage": "PROBE"
+      },
+      "soh_25_pct": 99.71193128904235,
+      "soh_75_pct": 99.43536961266126,
+      "numerically_censored": false,
+      "retry_count": 0,
+      "failure_class": "COMPLETED"
+    },
+    "plating": {
+      "candidate": {
+        "candidate_id": "PLATING-1P5",
+        "scales": [
+          1.0,
+          1.5,
+          1.0
+        ],
+        "source": "fixed-plating-1p5-probe",
+        "parent_candidate": null,
+        "stage": "PROBE"
+      },
+      "soh_25_pct": 99.79449509550922,
+      "soh_75_pct": 99.56638051771044,
+      "numerically_censored": false,
+      "retry_count": 0,
+      "failure_class": "COMPLETED"
+    },
+    "lam": {
+      "candidate": {
+        "candidate_id": "LAM-H",
+        "scales": [
+          1.0,
+          1.0,
+          10.0
+        ],
+        "source": "adaptive-high-probe",
+        "parent_candidate": "LAM-M",
+        "stage": "PROBE"
+      },
+      "soh_25_pct": 99.7336579749329,
+      "soh_75_pct": 99.37852118366564,
+      "numerically_censored": false,
+      "retry_count": 0,
+      "failure_class": "COMPLETED"
+    }
+  },
+  "combinations": [
+    {
+      "candidate_id": "A",
+      "scales": [
+        10.0,
+        7.624201906694155,
+        6.749281447336285
+      ],
+      "source": "bounded-local-response",
+      "parent_candidate": null,
+      "stage": "COMBINATION"
+    },
+    {
+      "candidate_id": "B",
+      "scales": [
+        10.0,
+        2.044760292534257,
+        10.0
+      ],
+      "source": "svd-diverse-local-response",
+      "parent_candidate": null,
+      "stage": "COMBINATION"
+    }
+  ],
+  "predicted_rmse_a_pp": 0.6669187116074642,
+  "predicted_rmse_b_pp": 0.7411293992818869,
+  "diversity_reason": null
+}

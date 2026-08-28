@@ -1,0 +1,13 @@
+{
+  "phase": "CYCLE_COMPLETED",
+  "stage": "rpt_completed",
+  "completed_cycles": 75,
+  "transaction": 78,
+  "current_cycle": 75,
+  "solver_attempt": 1,
+  "solver_profile": "general_protocol",
+  "status": "TERMINATED",
+  "business_status": "PAUSED",
+  "heartbeat_sequence": 404,
+  "updated_at_utc": "2026-08-26T20:52:20.289166+00:00"
+}

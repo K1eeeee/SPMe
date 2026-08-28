@@ -1,0 +1,235 @@
+{
+  "status": "PASSED",
+  "original_run_context_fingerprint": "15b007a75af214cd8b8aefbc934ba6c02d036fcb916a316298ee65e28366baef",
+  "original_source_sha256": "edc3672ccac972b0086f8a8332b9424be1c8a3baa6e8df853297c5aaefa6af58",
+  "current_source_sha256": "4f97f40c5a88ec6b67179b87beef7f87447bef3cde08b78270b8edbb6a3ca11d",
+  "changed_source_files": [
+    "src/pybamm_w10/calibration/aging.py",
+    "src/pybamm_w10/calibration/surrogate.py",
+    "src/pybamm_w10/charge_efficiency.py",
+    "src/pybamm_w10/model.py"
+  ],
+  "completed_candidates_read_only_validation": {
+    "passed": true,
+    "rpt_nodes": {
+      "BASELINE": [
+        0,
+        25,
+        75
+      ],
+      "SEI-M": [
+        0,
+        25,
+        75
+      ],
+      "LAM-M": [
+        0,
+        25,
+        75
+      ],
+      "LAM-H": [
+        0,
+        25,
+        75
+      ]
+    }
+  },
+  "replacement_plating_probe": {
+    "passed": true,
+    "candidate_id": "PLATING-1P5",
+    "scales": [
+      1.0,
+      1.5,
+      1.0
+    ],
+    "starts_from_cycle": 0,
+    "retired_candidate_ids": [
+      "PLATING-M",
+      "PLATING-H"
+    ],
+    "retired_directories_retained_for_audit": true,
+    "plating_high_probe_disabled": true
+  },
+  "step_size_policy": {
+    "passed": true,
+    "dt_init_s": 1e-08,
+    "dt_max_s": 1.0,
+    "note": "BDF order/error-test bounds change only; no step-size change"
+  },
+  "successful_cycle_compatibility": {
+    "passed": true,
+    "outcomes_match": true,
+    "absolute_differences": {
+      "external_charge_ah": 2.429082187394016e-06,
+      "soc_at_charge_end_pct": 0.0016442102421763138,
+      "intercalated_charge_increment_ah": 7.985663863507853e-05,
+      "reversible_plating_increment_ah": 1.7732695139806298e-06,
+      "dead_lithium_increment_ah": 9.535107442872753e-05,
+      "sei_increment_ah": 2.0110604254039433e-06
+    },
+    "limits": {
+      "external_charge_ah": 0.001,
+      "soc_at_charge_end_pct": 0.02,
+      "intercalated_charge_increment_ah": 0.0005,
+      "reversible_plating_increment_ah": 0.0005,
+      "dead_lithium_increment_ah": 0.0005,
+      "sei_increment_ah": 0.0005
+    },
+    "primary": {
+      "profile": {
+        "name": "certified_charge",
+        "rtol": 1e-05,
+        "atol": 1e-07,
+        "dt_init_s": 1e-08,
+        "max_step_s": 1.0,
+        "max_num_steps": 200000,
+        "max_error_test_failures": 30,
+        "max_order_bdf": 3,
+        "suppress_algebraic_error": true
+      },
+      "outcomes": [
+        "VOLTAGE",
+        "CURRENT",
+        "VOLTAGE",
+        "CURRENT"
+      ],
+      "stage_durations_s": {
+        "3c_cc": 20.679386934778726,
+        "4v_cv": 3656.4356259796145,
+        "c4_cc": 2956.3873918872882,
+        "4p2v_cv": 1710.9697256972913
+      },
+      "terminal_state_hash": "b4d7b37fca11a6662004ebca770a3d370d1ba8a1c3df9ef18ac950388e3716a3",
+      "summary": {
+        "external_charge_ah": 3.885578062359346,
+        "soc_at_charge_end_pct": 99.83353915453826,
+        "intercalated_charge_increment_ah": 3.8773861904555704,
+        "reversible_plating_increment_ah": 0.007895193126823187,
+        "dead_lithium_increment_ah": 0.00017914914039528912,
+        "sei_increment_ah": 0.0001243614328584955
+      }
+    },
+    "retry": {
+      "profile": {
+        "name": "certified_charge_retry",
+        "rtol": 1e-05,
+        "atol": 1e-07,
+        "dt_init_s": 1e-08,
+        "max_step_s": 1.0,
+        "max_num_steps": 200000,
+        "max_error_test_failures": 100,
+        "max_order_bdf": 2,
+        "suppress_algebraic_error": true
+      },
+      "outcomes": [
+        "VOLTAGE",
+        "CURRENT",
+        "VOLTAGE",
+        "CURRENT"
+      ],
+      "stage_durations_s": {
+        "3c_cc": 20.67849732136652,
+        "4v_cv": 3100.0433210964993,
+        "c4_cc": 2956.1429963564624,
+        "4p2v_cv": 1710.3933950687015
+      },
+      "terminal_state_hash": "3f52ac60cfa278e2d33332d9d75aab5eee705f0ff595208d28eb3ff4b35e3117",
+      "summary": {
+        "external_charge_ah": 3.8855804914415333,
+        "soc_at_charge_end_pct": 99.83518336478043,
+        "intercalated_charge_increment_ah": 3.8774660470942055,
+        "reversible_plating_increment_ah": 0.007896966396337168,
+        "dead_lithium_increment_ah": 8.379806596656159e-05,
+        "sei_increment_ah": 0.00012235037243309155
+      }
+    }
+  },
+  "failed_cycle_convergence": {
+    "passed": true,
+    "outcomes_match": true,
+    "absolute_differences": {
+      "external_charge_ah": 0.0008590553714045157,
+      "soc_at_charge_end_pct": 0.0008578201553746112,
+      "intercalated_charge_increment_ah": 4.166294090923728e-05,
+      "reversible_plating_increment_ah": 8.669727545925626e-07,
+      "dead_lithium_increment_ah": 5.0047630207555524e-05,
+      "sei_increment_ah": 4.130549201841749e-07
+    },
+    "limits": {
+      "external_charge_ah": 0.001,
+      "soc_at_charge_end_pct": 0.02,
+      "intercalated_charge_increment_ah": 0.0005,
+      "reversible_plating_increment_ah": 0.0005,
+      "dead_lithium_increment_ah": 0.0005,
+      "sei_increment_ah": 0.0005
+    },
+    "retry": {
+      "profile": {
+        "name": "certified_charge_retry",
+        "rtol": 1e-05,
+        "atol": 1e-07,
+        "dt_init_s": 1e-08,
+        "max_step_s": 1.0,
+        "max_num_steps": 200000,
+        "max_error_test_failures": 100,
+        "max_order_bdf": 2,
+        "suppress_algebraic_error": true
+      },
+      "outcomes": [
+        "VOLTAGE",
+        "CURRENT",
+        "VOLTAGE",
+        "CURRENT"
+      ],
+      "stage_durations_s": {
+        "3c_cc": 20.60048412613825,
+        "4v_cv": 3110.660089549483,
+        "c4_cc": 2955.3088152176456,
+        "4p2v_cv": 1711.6335184464451
+      },
+      "terminal_state_hash": "a27e2bfa8259399bf21f6c5d074542d316d472a70141c2835716a0b29b1740dd",
+      "summary": {
+        "external_charge_ah": 3.8856381720430075,
+        "soc_at_charge_end_pct": 99.83561374842111,
+        "intercalated_charge_increment_ah": 3.8774869501332363,
+        "reversible_plating_increment_ah": 0.007876720794312515,
+        "dead_lithium_increment_ah": 8.45729760914661e-05,
+        "sei_increment_ah": 0.00012117773240506724
+      }
+    },
+    "crosscheck": {
+      "profile": {
+        "name": "certified_charge_crosscheck_bdf1",
+        "rtol": 1e-05,
+        "atol": 1e-07,
+        "dt_init_s": 1e-08,
+        "max_step_s": 1.0,
+        "max_num_steps": 200000,
+        "max_error_test_failures": 200,
+        "max_order_bdf": 1,
+        "suppress_algebraic_error": true
+      },
+      "outcomes": [
+        "VOLTAGE",
+        "CURRENT",
+        "VOLTAGE",
+        "CURRENT"
+      ],
+      "stage_durations_s": {
+        "3c_cc": 20.6342588666306,
+        "4v_cv": 3265.5814327363187,
+        "c4_cc": 2955.366017395432,
+        "4p2v_cv": 1712.8391454548982
+      },
+      "terminal_state_hash": "d799069f884e52d0d1e68cfb89fada32825d6f57d620e80924791a6b7bbc191c",
+      "summary": {
+        "external_charge_ah": 3.886497227414412,
+        "soc_at_charge_end_pct": 99.83475592826574,
+        "intercalated_charge_increment_ah": 3.877445287192327,
+        "reversible_plating_increment_ah": 0.007875853821557923,
+        "dead_lithium_increment_ah": 0.00013462060629902163,
+        "sei_increment_ah": 0.00012076467748488307
+      }
+    }
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "run_context_fingerprint": "15b007a75af214cd8b8aefbc934ba6c02d036fcb916a316298ee65e28366baef",
+  "target_manifest": {
+    "anchor_nodes": [
+      0
+    ],
+    "calibration_nodes": [
+      25,
+      75,
+      122,
+      146,
+      148,
+      151,
+      159,
+      188
+    ],
+    "calibration_capacities_ah": {
+      "0": 4.865884391243259,
+      "25": 4.833606268780099,
+      "75": 4.7646875130550725,
+      "122": 4.701306329021851,
+      "146": 4.645463840266069,
+      "148": 4.6345717183500525,
+      "151": 4.591890117459827,
+      "159": 4.553861576128337,
+      "188": 4.544085416901443
+    },
+    "input_inventory": [
+      {
+        "cycle": 0,
+        "path": "W10_capacity_diagnostic_01.csv",
+        "sha256": "d49c856df7bc8bf8bb03ea2b1e5cf7b42860c37c57d49fe1143855f451a70632"
+      },
+      {
+        "cycle": 25,
+        "path": "W10_capacity_diagnostic_02.csv",
+        "sha256": "dbfe40239d8d5c20b9fc0123196b21f1308009ac71007fd089da10e02b0795cf"
+      },
+      {
+        "cycle": 75,
+        "path": "W10_capacity_diagnostic_03.csv",
+        "sha256": "2fba49bbb6a2c07080095ab8969917b01602db333e21863a6f666a379e7af5d8"
+      },
+      {
+        "cycle": 122,
+        "path": "W10_capacity_diagnostic_04.csv",
+        "sha256": "d96fb65d632581d9459156d91bdaa6b981b4050556c7b9701b87025088eb1b8a"
+      },
+      {
+        "cycle": 146,
+        "path": "W10_capacity_diagnostic_05.csv",
+        "sha256": "2858ff2522f45f55ca460be13165010d48456a0a6f169219ee57784ed75786c3"
+      },
+      {
+        "cycle": 148,
+        "path": "W10_capacity_diagnostic_06.csv",
+        "sha256": "b0a799d168de51242944745279f84937493e33de9740e254a0b9cac943e16705"
+      },
+      {
+        "cycle": 151,
+        "path": "W10_capacity_diagnostic_07.csv",
+        "sha256": "3e5f8099d68dea82af4118212258b5be51a6363bf392cd03cc5d5e0db0efa866"
+      },
+      {
+        "cycle": 159,
+        "path": "W10_capacity_diagnostic_08.csv",
+        "sha256": "0851e986f4fdb2c9150a11af4048ed1bb4f4cf2bee34ca6b094dc06f2847ef85"
+      },
+      {
+        "cycle": 188,
+        "path": "W10_capacity_diagnostic_09.csv",
+        "sha256": "fbb78aa36beefbb329039128cc0a49de4c85cbeb2e3fdde3a6dd2e91719c4ceb"
+      }
+    ]
+  },
+  "source_identity": {
+    "git_head": "dbe54a37da6cad66e5f2976542ea02012f97348c",
+    "git_dirty": true,
+    "source_files": {
+      "src/pybamm_w10/__init__.py": "c31c575201043720f387d4e86f47310e765c67e86280d43871221b467b3fb947",
+      "src/pybamm_w10/__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+      "src/pybamm_w10/backend.py": "f7b2b04eade75b9c69c17a06e3de5d307f11405e1dde05cd5e8c43c5b2871932",
+      "src/pybamm_w10/calibration/__init__.py": "1fbf16ebf173e5ce3e5b41d5d33d51060a776fc7513266317e8f96bf61c7ce9a",
+      "src/pybamm_w10/calibration/aging.py": "452eccaa7dc79b7f20c7b4bf837409ac15cf628c78db464f4250f39c9e50b79e",
+      "src/pybamm_w10/calibration/artifacts.py": "69842b512f87dc80d783ba5cc084b9bc669c24e7d7b45702703a6d2822f0c78f",
+      "src/pybamm_w10/calibration/capacity.py": "07fd1833419dfcb0a9401987ce12780c1f313e54725475f8578f0cd24be9a7e4",
+      "src/pybamm_w10/calibration/data.py": "093e28fc9a330f4bdff82352b289e49533d2d74283f416fe09a13eb5157b250f",
+      "src/pybamm_w10/calibration/objectives.py": "b4586cc305876f04108847d0d01cd743701e4b5f9049a4242997a795b9c29b55",
+      "src/pybamm_w10/calibration/parameters.py": "4374f8e0e8ffe19c9ef7710f7daaa5069fb3d77d3d1229c4fdd9172ecbf781fd",
+      "src/pybamm_w10/calibration/split.py": "2b5d75476c8394dccef5a79524f79faf41f93cda690e5d8be655cc8e54709d23",
+      "src/pybamm_w10/calibration/surrogate.py": "4d7ab61e387379f23469fd329f628582931ae433caca76a6042df5d361a1a871",
+      "src/pybamm_w10/calibration/workflow.py": "639acca7a01141e72a61bd7398babd9c1dbf2f17b06f41e547f85fe3aa003c93",
+      "src/pybamm_w10/charge_efficiency.py": "a72d50b94538abe519ce785bcf1967afcdd577c17f40487afb9a7038d63c1172",
+      "src/pybamm_w10/charge_variables.py": "d6e8b9970e94b26ec47d468e7a5428e4db90b2966a07d53ad65fd964ad5850b1",
+      "src/pybamm_w10/cli.py": "c31ae5a267815b2cf5563334f4b3480550f32ff04d973ae0e37093e594f42e78",
+      "src/pybamm_w10/config.py": "960ac2e3503ed8f95a5ddbf74b67d32a1e0ade49e63f97181dfe991ef63b9be9",
+      "src/pybamm_w10/diagnostics.py": "df895d2a9ecab1df3d4a7a71f8464fff80c3fe2262c2e1dacba09ab6dcdbe1b5",
+      "src/pybamm_w10/evaluation.py": "7b6d634597dadd034a69a35ffcc0c60e921a49f69cc29dc85d4924f21af19991",
+      "src/pybamm_w10/figures.py": "9a25a09d218b054219576e357cf6a4dd785804bba73e7638104da21edd8cacd0",
+      "src/pybamm_w10/model.py": "092fb8aad076ec4944c92b1ff49d53adb650df7ba6ef2782f2707fc5582463a7",
+      "src/pybamm_w10/output.py": "60013de0d9e61c5baafbcf206de3ba075c4e04297fd78a3bdfef802b6dffee45",
+      "src/pybamm_w10/progress.py": "380e17f0019b2498610c56e255ba74e2bdc972b6597a76cab460d71c895fcd79",
+      "src/pybamm_w10/protocol.py": "9c803af76647508f9cd5ed9e05cccbfd42f7fdaf33f91586e4739be6b18cffaf",
+      "src/pybamm_w10/runner.py": "cffe53c4c8d154e14a2ee1c4fd5c7310f4b0ab3721468ded027b2433ad74eaed",
+      "src/pybamm_w10/smoke.py": "ec98286fe5a7b472cc259205f342a499b550fe741241b00f9e2f6759ce49a9f6",
+      "src/pybamm_w10/types.py": "04379fa4853adae4676afa8f044c665d55d1f9ae647bdb1bb4b9994b267f363f",
+      "src/pybamm_w10/udds.py": "6c9beec3ddf8d427785bb7703290e990bff5beeaaefa24a671778bc392ad13bc"
+    },
+    "source_sha256": "edc3672ccac972b0086f8a8332b9424be1c8a3baa6e8df853297c5aaefa6af58"
+  },
+  "candidates": []
+}

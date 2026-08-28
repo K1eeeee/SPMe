@@ -1,0 +1,1 @@
+{"checkpoint": "E:\\SPMe\\outputs\\pybamm_spme_calibration\\w10-stage1-soh-v1\\candidates\\SEI-M\\checkpoints\\cycle-025.pkl", "transaction": 27, "truncated_bytes": {}, "moved_files": ["cycle25_safety_gate.json", "run_status.json"], "rollback_archive": "rollback\\20260826T183330.706884Z", "performed_at_utc": "2026-08-26T18:33:30.723406+00:00"}

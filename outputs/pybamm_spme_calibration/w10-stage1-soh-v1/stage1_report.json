@@ -1,0 +1,94 @@
+{
+  "status": "CALIBRATION_FAILED",
+  "ranking": [],
+  "capacity_scale_factor": 0.95630859375,
+  "run_context_fingerprint": "0b856a798074c0475bf15a43417ce06ffaab6ead395d115a97c59095565bcd8e",
+  "target_manifest_sha256": "3c6ff12a52d9ced34f1018f0714b34e9e7db01e0e3cb3f0e3fe4016c51ad69f6",
+  "source_identity": {
+    "git_head": "dbe54a37da6cad66e5f2976542ea02012f97348c",
+    "git_dirty": true,
+    "source_files": {
+      "src/pybamm_w10/__init__.py": "c31c575201043720f387d4e86f47310e765c67e86280d43871221b467b3fb947",
+      "src/pybamm_w10/__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+      "src/pybamm_w10/backend.py": "f7b2b04eade75b9c69c17a06e3de5d307f11405e1dde05cd5e8c43c5b2871932",
+      "src/pybamm_w10/calibration/__init__.py": "1fbf16ebf173e5ce3e5b41d5d33d51060a776fc7513266317e8f96bf61c7ce9a",
+      "src/pybamm_w10/calibration/aging.py": "aa8a68329d6a897fd53ec4200444e5f9643f61ab33442ea3640a9bcda7d31b07",
+      "src/pybamm_w10/calibration/artifacts.py": "69842b512f87dc80d783ba5cc084b9bc669c24e7d7b45702703a6d2822f0c78f",
+      "src/pybamm_w10/calibration/capacity.py": "07fd1833419dfcb0a9401987ce12780c1f313e54725475f8578f0cd24be9a7e4",
+      "src/pybamm_w10/calibration/data.py": "093e28fc9a330f4bdff82352b289e49533d2d74283f416fe09a13eb5157b250f",
+      "src/pybamm_w10/calibration/objectives.py": "b4586cc305876f04108847d0d01cd743701e4b5f9049a4242997a795b9c29b55",
+      "src/pybamm_w10/calibration/parameters.py": "4374f8e0e8ffe19c9ef7710f7daaa5069fb3d77d3d1229c4fdd9172ecbf781fd",
+      "src/pybamm_w10/calibration/split.py": "2b5d75476c8394dccef5a79524f79faf41f93cda690e5d8be655cc8e54709d23",
+      "src/pybamm_w10/calibration/surrogate.py": "46dcd87a8bbaae9c6d8597b9d3c2f4662b06ba9cbd969485c65bf61a31e4a958",
+      "src/pybamm_w10/calibration/workflow.py": "639acca7a01141e72a61bd7398babd9c1dbf2f17b06f41e547f85fe3aa003c93",
+      "src/pybamm_w10/charge_efficiency.py": "f0facccb12bbccf82af7b073727f2a203acedd6df801999163fedef33e9f6eb3",
+      "src/pybamm_w10/charge_variables.py": "d6e8b9970e94b26ec47d468e7a5428e4db90b2966a07d53ad65fd964ad5850b1",
+      "src/pybamm_w10/cli.py": "c31ae5a267815b2cf5563334f4b3480550f32ff04d973ae0e37093e594f42e78",
+      "src/pybamm_w10/config.py": "960ac2e3503ed8f95a5ddbf74b67d32a1e0ade49e63f97181dfe991ef63b9be9",
+      "src/pybamm_w10/diagnostics.py": "df895d2a9ecab1df3d4a7a71f8464fff80c3fe2262c2e1dacba09ab6dcdbe1b5",
+      "src/pybamm_w10/evaluation.py": "7b6d634597dadd034a69a35ffcc0c60e921a49f69cc29dc85d4924f21af19991",
+      "src/pybamm_w10/figures.py": "9a25a09d218b054219576e357cf6a4dd785804bba73e7638104da21edd8cacd0",
+      "src/pybamm_w10/model.py": "ab087555433569c916c609c200b664fe2f2725bce588d2ea2c177bca44a3cfca",
+      "src/pybamm_w10/output.py": "60013de0d9e61c5baafbcf206de3ba075c4e04297fd78a3bdfef802b6dffee45",
+      "src/pybamm_w10/progress.py": "380e17f0019b2498610c56e255ba74e2bdc972b6597a76cab460d71c895fcd79",
+      "src/pybamm_w10/protocol.py": "9c803af76647508f9cd5ed9e05cccbfd42f7fdaf33f91586e4739be6b18cffaf",
+      "src/pybamm_w10/runner.py": "cffe53c4c8d154e14a2ee1c4fd5c7310f4b0ab3721468ded027b2433ad74eaed",
+      "src/pybamm_w10/smoke.py": "ec98286fe5a7b472cc259205f342a499b550fe741241b00f9e2f6759ce49a9f6",
+      "src/pybamm_w10/types.py": "04379fa4853adae4676afa8f044c665d55d1f9ae647bdb1bb4b9994b267f363f",
+      "src/pybamm_w10/udds.py": "6c9beec3ddf8d427785bb7703290e990bff5beeaaefa24a671778bc392ad13bc"
+    },
+    "source_sha256": "4f97f40c5a88ec6b67179b87beef7f87447bef3cde08b78270b8edbb6a3ca11d"
+  },
+  "artifacts": {
+    "candidate_manifest": "candidate_manifest.json",
+    "candidate_ranking": "candidate_ranking.csv",
+    "baseline_gate": "baseline_cycle30_regression_gate.json",
+    "progress": "stage1_progress.json",
+    "progress_history": "stage1_progress_history.jsonl",
+    "soh_comparison_plot": "figures/stage1_soh_sim_vs_experiment.png",
+    "soh_residual_plot": "figures/stage1_soh_residuals.png"
+  },
+  "progress": {
+    "stage": "COMBINATION",
+    "candidate_id": "B",
+    "scales": [
+      10.0,
+      2.044760292534257,
+      10.0
+    ],
+    "cycle": 22,
+    "solver_attempt": 1,
+    "solver_profile": "general_protocol",
+    "elapsed_wall_clock_s": 97467.18800000031,
+    "elapsed_cycle_samples_s": [
+      162.60999999986961,
+      162.9529999999795,
+      164.46900000004098,
+      164.9680000001099,
+      166.39099999982864,
+      166.76600000006147,
+      165.56199999991804,
+      177.9220000000205,
+      175.2970000000205,
+      201.01500000013039
+    ],
+    "recent_cycle_wall_clock_s": 170.79529999999795,
+    "current_stage_eta_s": 17079.529999999795,
+    "full_workflow_eta_s": 91033.89489999891,
+    "estimated_completion_utc": "2026-08-28T20:28:32.600235+00:00",
+    "latest_soh_residual_pp": 0.0
+  },
+  "candidate_failure_classes": {
+    "SEI-M": "COMPLETED",
+    "SEI-H": "NUMERICALLY_CENSORED",
+    "PLATING-1P5": "COMPLETED",
+    "LAM-M": "COMPLETED",
+    "LAM-H": "COMPLETED",
+    "A": "NUMERICALLY_CENSORED",
+    "B": "NUMERICALLY_CENSORED"
+  },
+  "mechanism_trends": {
+    "status": "pending",
+    "disclaimer": "Model-internal trends only; not unique experimental mechanism contributions."
+  }
+}

@@ -1,0 +1,16 @@
+{"candidate_id": "BASELINE", "stop_cycle": 30, "checkpoint": "cycle-075.pkl", "validation": "public commit, prefixes, artifacts, parameters, status", "reused_at_utc": "2026-08-27T12:43:05.593758+00:00"}
+{"candidate_id": "BASELINE", "stop_cycle": 75, "checkpoint": "cycle-075.pkl", "validation": "public commit, prefixes, artifacts, parameters, status", "reused_at_utc": "2026-08-27T12:43:06.062789+00:00"}
+{"candidate_id": "SEI-M", "stop_cycle": 25, "checkpoint": "cycle-075.pkl", "validation": "public commit, prefixes, artifacts, parameters, status", "reused_at_utc": "2026-08-27T12:43:06.451313+00:00"}
+{"candidate_id": "SEI-M", "stop_cycle": 75, "checkpoint": "cycle-075.pkl", "validation": "public commit, prefixes, artifacts, parameters, status", "reused_at_utc": "2026-08-27T12:43:06.934369+00:00"}
+{"candidate_id": "PLATING-M", "stop_cycle": 25, "checkpoint": "cycle-050.pkl", "validation": "public commit, prefixes, artifacts, parameters, status", "reused_at_utc": "2026-08-27T12:43:07.665197+00:00"}
+{"candidate_id": "LAM-M", "stop_cycle": 25, "checkpoint": "cycle-075.pkl", "validation": "public commit, prefixes, artifacts, parameters, status", "reused_at_utc": "2026-08-27T13:11:49.507062+00:00"}
+{"candidate_id": "LAM-M", "stop_cycle": 75, "checkpoint": "cycle-075.pkl", "validation": "public commit, prefixes, artifacts, parameters, status", "reused_at_utc": "2026-08-27T13:11:50.174991+00:00"}
+{"candidate_id": "SEI-H", "stop_cycle": 25, "checkpoint": "cycle-032.pkl", "validation": "public commit, prefixes, artifacts, parameters, status", "reused_at_utc": "2026-08-27T13:11:50.810237+00:00"}
+{"candidate_id": "BASELINE", "stop_cycle": 30, "checkpoint": "cycle-075.pkl", "validation": "public commit, prefixes, artifacts, parameters, status", "reused_at_utc": "2026-08-27T13:51:32.559672+00:00"}
+{"candidate_id": "BASELINE", "stop_cycle": 75, "checkpoint": "cycle-075.pkl", "validation": "public commit, prefixes, artifacts, parameters, status", "reused_at_utc": "2026-08-27T13:51:33.011605+00:00"}
+{"candidate_id": "SEI-M", "stop_cycle": 25, "checkpoint": "cycle-075.pkl", "validation": "public commit, prefixes, artifacts, parameters, status", "reused_at_utc": "2026-08-27T13:51:33.401734+00:00"}
+{"candidate_id": "SEI-M", "stop_cycle": 75, "checkpoint": "cycle-075.pkl", "validation": "public commit, prefixes, artifacts, parameters, status", "reused_at_utc": "2026-08-27T13:51:33.880091+00:00"}
+{"candidate_id": "LAM-M", "stop_cycle": 25, "checkpoint": "cycle-075.pkl", "validation": "public commit, prefixes, artifacts, parameters, status", "reused_at_utc": "2026-08-27T17:13:06.504180+00:00"}
+{"candidate_id": "LAM-M", "stop_cycle": 75, "checkpoint": "cycle-075.pkl", "validation": "public commit, prefixes, artifacts, parameters, status", "reused_at_utc": "2026-08-27T17:13:06.879023+00:00"}
+{"candidate_id": "LAM-H", "stop_cycle": 25, "checkpoint": "cycle-075.pkl", "validation": "public commit, prefixes, artifacts, parameters, status", "reused_at_utc": "2026-08-27T18:09:52.287951+00:00"}
+{"candidate_id": "LAM-H", "stop_cycle": 75, "checkpoint": "cycle-075.pkl", "validation": "public commit, prefixes, artifacts, parameters, status", "reused_at_utc": "2026-08-27T18:09:52.669520+00:00"}

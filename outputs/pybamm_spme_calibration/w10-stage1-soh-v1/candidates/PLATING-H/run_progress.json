@@ -1,0 +1,13 @@
+{
+  "phase": "STANDARD_CHARGE",
+  "stage": "4v_cv",
+  "completed_cycles": 0,
+  "transaction": 1,
+  "current_cycle": 1,
+  "solver_attempt": 2,
+  "solver_profile": "certified_charge_retry",
+  "status": "TERMINATED",
+  "business_status": "NUMERICAL_FAILURE",
+  "heartbeat_sequence": 7,
+  "updated_at_utc": "2026-08-27T07:07:14.138675+00:00"
+}

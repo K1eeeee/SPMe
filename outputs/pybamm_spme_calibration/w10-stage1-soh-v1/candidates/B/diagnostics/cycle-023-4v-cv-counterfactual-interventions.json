@@ -1,0 +1,2242 @@
+{
+  "diagnostic_only": true,
+  "source_checkpoint": "E:\\SPMe\\outputs\\pybamm_spme_calibration\\w10-stage1-soh-v1\\candidates\\B\\checkpoints\\cycle-022.pkl",
+  "source_state_hash": "d5e4fd90e347ff1090a4b7c2304a46a5dd06f5197a6f7ef03fc6a5aa0eec5223",
+  "warning": "Parameter interventions retain the aged state and change only the next charge kinetics; they are causal diagnostics, not certified production runs.",
+  "plating_scale_interventions": [
+    {
+      "status": "COMPLETED",
+      "profile": {
+        "name": "certified_charge",
+        "rtol": 1e-05,
+        "atol": 1e-07,
+        "dt_init_s": 1e-08,
+        "max_step_s": 1.0,
+        "max_num_steps": 200000,
+        "max_error_test_failures": 30,
+        "max_order_bdf": 3,
+        "suppress_algebraic_error": true
+      },
+      "requested_cv_duration_s": null,
+      "wall_clock_s": 2.1791972999926656,
+      "step_count": 2,
+      "step_durations_s": [
+        13.882868572138655,
+        3875.159658981957
+      ],
+      "step_terminations": [
+        "event: Voltage > 4.0 [V] [experiment]",
+        "event: abs(Current [A]) < 0.05 [A] [experiment]"
+      ],
+      "step_point_counts": [
+        98,
+        4246
+      ],
+      "cv_terminal_variables": {
+        "Current [A]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": -0.04999999999999998,
+          "maximum": -0.04999999999999998,
+          "start": -0.04999999999999998,
+          "end": -0.04999999999999998
+        },
+        "Terminal voltage [V]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 3.9999999286778354,
+          "maximum": 3.9999999286778354,
+          "start": 3.9999999286778354,
+          "end": 3.9999999286778354
+        },
+        "X-averaged cell temperature [K]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 297.06434762432633,
+          "maximum": 297.06434762432633,
+          "start": 297.06434762432633,
+          "end": 297.06434762432633
+        },
+        "X-averaged negative electrode porosity": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 0.21718666352796984,
+          "maximum": 0.21718666352796984,
+          "start": 0.21718666352796984,
+          "end": 0.21718666352796984
+        },
+        "Minimum negative particle surface concentration [mol.m-3]": {
+          "available": false,
+          "error": "KeyError: \"'Minimum negative particle surface concentration [mol.m-3]' not found. Best matches are ['Maximum negative particle surface concentration [mol.m-3]', 'Minimum negative particle concentration [mol.m-3]', 'Negative particle surface concentration [mol.m-3]']\""
+        },
+        "Maximum negative particle surface concentration [mol.m-3]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 22810.728310570852,
+          "maximum": 22810.728310570852,
+          "start": 22810.728310570852,
+          "end": 22810.728310570852
+        },
+        "Negative electrolyte concentration [mol.m-3]": {
+          "available": true,
+          "finite": true,
+          "shape": [
+            20
+          ],
+          "minimum": 648.0797736670361,
+          "maximum": 654.370160250858,
+          "start": 648.0797736670361,
+          "end": 654.370160250858
+        },
+        "Separator electrolyte concentration [mol.m-3]": {
+          "available": true,
+          "finite": true,
+          "shape": [
+            20
+          ],
+          "minimum": 654.7189380060504,
+          "maximum": 655.2736392573713,
+          "start": 654.7189380060504,
+          "end": 655.2736392573713
+        },
+        "Positive electrolyte concentration [mol.m-3]": {
+          "available": true,
+          "finite": true,
+          "shape": [
+            20
+          ],
+          "minimum": 655.441682247775,
+          "maximum": 658.363135288869,
+          "start": 655.441682247775,
+          "end": 658.363135288869
+        },
+        "X-averaged negative electrode lithium plating reaction overpotential [V]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 0.0923271916713018,
+          "maximum": 0.0923271916713018,
+          "start": 0.0923271916713018,
+          "end": 0.0923271916713018
+        },
+        "X-averaged negative electrode lithium plating interfacial current density [A.m-2]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 0.003575380470660085,
+          "maximum": 0.003575380470660085,
+          "start": 0.003575380470660085,
+          "end": 0.003575380470660085
+        },
+        "X-averaged negative electrode interfacial current density [A.m-2]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": -0.019128481512619127,
+          "maximum": -0.019128481512619127,
+          "start": -0.019128481512619127,
+          "end": -0.019128481512619127
+        },
+        "X-averaged negative electrode SEI interfacial current density [A.m-2]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": -1.9412811139637154e-05,
+          "maximum": -1.9412811139637154e-05,
+          "start": -1.9412811139637154e-05,
+          "end": -1.9412811139637154e-05
+        },
+        "Volume-averaged negative lithium plating concentration [mol.m-3]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 24.66689379032375,
+          "maximum": 24.66689379032375,
+          "start": 24.66689379032375,
+          "end": 24.66689379032375
+        },
+        "Loss of capacity to negative lithium plating [A.h]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 0.008131263769016149,
+          "maximum": 0.008131263769016149,
+          "start": 0.008131263769016149,
+          "end": 0.008131263769016149
+        },
+        "Volume-averaged negative SEI thickness [m]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 3.0969090148716314e-08,
+          "maximum": 3.0969090148716314e-08,
+          "start": 3.0969090148716314e-08,
+          "end": 3.0969090148716314e-08
+        }
+      },
+      "plating_scale": 1.5
+    },
+    {
+      "status": "COMPLETED",
+      "profile": {
+        "name": "certified_charge_retry",
+        "rtol": 1e-05,
+        "atol": 1e-07,
+        "dt_init_s": 1e-08,
+        "max_step_s": 1.0,
+        "max_num_steps": 200000,
+        "max_error_test_failures": 100,
+        "max_order_bdf": 2,
+        "suppress_algebraic_error": true
+      },
+      "requested_cv_duration_s": null,
+      "wall_clock_s": 4.319866399979219,
+      "step_count": 2,
+      "step_durations_s": [
+        13.88265673748629,
+        3847.723239832997
+      ],
+      "step_terminations": [
+        "event: Voltage > 4.0 [V] [experiment]",
+        "event: abs(Current [A]) < 0.05 [A] [experiment]"
+      ],
+      "step_point_counts": [
+        122,
+        5458
+      ],
+      "cv_terminal_variables": {
+        "Current [A]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": -0.04999999999999793,
+          "maximum": -0.04999999999999793,
+          "start": -0.04999999999999793,
+          "end": -0.04999999999999793
+        },
+        "Terminal voltage [V]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 3.999999976782988,
+          "maximum": 3.999999976782988,
+          "start": 3.999999976782988,
+          "end": 3.999999976782988
+        },
+        "X-averaged cell temperature [K]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 297.03606290998204,
+          "maximum": 297.03606290998204,
+          "start": 297.03606290998204,
+          "end": 297.03606290998204
+        },
+        "X-averaged negative electrode porosity": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 0.22012216757403935,
+          "maximum": 0.22012216757403935,
+          "start": 0.22012216757403935,
+          "end": 0.22012216757403935
+        },
+        "Minimum negative particle surface concentration [mol.m-3]": {
+          "available": false,
+          "error": "KeyError: \"'Minimum negative particle surface concentration [mol.m-3]' not found. Best matches are ['Maximum negative particle surface concentration [mol.m-3]', 'Minimum negative particle concentration [mol.m-3]', 'Negative particle surface concentration [mol.m-3]']\""
+        },
+        "Maximum negative particle surface concentration [mol.m-3]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 23089.395473674682,
+          "maximum": 23089.395473674682,
+          "start": 23089.395473674682,
+          "end": 23089.395473674682
+        },
+        "Negative electrolyte concentration [mol.m-3]": {
+          "available": true,
+          "finite": true,
+          "shape": [
+            20
+          ],
+          "minimum": 644.9531356778856,
+          "maximum": 650.9659636921706,
+          "start": 644.9531356778856,
+          "end": 650.9659636921706
+        },
+        "Separator electrolyte concentration [mol.m-3]": {
+          "available": true,
+          "finite": true,
+          "shape": [
+            20
+          ],
+          "minimum": 651.2739826923444,
+          "maximum": 651.8201758032241,
+          "start": 651.2739826923444,
+          "end": 651.8201758032241
+        },
+        "Positive electrolyte concentration [mol.m-3]": {
+          "available": true,
+          "finite": true,
+          "shape": [
+            20
+          ],
+          "minimum": 651.9857402580236,
+          "maximum": 654.8593264581611,
+          "start": 651.9857402580236,
+          "end": 654.8593264581611
+        },
+        "X-averaged negative electrode lithium plating reaction overpotential [V]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 0.0916283791211198,
+          "maximum": 0.0916283791211198,
+          "start": 0.0916283791211198,
+          "end": 0.0916283791211198
+        },
+        "X-averaged negative electrode lithium plating interfacial current density [A.m-2]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": -0.0034583599701493205,
+          "maximum": -0.0034583599701493205,
+          "start": -0.0034583599701493205,
+          "end": -0.0034583599701493205
+        },
+        "X-averaged negative electrode interfacial current density [A.m-2]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": -0.012094773318529217,
+          "maximum": -0.012094773318529217,
+          "start": -0.012094773318529217,
+          "end": -0.012094773318529217
+        },
+        "X-averaged negative electrode SEI interfacial current density [A.m-2]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": -1.9380564566540552e-05,
+          "maximum": -1.9380564566540552e-05,
+          "start": -1.9380564566540552e-05,
+          "end": -1.9380564566540552e-05
+        },
+        "Volume-averaged negative lithium plating concentration [mol.m-3]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": -201.45277434027534,
+          "maximum": -201.45277434027534,
+          "start": -201.45277434027534,
+          "end": -201.45277434027534
+        },
+        "Loss of capacity to negative lithium plating [A.h]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": -0.04266191830215395,
+          "maximum": -0.04266191830215395,
+          "start": -0.04266191830215395,
+          "end": -0.04266191830215395
+        },
+        "Volume-averaged negative SEI thickness [m]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 3.097520608396886e-08,
+          "maximum": 3.097520608396886e-08,
+          "start": 3.097520608396886e-08,
+          "end": 3.097520608396886e-08
+        }
+      },
+      "plating_scale": 1.5
+    },
+    {
+      "status": "COMPLETED",
+      "profile": {
+        "name": "certified_charge",
+        "rtol": 1e-05,
+        "atol": 1e-07,
+        "dt_init_s": 1e-08,
+        "max_step_s": 1.0,
+        "max_num_steps": 200000,
+        "max_error_test_failures": 30,
+        "max_order_bdf": 3,
+        "suppress_algebraic_error": true
+      },
+      "requested_cv_duration_s": null,
+      "wall_clock_s": 2.2205256999004632,
+      "step_count": 2,
+      "step_durations_s": [
+        13.88291905474642,
+        3855.2714003963606
+      ],
+      "step_terminations": [
+        "event: Voltage > 4.0 [V] [experiment]",
+        "event: abs(Current [A]) < 0.05 [A] [experiment]"
+      ],
+      "step_point_counts": [
+        96,
+        4261
+      ],
+      "cv_terminal_variables": {
+        "Current [A]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": -0.04999999999999578,
+          "maximum": -0.04999999999999578,
+          "start": -0.04999999999999578,
+          "end": -0.04999999999999578
+        },
+        "Terminal voltage [V]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 4.000000079139399,
+          "maximum": 4.000000079139399,
+          "start": 4.000000079139399,
+          "end": 4.000000079139399
+        },
+        "X-averaged cell temperature [K]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 297.0274275515537,
+          "maximum": 297.0274275515537,
+          "start": 297.0274275515537,
+          "end": 297.0274275515537
+        },
+        "X-averaged negative electrode porosity": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 0.21699088614072778,
+          "maximum": 0.21699088614072778,
+          "start": 0.21699088614072778,
+          "end": 0.21699088614072778
+        },
+        "Minimum negative particle surface concentration [mol.m-3]": {
+          "available": false,
+          "error": "KeyError: \"'Minimum negative particle surface concentration [mol.m-3]' not found. Best matches are ['Maximum negative particle surface concentration [mol.m-3]', 'Minimum negative particle concentration [mol.m-3]', 'Negative particle surface concentration [mol.m-3]']\""
+        },
+        "Maximum negative particle surface concentration [mol.m-3]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 22797.659670254674,
+          "maximum": 22797.659670254674,
+          "start": 22797.659670254674,
+          "end": 22797.659670254674
+        },
+        "Negative electrolyte concentration [mol.m-3]": {
+          "available": true,
+          "finite": true,
+          "shape": [
+            20
+          ],
+          "minimum": 648.2814616917523,
+          "maximum": 654.5928354889998,
+          "start": 648.2814616917523,
+          "end": 654.5928354889998
+        },
+        "Separator electrolyte concentration [mol.m-3]": {
+          "available": true,
+          "finite": true,
+          "shape": [
+            20
+          ],
+          "minimum": 654.9458389073286,
+          "maximum": 655.5023635159358,
+          "start": 654.9458389073286,
+          "end": 655.5023635159358
+        },
+        "Positive electrolyte concentration [mol.m-3]": {
+          "available": true,
+          "finite": true,
+          "shape": [
+            20
+          ],
+          "minimum": 655.6709273033028,
+          "maximum": 658.6017170486581,
+          "start": 655.6709273033028,
+          "end": 658.6017170486581
+        },
+        "X-averaged negative electrode lithium plating reaction overpotential [V]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 0.09251801213511046,
+          "maximum": 0.09251801213511046,
+          "start": 0.09251801213511046,
+          "end": 0.09251801213511046
+        },
+        "X-averaged negative electrode lithium plating interfacial current density [A.m-2]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 0.007598583857248856,
+          "maximum": 0.007598583857248856,
+          "start": 0.007598583857248856,
+          "end": 0.007598583857248856
+        },
+        "X-averaged negative electrode interfacial current density [A.m-2]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": -0.023151721848255126,
+          "maximum": -0.023151721848255126,
+          "start": -0.023151721848255126,
+          "end": -0.023151721848255126
+        },
+        "X-averaged negative electrode SEI interfacial current density [A.m-2]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": -1.937586208078139e-05,
+          "maximum": -1.937586208078139e-05,
+          "start": -1.937586208078139e-05,
+          "end": -1.937586208078139e-05
+        },
+        "Volume-averaged negative lithium plating concentration [mol.m-3]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 39.82614103882554,
+          "maximum": 39.82614103882554,
+          "start": 39.82614103882554,
+          "end": 39.82614103882554
+        },
+        "Loss of capacity to negative lithium plating [A.h]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 0.011515211501469641,
+          "maximum": 0.011515211501469641,
+          "start": 0.011515211501469641,
+          "end": 0.011515211501469641
+        },
+        "Volume-averaged negative SEI thickness [m]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 3.096886743352416e-08,
+          "maximum": 3.096886743352416e-08,
+          "start": 3.096886743352416e-08,
+          "end": 3.096886743352416e-08
+        }
+      },
+      "plating_scale": 1.0
+    },
+    {
+      "status": "COMPLETED",
+      "profile": {
+        "name": "certified_charge_retry",
+        "rtol": 1e-05,
+        "atol": 1e-07,
+        "dt_init_s": 1e-08,
+        "max_step_s": 1.0,
+        "max_num_steps": 200000,
+        "max_error_test_failures": 100,
+        "max_order_bdf": 2,
+        "suppress_algebraic_error": true
+      },
+      "requested_cv_duration_s": null,
+      "wall_clock_s": 2.0861450999509543,
+      "step_count": 2,
+      "step_durations_s": [
+        13.88266698545247,
+        3797.139323284773
+      ],
+      "step_terminations": [
+        "event: Voltage > 4.0 [V] [experiment]",
+        "event: abs(Current [A]) < 0.05 [A] [experiment]"
+      ],
+      "step_point_counts": [
+        119,
+        4270
+      ],
+      "cv_terminal_variables": {
+        "Current [A]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": -0.049999999999996964,
+          "maximum": -0.049999999999996964,
+          "start": -0.049999999999996964,
+          "end": -0.049999999999996964
+        },
+        "Terminal voltage [V]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 4.000000016213457,
+          "maximum": 4.000000016213457,
+          "start": 4.000000016213457,
+          "end": 4.000000016213457
+        },
+        "X-averaged cell temperature [K]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 297.06199618320665,
+          "maximum": 297.06199618320665,
+          "start": 297.06199618320665,
+          "end": 297.06199618320665
+        },
+        "X-averaged negative electrode porosity": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 0.2172609521406528,
+          "maximum": 0.2172609521406528,
+          "start": 0.2172609521406528,
+          "end": 0.2172609521406528
+        },
+        "Minimum negative particle surface concentration [mol.m-3]": {
+          "available": false,
+          "error": "KeyError: \"'Minimum negative particle surface concentration [mol.m-3]' not found. Best matches are ['Maximum negative particle surface concentration [mol.m-3]', 'Minimum negative particle concentration [mol.m-3]', 'Negative particle surface concentration [mol.m-3]']\""
+        },
+        "Maximum negative particle surface concentration [mol.m-3]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 22815.407201754442,
+          "maximum": 22815.407201754442,
+          "start": 22815.407201754442,
+          "end": 22815.407201754442
+        },
+        "Negative electrolyte concentration [mol.m-3]": {
+          "available": true,
+          "finite": true,
+          "shape": [
+            20
+          ],
+          "minimum": 647.9812111508364,
+          "maximum": 654.2573041299097,
+          "start": 647.9812111508364,
+          "end": 654.2573041299097
+        },
+        "Separator electrolyte concentration [mol.m-3]": {
+          "available": true,
+          "finite": true,
+          "shape": [
+            20
+          ],
+          "minimum": 654.6037506857502,
+          "maximum": 655.1569096670521,
+          "start": 654.6037506857502,
+          "end": 655.1569096670521
+        },
+        "Positive electrolyte concentration [mol.m-3]": {
+          "available": true,
+          "finite": true,
+          "shape": [
+            20
+          ],
+          "minimum": 655.3245141912901,
+          "maximum": 658.2375977255448,
+          "start": 655.3245141912901,
+          "end": 658.2375977255448
+        },
+        "X-averaged negative electrode lithium plating reaction overpotential [V]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 0.09225290696360229,
+          "maximum": 0.09225290696360229,
+          "start": 0.09225290696360229,
+          "end": 0.09225290696360229
+        },
+        "X-averaged negative electrode lithium plating interfacial current density [A.m-2]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 0.0004418828344844028,
+          "maximum": 0.0004418828344844028,
+          "start": 0.0004418828344844028,
+          "end": 0.0004418828344844028
+        },
+        "X-averaged negative electrode interfacial current density [A.m-2]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": -0.015994987673275667,
+          "maximum": -0.015994987673275667,
+          "start": -0.015994987673275667,
+          "end": -0.015994987673275667
+        },
+        "X-averaged negative electrode SEI interfacial current density [A.m-2]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": -1.9409014443084634e-05,
+          "maximum": -1.9409014443084634e-05,
+          "start": -1.9409014443084634e-05,
+          "end": -1.9409014443084634e-05
+        },
+        "Volume-averaged negative lithium plating concentration [mol.m-3]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 18.996374159701197,
+          "maximum": 18.996374159701197,
+          "start": 18.996374159701197,
+          "end": 18.996374159701197
+        },
+        "Loss of capacity to negative lithium plating [A.h]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 0.00680442431134015,
+          "maximum": 0.00680442431134015,
+          "start": 0.00680442431134015,
+          "end": 0.00680442431134015
+        },
+        "Volume-averaged negative SEI thickness [m]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 3.097137616074293e-08,
+          "maximum": 3.097137616074293e-08,
+          "start": 3.097137616074293e-08,
+          "end": 3.097137616074293e-08
+        }
+      },
+      "plating_scale": 1.0
+    },
+    {
+      "status": "COMPLETED",
+      "profile": {
+        "name": "certified_charge",
+        "rtol": 1e-05,
+        "atol": 1e-07,
+        "dt_init_s": 1e-08,
+        "max_step_s": 1.0,
+        "max_num_steps": 200000,
+        "max_error_test_failures": 30,
+        "max_order_bdf": 3,
+        "suppress_algebraic_error": true
+      },
+      "requested_cv_duration_s": null,
+      "wall_clock_s": 1.9041927000507712,
+      "step_count": 2,
+      "step_durations_s": [
+        13.882959792605417,
+        3995.11676647091
+      ],
+      "step_terminations": [
+        "event: Voltage > 4.0 [V] [experiment]",
+        "event: abs(Current [A]) < 0.05 [A] [experiment]"
+      ],
+      "step_point_counts": [
+        94,
+        4225
+      ],
+      "cv_terminal_variables": {
+        "Current [A]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": -0.049999999999998206,
+          "maximum": -0.049999999999998206,
+          "start": -0.049999999999998206,
+          "end": -0.049999999999998206
+        },
+        "Terminal voltage [V]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 4.000000080234422,
+          "maximum": 4.000000080234422,
+          "start": 4.000000080234422,
+          "end": 4.000000080234422
+        },
+        "X-averaged cell temperature [K]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 296.8615928278809,
+          "maximum": 296.8615928278809,
+          "start": 296.8615928278809,
+          "end": 296.8615928278809
+        },
+        "X-averaged negative electrode porosity": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 0.21655599174339563,
+          "maximum": 0.21655599174339563,
+          "start": 0.21655599174339563,
+          "end": 0.21655599174339563
+        },
+        "Minimum negative particle surface concentration [mol.m-3]": {
+          "available": false,
+          "error": "KeyError: \"'Minimum negative particle surface concentration [mol.m-3]' not found. Best matches are ['Maximum negative particle surface concentration [mol.m-3]', 'Minimum negative particle concentration [mol.m-3]', 'Negative particle surface concentration [mol.m-3]']\""
+        },
+        "Maximum negative particle surface concentration [mol.m-3]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 22763.39879536917,
+          "maximum": 22763.39879536917,
+          "start": 22763.39879536917,
+          "end": 22763.39879536917
+        },
+        "Negative electrolyte concentration [mol.m-3]": {
+          "available": true,
+          "finite": true,
+          "shape": [
+            20
+          ],
+          "minimum": 648.7504124656468,
+          "maximum": 655.0469048312787,
+          "start": 648.7504124656468,
+          "end": 655.0469048312787
+        },
+        "Separator electrolyte concentration [mol.m-3]": {
+          "available": true,
+          "finite": true,
+          "shape": [
+            20
+          ],
+          "minimum": 655.4052386353158,
+          "maximum": 655.9599113235151,
+          "start": 655.4052386353158,
+          "end": 655.9599113235151
+        },
+        "Positive electrolyte concentration [mol.m-3]": {
+          "available": true,
+          "finite": true,
+          "shape": [
+            20
+          ],
+          "minimum": 656.1279392083998,
+          "maximum": 659.0448765880138,
+          "start": 656.1279392083998,
+          "end": 659.0448765880138
+        },
+        "X-averaged negative electrode lithium plating reaction overpotential [V]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 0.09282362686405642,
+          "maximum": 0.09282362686405642,
+          "start": 0.09282362686405642,
+          "end": 0.09282362686405642
+        },
+        "X-averaged negative electrode lithium plating interfacial current density [A.m-2]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 0.009554681215530507,
+          "maximum": 0.009554681215530507,
+          "start": 0.009554681215530507,
+          "end": 0.009554681215530507
+        },
+        "X-averaged negative electrode interfacial current density [A.m-2]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": -0.025107986796482525,
+          "maximum": -0.025107986796482525,
+          "start": -0.025107986796482525,
+          "end": -0.025107986796482525
+        },
+        "X-averaged negative electrode SEI interfacial current density [A.m-2]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": -1.920827212549898e-05,
+          "maximum": -1.920827212549898e-05,
+          "start": -1.920827212549898e-05,
+          "end": -1.920827212549898e-05
+        },
+        "Volume-averaged negative lithium plating concentration [mol.m-3]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 73.12108278196288,
+          "maximum": 73.12108278196288,
+          "start": 73.12108278196288,
+          "end": 73.12108278196288
+        },
+        "Loss of capacity to negative lithium plating [A.h]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 0.018967541970900784,
+          "maximum": 0.018967541970900784,
+          "start": 0.018967541970900784,
+          "end": 0.018967541970900784
+        },
+        "Volume-averaged negative SEI thickness [m]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 3.097170059083698e-08,
+          "maximum": 3.097170059083698e-08,
+          "start": 3.097170059083698e-08,
+          "end": 3.097170059083698e-08
+        }
+      },
+      "plating_scale": 0.5
+    },
+    {
+      "status": "COMPLETED",
+      "profile": {
+        "name": "certified_charge_retry",
+        "rtol": 1e-05,
+        "atol": 1e-07,
+        "dt_init_s": 1e-08,
+        "max_step_s": 1.0,
+        "max_num_steps": 200000,
+        "max_error_test_failures": 100,
+        "max_order_bdf": 2,
+        "suppress_algebraic_error": true
+      },
+      "requested_cv_duration_s": null,
+      "wall_clock_s": 1.8763437999878079,
+      "step_count": 2,
+      "step_durations_s": [
+        13.882665306736355,
+        3815.2801035719012
+      ],
+      "step_terminations": [
+        "event: Voltage > 4.0 [V] [experiment]",
+        "event: abs(Current [A]) < 0.05 [A] [experiment]"
+      ],
+      "step_point_counts": [
+        116,
+        4185
+      ],
+      "cv_terminal_variables": {
+        "Current [A]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": -0.049999999999999996,
+          "maximum": -0.049999999999999996,
+          "start": -0.049999999999999996,
+          "end": -0.049999999999999996
+        },
+        "Terminal voltage [V]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 4.000000020074014,
+          "maximum": 4.000000020074014,
+          "start": 4.000000020074014,
+          "end": 4.000000020074014
+        },
+        "X-averaged cell temperature [K]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 297.0249195975743,
+          "maximum": 297.0249195975743,
+          "start": 297.0249195975743,
+          "end": 297.0249195975743
+        },
+        "X-averaged negative electrode porosity": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 0.2172162141338413,
+          "maximum": 0.2172162141338413,
+          "start": 0.2172162141338413,
+          "end": 0.2172162141338413
+        },
+        "Minimum negative particle surface concentration [mol.m-3]": {
+          "available": false,
+          "error": "KeyError: \"'Minimum negative particle surface concentration [mol.m-3]' not found. Best matches are ['Maximum negative particle surface concentration [mol.m-3]', 'Minimum negative particle concentration [mol.m-3]', 'Negative particle surface concentration [mol.m-3]']\""
+        },
+        "Maximum negative particle surface concentration [mol.m-3]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 22812.267386093565,
+          "maximum": 22812.267386093565,
+          "start": 22812.267386093565,
+          "end": 22812.267386093565
+        },
+        "Negative electrolyte concentration [mol.m-3]": {
+          "available": true,
+          "finite": true,
+          "shape": [
+            20
+          ],
+          "minimum": 648.0373893995388,
+          "maximum": 654.3214767024372,
+          "start": 648.0373893995388,
+          "end": 654.3214767024372
+        },
+        "Separator electrolyte concentration [mol.m-3]": {
+          "available": true,
+          "finite": true,
+          "shape": [
+            20
+          ],
+          "minimum": 654.6690852508852,
+          "maximum": 655.2228812383039,
+          "start": 654.6690852508852,
+          "end": 655.2228812383039
+        },
+        "Positive electrolyte concentration [mol.m-3]": {
+          "available": true,
+          "finite": true,
+          "shape": [
+            20
+          ],
+          "minimum": 655.3906756776562,
+          "maximum": 658.307091731092,
+          "start": 655.3906756776562,
+          "end": 658.307091731092
+        },
+        "X-averaged negative electrode lithium plating reaction overpotential [V]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 0.09230010285369011,
+          "maximum": 0.09230010285369011,
+          "start": 0.09230010285369011,
+          "end": 0.09230010285369011
+        },
+        "X-averaged negative electrode lithium plating interfacial current density [A.m-2]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 0.0008277725917631537,
+          "maximum": 0.0008277725917631537,
+          "start": 0.0008277725917631537,
+          "end": 0.0008277725917631537
+        },
+        "X-averaged negative electrode interfacial current density [A.m-2]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": -0.016380914024366887,
+          "maximum": -0.016380914024366887,
+          "start": -0.016380914024366887,
+          "end": -0.016380914024366887
+        },
+        "X-averaged negative electrode SEI interfacial current density [A.m-2]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": -1.9372420621167132e-05,
+          "maximum": -1.9372420621167132e-05,
+          "start": -1.9372420621167132e-05,
+          "end": -1.9372420621167132e-05
+        },
+        "Volume-averaged negative lithium plating concentration [mol.m-3]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 22.534257944328406,
+          "maximum": 22.534257944328406,
+          "start": 22.534257944328406,
+          "end": 22.534257944328406
+        },
+        "Loss of capacity to negative lithium plating [A.h]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 0.007596756902229855,
+          "maximum": 0.007596756902229855,
+          "start": 0.007596756902229855,
+          "end": 0.007596756902229855
+        },
+        "Volume-averaged negative SEI thickness [m]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 3.097034501019548e-08,
+          "maximum": 3.097034501019548e-08,
+          "start": 3.097034501019548e-08,
+          "end": 3.097034501019548e-08
+        }
+      },
+      "plating_scale": 0.5
+    }
+  ],
+  "cv_cutoff_interventions": [
+    {
+      "status": "COMPLETED",
+      "profile": {
+        "name": "certified_charge",
+        "rtol": 1e-05,
+        "atol": 1e-07,
+        "dt_init_s": 1e-08,
+        "max_step_s": 1.0,
+        "max_num_steps": 200000,
+        "max_error_test_failures": 30,
+        "max_order_bdf": 3,
+        "suppress_algebraic_error": true
+      },
+      "requested_cv_duration_s": null,
+      "wall_clock_s": 1.8873751000501215,
+      "step_count": 2,
+      "step_durations_s": [
+        13.882800404082849,
+        503.25603424201796
+      ],
+      "step_terminations": [
+        "event: Voltage > 4.0 [V] [experiment]",
+        "event: abs(Current [A]) < 0.2 [A] [experiment]"
+      ],
+      "step_point_counts": [
+        98,
+        885
+      ],
+      "cv_terminal_variables": {
+        "Current [A]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": -0.1999999999999987,
+          "maximum": -0.1999999999999987,
+          "start": -0.1999999999999987,
+          "end": -0.1999999999999987
+        },
+        "Terminal voltage [V]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 4.004191583030604,
+          "maximum": 4.004191583030604,
+          "start": 4.004191583030604,
+          "end": 4.004191583030604
+        },
+        "X-averaged cell temperature [K]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 314.2995779085277,
+          "maximum": 314.2995779085277,
+          "start": 314.2995779085277,
+          "end": 314.2995779085277
+        },
+        "X-averaged negative electrode porosity": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 0.1920018056223614,
+          "maximum": 0.1920018056223614,
+          "start": 0.1920018056223614,
+          "end": 0.1920018056223614
+        },
+        "Minimum negative particle surface concentration [mol.m-3]": {
+          "available": false,
+          "error": "KeyError: \"'Minimum negative particle surface concentration [mol.m-3]' not found. Best matches are ['Maximum negative particle surface concentration [mol.m-3]', 'Minimum negative particle concentration [mol.m-3]', 'Negative particle surface concentration [mol.m-3]']\""
+        },
+        "Maximum negative particle surface concentration [mol.m-3]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 8997.501532477188,
+          "maximum": 8997.501532477188,
+          "start": 8997.501532477188,
+          "end": 8997.501532477188
+        },
+        "Negative electrolyte concentration [mol.m-3]": {
+          "available": true,
+          "finite": true,
+          "shape": [
+            20
+          ],
+          "minimum": 3.5603607403659405e-07,
+          "maximum": 521.4418409649468,
+          "start": 3.5603607403659405e-07,
+          "end": 521.4418409649468
+        },
+        "Separator electrolyte concentration [mol.m-3]": {
+          "available": true,
+          "finite": true,
+          "shape": [
+            20
+          ],
+          "minimum": 1033.2278913146724,
+          "maximum": 1034.9719599200198,
+          "start": 1033.2278913146724,
+          "end": 1034.9719599200198
+        },
+        "Positive electrolyte concentration [mol.m-3]": {
+          "available": true,
+          "finite": true,
+          "shape": [
+            20
+          ],
+          "minimum": 1035.7392508293942,
+          "maximum": 1058.9536404676526,
+          "start": 1035.7392508293942,
+          "end": 1058.9536404676526
+        },
+        "X-averaged negative electrode lithium plating reaction overpotential [V]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 0.06812674851561114,
+          "maximum": 0.06812674851561114,
+          "start": 0.06812674851561114,
+          "end": 0.06812674851561114
+        },
+        "X-averaged negative electrode lithium plating interfacial current density [A.m-2]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": -0.22295147954595448,
+          "maximum": -0.22295147954595448,
+          "start": -0.22295147954595448,
+          "end": -0.22295147954595448
+        },
+        "X-averaged negative electrode interfacial current density [A.m-2]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 0.16070673121901152,
+          "maximum": 0.16070673121901152,
+          "start": 0.16070673121901152,
+          "end": 0.16070673121901152
+        },
+        "X-averaged negative electrode SEI interfacial current density [A.m-2]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": -4.530708584725224e-05,
+          "maximum": -4.530708584725224e-05,
+          "start": -4.530708584725224e-05,
+          "end": -4.530708584725224e-05
+        },
+        "Volume-averaged negative lithium plating concentration [mol.m-3]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 1973.7229706618505,
+          "maximum": 1973.7229706618505,
+          "start": 1973.7229706618505,
+          "end": 1973.7229706618505
+        },
+        "Loss of capacity to negative lithium plating [A.h]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 0.4452059099766432,
+          "maximum": 0.4452059099766432,
+          "start": 0.4452059099766432,
+          "end": 0.4452059099766432
+        },
+        "Volume-averaged negative SEI thickness [m]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 3.084974688908929e-08,
+          "maximum": 3.084974688908929e-08,
+          "start": 3.084974688908929e-08,
+          "end": 3.084974688908929e-08
+        }
+      },
+      "cv_cutoff_a": 0.2
+    },
+    {
+      "status": "COMPLETED",
+      "profile": {
+        "name": "certified_charge_retry",
+        "rtol": 1e-05,
+        "atol": 1e-07,
+        "dt_init_s": 1e-08,
+        "max_step_s": 1.0,
+        "max_num_steps": 200000,
+        "max_error_test_failures": 100,
+        "max_order_bdf": 2,
+        "suppress_algebraic_error": true
+      },
+      "requested_cv_duration_s": null,
+      "wall_clock_s": 3.0570810998324305,
+      "step_count": 2,
+      "step_durations_s": [
+        13.882586257134928,
+        498.9049874838347
+      ],
+      "step_terminations": [
+        "event: Voltage > 4.0 [V] [experiment]",
+        "event: abs(Current [A]) < 0.2 [A] [experiment]"
+      ],
+      "step_point_counts": [
+        124,
+        1479
+      ],
+      "cv_terminal_variables": {
+        "Current [A]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": -0.19999999999999934,
+          "maximum": -0.19999999999999934,
+          "start": -0.19999999999999934,
+          "end": -0.19999999999999934
+        },
+        "Terminal voltage [V]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 4.006566546764707,
+          "maximum": 4.006566546764707,
+          "start": 4.006566546764707,
+          "end": 4.006566546764707
+        },
+        "X-averaged cell temperature [K]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 314.23346147143496,
+          "maximum": 314.23346147143496,
+          "start": 314.23346147143496,
+          "end": 314.23346147143496
+        },
+        "X-averaged negative electrode porosity": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 0.1919046284852742,
+          "maximum": 0.1919046284852742,
+          "start": 0.1919046284852742,
+          "end": 0.1919046284852742
+        },
+        "Minimum negative particle surface concentration [mol.m-3]": {
+          "available": false,
+          "error": "KeyError: \"'Minimum negative particle surface concentration [mol.m-3]' not found. Best matches are ['Maximum negative particle surface concentration [mol.m-3]', 'Minimum negative particle concentration [mol.m-3]', 'Negative particle surface concentration [mol.m-3]']\""
+        },
+        "Maximum negative particle surface concentration [mol.m-3]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 8953.454232002998,
+          "maximum": 8953.454232002998,
+          "start": 8953.454232002998,
+          "end": 8953.454232002998
+        },
+        "Negative electrolyte concentration [mol.m-3]": {
+          "available": true,
+          "finite": true,
+          "shape": [
+            20
+          ],
+          "minimum": 1.461184598028944e-07,
+          "maximum": 522.9253493406951,
+          "start": 1.461184598028944e-07,
+          "end": 522.9253493406951
+        },
+        "Separator electrolyte concentration [mol.m-3]": {
+          "available": true,
+          "finite": true,
+          "shape": [
+            20
+          ],
+          "minimum": 1033.137539830764,
+          "maximum": 1034.8739069449189,
+          "start": 1033.137539830764,
+          "end": 1034.8739069449189
+        },
+        "Positive electrolyte concentration [mol.m-3]": {
+          "available": true,
+          "finite": true,
+          "shape": [
+            20
+          ],
+          "minimum": 1035.6436333139764,
+          "maximum": 1059.0967446054644,
+          "start": 1035.6436333139764,
+          "end": 1059.0967446054644
+        },
+        "X-averaged negative electrode lithium plating reaction overpotential [V]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 0.06687755715341497,
+          "maximum": 0.06687755715341497,
+          "start": 0.06687755715341497,
+          "end": 0.06687755715341497
+        },
+        "X-averaged negative electrode lithium plating interfacial current density [A.m-2]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": -0.26797696300068874,
+          "maximum": -0.26797696300068874,
+          "start": -0.26797696300068874,
+          "end": -0.26797696300068874
+        },
+        "X-averaged negative electrode interfacial current density [A.m-2]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 0.20573207659394788,
+          "maximum": 0.20573207659394788,
+          "start": 0.20573207659394788,
+          "end": 0.20573207659394788
+        },
+        "X-averaged negative electrode SEI interfacial current density [A.m-2]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": -4.516900666502898e-05,
+          "maximum": -4.516900666502898e-05,
+          "start": -4.516900666502898e-05,
+          "end": -4.516900666502898e-05
+        },
+        "Volume-averaged negative lithium plating concentration [mol.m-3]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 1981.223505587013,
+          "maximum": 1981.223505587013,
+          "start": 1981.223505587013,
+          "end": 1981.223505587013
+        },
+        "Loss of capacity to negative lithium plating [A.h]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 0.44688781542581446,
+          "maximum": 0.44688781542581446,
+          "start": 0.44688781542581446,
+          "end": 0.44688781542581446
+        },
+        "Volume-averaged negative SEI thickness [m]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 3.0849521582060214e-08,
+          "maximum": 3.0849521582060214e-08,
+          "start": 3.0849521582060214e-08,
+          "end": 3.0849521582060214e-08
+        }
+      },
+      "cv_cutoff_a": 0.2
+    },
+    {
+      "status": "COMPLETED",
+      "profile": {
+        "name": "certified_charge",
+        "rtol": 1e-05,
+        "atol": 1e-07,
+        "dt_init_s": 1e-08,
+        "max_step_s": 1.0,
+        "max_num_steps": 200000,
+        "max_error_test_failures": 30,
+        "max_order_bdf": 3,
+        "suppress_algebraic_error": true
+      },
+      "requested_cv_duration_s": null,
+      "wall_clock_s": 2.0942536999937147,
+      "step_count": 2,
+      "step_durations_s": [
+        13.882800404082849,
+        504.5314752992943
+      ],
+      "step_terminations": [
+        "event: Voltage > 4.0 [V] [experiment]",
+        "event: abs(Current [A]) < 0.15 [A] [experiment]"
+      ],
+      "step_point_counts": [
+        98,
+        889
+      ],
+      "cv_terminal_variables": {
+        "Current [A]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": -0.14999999999978078,
+          "maximum": -0.14999999999978078,
+          "start": -0.14999999999978078,
+          "end": -0.14999999999978078
+        },
+        "Terminal voltage [V]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 4.000552690966981,
+          "maximum": 4.000552690966981,
+          "start": 4.000552690966981,
+          "end": 4.000552690966981
+        },
+        "X-averaged cell temperature [K]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 314.27406630411093,
+          "maximum": 314.27406630411093,
+          "start": 314.27406630411093,
+          "end": 314.27406630411093
+        },
+        "X-averaged negative electrode porosity": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 0.19199109676481438,
+          "maximum": 0.19199109676481438,
+          "start": 0.19199109676481438,
+          "end": 0.19199109676481438
+        },
+        "Minimum negative particle surface concentration [mol.m-3]": {
+          "available": false,
+          "error": "KeyError: \"'Minimum negative particle surface concentration [mol.m-3]' not found. Best matches are ['Maximum negative particle surface concentration [mol.m-3]', 'Minimum negative particle concentration [mol.m-3]', 'Negative particle surface concentration [mol.m-3]']\""
+        },
+        "Maximum negative particle surface concentration [mol.m-3]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 8995.430718844329,
+          "maximum": 8995.430718844329,
+          "start": 8995.430718844329,
+          "end": 8995.430718844329
+        },
+        "Negative electrolyte concentration [mol.m-3]": {
+          "available": true,
+          "finite": true,
+          "shape": [
+            20
+          ],
+          "minimum": 4.187883149111453e-06,
+          "maximum": 542.0868119454718,
+          "start": 4.187883149111453e-06,
+          "end": 542.0868119454718
+        },
+        "Separator electrolyte concentration [mol.m-3]": {
+          "available": true,
+          "finite": true,
+          "shape": [
+            20
+          ],
+          "minimum": 1035.912559862321,
+          "maximum": 1037.1501722431874,
+          "start": 1035.912559862321,
+          "end": 1037.1501722431874
+        },
+        "Positive electrolyte concentration [mol.m-3]": {
+          "available": true,
+          "finite": true,
+          "shape": [
+            20
+          ],
+          "minimum": 1037.7508072194044,
+          "maximum": 1057.6692640282927,
+          "start": 1037.7508072194044,
+          "end": 1057.6692640282927
+        },
+        "X-averaged negative electrode lithium plating reaction overpotential [V]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 0.07788245780427898,
+          "maximum": 0.07788245780427898,
+          "start": 0.07788245780427898,
+          "end": 0.07788245780427898
+        },
+        "X-averaged negative electrode lithium plating interfacial current density [A.m-2]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": -0.16367037599135725,
+          "maximum": -0.16367037599135725,
+          "start": -0.16367037599135725,
+          "end": -0.16367037599135725
+        },
+        "X-averaged negative electrode interfacial current density [A.m-2]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 0.11699808798389436,
+          "maximum": 0.11699808798389436,
+          "start": 0.11699808798389436,
+          "end": 0.11699808798389436
+        },
+        "X-averaged negative electrode SEI interfacial current density [A.m-2]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": -4.525355206180429e-05,
+          "maximum": -4.525355206180429e-05,
+          "start": -4.525355206180429e-05,
+          "end": -4.525355206180429e-05
+        },
+        "Volume-averaged negative lithium plating concentration [mol.m-3]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 1974.5418832817913,
+          "maximum": 1974.5418832817913,
+          "start": 1974.5418832817913,
+          "end": 1974.5418832817913
+        },
+        "Loss of capacity to negative lithium plating [A.h]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 0.44538965721699947,
+          "maximum": 0.44538965721699947,
+          "start": 0.44538965721699947,
+          "end": 0.44538965721699947
+        },
+        "Volume-averaged negative SEI thickness [m]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 3.0849804261251515e-08,
+          "maximum": 3.0849804261251515e-08,
+          "start": 3.0849804261251515e-08,
+          "end": 3.0849804261251515e-08
+        }
+      },
+      "cv_cutoff_a": 0.15
+    },
+    {
+      "status": "COMPLETED",
+      "profile": {
+        "name": "certified_charge_retry",
+        "rtol": 1e-05,
+        "atol": 1e-07,
+        "dt_init_s": 1e-08,
+        "max_step_s": 1.0,
+        "max_num_steps": 200000,
+        "max_error_test_failures": 100,
+        "max_order_bdf": 2,
+        "suppress_algebraic_error": true
+      },
+      "requested_cv_duration_s": null,
+      "wall_clock_s": 3.118462100159377,
+      "step_count": 2,
+      "step_durations_s": [
+        13.882586257134928,
+        500.15796576871185
+      ],
+      "step_terminations": [
+        "event: Voltage > 4.0 [V] [experiment]",
+        "event: abs(Current [A]) < 0.15 [A] [experiment]"
+      ],
+      "step_point_counts": [
+        124,
+        1481
+      ],
+      "cv_terminal_variables": {
+        "Current [A]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": -0.14999999999994437,
+          "maximum": -0.14999999999994437,
+          "start": -0.14999999999994437,
+          "end": -0.14999999999994437
+        },
+        "Terminal voltage [V]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 4.00235469510954,
+          "maximum": 4.00235469510954,
+          "start": 4.00235469510954,
+          "end": 4.00235469510954
+        },
+        "X-averaged cell temperature [K]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 314.20843327556895,
+          "maximum": 314.20843327556895,
+          "start": 314.20843327556895,
+          "end": 314.20843327556895
+        },
+        "X-averaged negative electrode porosity": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 0.1918926040008171,
+          "maximum": 0.1918926040008171,
+          "start": 0.1918926040008171,
+          "end": 0.1918926040008171
+        },
+        "Minimum negative particle surface concentration [mol.m-3]": {
+          "available": false,
+          "error": "KeyError: \"'Minimum negative particle surface concentration [mol.m-3]' not found. Best matches are ['Maximum negative particle surface concentration [mol.m-3]', 'Minimum negative particle concentration [mol.m-3]', 'Negative particle surface concentration [mol.m-3]']\""
+        },
+        "Maximum negative particle surface concentration [mol.m-3]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 8950.77745492186,
+          "maximum": 8950.77745492186,
+          "start": 8950.77745492186,
+          "end": 8950.77745492186
+        },
+        "Negative electrolyte concentration [mol.m-3]": {
+          "available": true,
+          "finite": true,
+          "shape": [
+            20
+          ],
+          "minimum": 1.9873893925470845e-06,
+          "maximum": 545.4426452538083,
+          "start": 1.9873893925470845e-06,
+          "end": 545.4426452538083
+        },
+        "Separator electrolyte concentration [mol.m-3]": {
+          "available": true,
+          "finite": true,
+          "shape": [
+            20
+          ],
+          "minimum": 1035.8427429063709,
+          "maximum": 1037.0629344275617,
+          "start": 1035.8427429063709,
+          "end": 1037.0629344275617
+        },
+        "Positive electrolyte concentration [mol.m-3]": {
+          "available": true,
+          "finite": true,
+          "shape": [
+            20
+          ],
+          "minimum": 1037.6639203227935,
+          "maximum": 1057.8114617478902,
+          "start": 1037.6639203227935,
+          "end": 1057.8114617478902
+        },
+        "X-averaged negative electrode lithium plating reaction overpotential [V]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 0.0770072268091497,
+          "maximum": 0.0770072268091497,
+          "start": 0.0770072268091497,
+          "end": 0.0770072268091497
+        },
+        "X-averaged negative electrode lithium plating interfacial current density [A.m-2]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": -0.2036615963476145,
+          "maximum": -0.2036615963476145,
+          "start": -0.2036615963476145,
+          "end": -0.2036615963476145
+        },
+        "X-averaged negative electrode interfacial current density [A.m-2]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 0.15698917141254773,
+          "maximum": 0.15698917141254773,
+          "start": 0.15698917141254773,
+          "end": 0.15698917141254773
+        },
+        "X-averaged negative electrode SEI interfacial current density [A.m-2]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": -4.511662497047655e-05,
+          "maximum": -4.511662497047655e-05,
+          "start": -4.511662497047655e-05,
+          "end": -4.511662497047655e-05
+        },
+        "Volume-averaged negative lithium plating concentration [mol.m-3]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 1982.1437940041478,
+          "maximum": 1982.1437940041478,
+          "start": 1982.1437940041478,
+          "end": 1982.1437940041478
+        },
+        "Loss of capacity to negative lithium plating [A.h]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 0.4470942967246936,
+          "maximum": 0.4470942967246936,
+          "start": 0.4470942967246936,
+          "end": 0.4470942967246936
+        },
+        "Volume-averaged negative SEI thickness [m]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 3.084957777254011e-08,
+          "maximum": 3.084957777254011e-08,
+          "start": 3.084957777254011e-08,
+          "end": 3.084957777254011e-08
+        }
+      },
+      "cv_cutoff_a": 0.15
+    },
+    {
+      "status": "COMPLETED",
+      "profile": {
+        "name": "certified_charge",
+        "rtol": 1e-05,
+        "atol": 1e-07,
+        "dt_init_s": 1e-08,
+        "max_step_s": 1.0,
+        "max_num_steps": 200000,
+        "max_error_test_failures": 30,
+        "max_order_bdf": 3,
+        "suppress_algebraic_error": true
+      },
+      "requested_cv_duration_s": null,
+      "wall_clock_s": 2.0836459000129253,
+      "step_count": 2,
+      "step_durations_s": [
+        13.882800404082849,
+        505.3466172514123
+      ],
+      "step_terminations": [
+        "event: Voltage > 4.0 [V] [experiment]",
+        "event: abs(Current [A]) < 0.12 [A] [experiment]"
+      ],
+      "step_point_counts": [
+        98,
+        891
+      ],
+      "cv_terminal_variables": {
+        "Current [A]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": -0.11999999999997998,
+          "maximum": -0.11999999999997998,
+          "start": -0.11999999999997998,
+          "end": -0.11999999999997998
+        },
+        "Terminal voltage [V]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 4.000865814311037,
+          "maximum": 4.000865814311037,
+          "start": 4.000865814311037,
+          "end": 4.000865814311037
+        },
+        "X-averaged cell temperature [K]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 314.2575808318186,
+          "maximum": 314.2575808318186,
+          "start": 314.2575808318186,
+          "end": 314.2575808318186
+        },
+        "X-averaged negative electrode porosity": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 0.19198326579847072,
+          "maximum": 0.19198326579847072,
+          "start": 0.19198326579847072,
+          "end": 0.19198326579847072
+        },
+        "Minimum negative particle surface concentration [mol.m-3]": {
+          "available": false,
+          "error": "KeyError: \"'Minimum negative particle surface concentration [mol.m-3]' not found. Best matches are ['Maximum negative particle surface concentration [mol.m-3]', 'Minimum negative particle concentration [mol.m-3]', 'Negative particle surface concentration [mol.m-3]']\""
+        },
+        "Maximum negative particle surface concentration [mol.m-3]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 8992.73231679287,
+          "maximum": 8992.73231679287,
+          "start": 8992.73231679287,
+          "end": 8992.73231679287
+        },
+        "Negative electrolyte concentration [mol.m-3]": {
+          "available": true,
+          "finite": true,
+          "shape": [
+            20
+          ],
+          "minimum": 1.654056124592511e-05,
+          "maximum": 614.7555317823162,
+          "start": 1.654056124592511e-05,
+          "end": 614.7555317823162
+        },
+        "Separator electrolyte concentration [mol.m-3]": {
+          "available": true,
+          "finite": true,
+          "shape": [
+            20
+          ],
+          "minimum": 1037.5542631293886,
+          "maximum": 1038.4806721093566,
+          "start": 1037.5542631293886,
+          "end": 1038.4806721093566
+        },
+        "Positive electrolyte concentration [mol.m-3]": {
+          "available": true,
+          "finite": true,
+          "shape": [
+            20
+          ],
+          "minimum": 1038.9802241625089,
+          "maximum": 1056.8679565998928,
+          "start": 1038.9802241625089,
+          "end": 1056.8679565998928
+        },
+        "X-averaged negative electrode lithium plating reaction overpotential [V]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 0.08355567717059335,
+          "maximum": 0.08355567717059335,
+          "start": 0.08355567717059335,
+          "end": 0.08355567717059335
+        },
+        "X-averaged negative electrode lithium plating interfacial current density [A.m-2]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": -0.25473157928665585,
+          "maximum": -0.25473157928665585,
+          "start": -0.25473157928665585,
+          "end": -0.25473157928665585
+        },
+        "X-averaged negative electrode interfacial current density [A.m-2]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 0.2174027650274703,
+          "maximum": 0.2174027650274703,
+          "start": 0.2174027650274703,
+          "end": 0.2174027650274703
+        },
+        "X-averaged negative electrode SEI interfacial current density [A.m-2]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": -4.5218988482597336e-05,
+          "maximum": -4.5218988482597336e-05,
+          "start": -4.5218988482597336e-05,
+          "end": -4.5218988482597336e-05
+        },
+        "Volume-averaged negative lithium plating concentration [mol.m-3]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 1975.141220686157,
+          "maximum": 1975.141220686157,
+          "start": 1975.141220686157,
+          "end": 1975.141220686157
+        },
+        "Loss of capacity to negative lithium plating [A.h]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 0.4455241278008671,
+          "maximum": 0.4455241278008671,
+          "start": 0.4455241278008671,
+          "end": 0.4455241278008671
+        },
+        "Volume-averaged negative SEI thickness [m]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 3.084984089244452e-08,
+          "maximum": 3.084984089244452e-08,
+          "start": 3.084984089244452e-08,
+          "end": 3.084984089244452e-08
+        }
+      },
+      "cv_cutoff_a": 0.12
+    },
+    {
+      "status": "COMPLETED",
+      "profile": {
+        "name": "certified_charge_retry",
+        "rtol": 1e-05,
+        "atol": 1e-07,
+        "dt_init_s": 1e-08,
+        "max_step_s": 1.0,
+        "max_num_steps": 200000,
+        "max_error_test_failures": 100,
+        "max_order_bdf": 2,
+        "suppress_algebraic_error": true
+      },
+      "requested_cv_duration_s": null,
+      "wall_clock_s": 3.0823844999540597,
+      "step_count": 2,
+      "step_durations_s": [
+        13.882586257134928,
+        500.95320772336845
+      ],
+      "step_terminations": [
+        "event: Voltage > 4.0 [V] [experiment]",
+        "event: abs(Current [A]) < 0.12 [A] [experiment]"
+      ],
+      "step_point_counts": [
+        124,
+        1484
+      ],
+      "cv_terminal_variables": {
+        "Current [A]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": -0.11999999999998898,
+          "maximum": -0.11999999999998898,
+          "start": -0.11999999999998898,
+          "end": -0.11999999999998898
+        },
+        "Terminal voltage [V]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 3.999430112921662,
+          "maximum": 3.999430112921662,
+          "start": 3.999430112921662,
+          "end": 3.999430112921662
+        },
+        "X-averaged cell temperature [K]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 314.1924207891416,
+          "maximum": 314.1924207891416,
+          "start": 314.1924207891416,
+          "end": 314.1924207891416
+        },
+        "X-averaged negative electrode porosity": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 0.1918838485520086,
+          "maximum": 0.1918838485520086,
+          "start": 0.1918838485520086,
+          "end": 0.1918838485520086
+        },
+        "Minimum negative particle surface concentration [mol.m-3]": {
+          "available": false,
+          "error": "KeyError: \"'Minimum negative particle surface concentration [mol.m-3]' not found. Best matches are ['Maximum negative particle surface concentration [mol.m-3]', 'Minimum negative particle concentration [mol.m-3]', 'Negative particle surface concentration [mol.m-3]']\""
+        },
+        "Maximum negative particle surface concentration [mol.m-3]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 8947.608975161771,
+          "maximum": 8947.608975161771,
+          "start": 8947.608975161771,
+          "end": 8947.608975161771
+        },
+        "Negative electrolyte concentration [mol.m-3]": {
+          "available": true,
+          "finite": true,
+          "shape": [
+            20
+          ],
+          "minimum": 1.5715864870513095e-05,
+          "maximum": 643.4453103786227,
+          "start": 1.5715864870513095e-05,
+          "end": 643.4453103786227
+        },
+        "Separator electrolyte concentration [mol.m-3]": {
+          "available": true,
+          "finite": true,
+          "shape": [
+            20
+          ],
+          "minimum": 1037.4789544838561,
+          "maximum": 1038.3915714032696,
+          "start": 1037.4789544838561,
+          "end": 1038.3915714032696
+        },
+        "Positive electrolyte concentration [mol.m-3]": {
+          "available": true,
+          "finite": true,
+          "shape": [
+            20
+          ],
+          "minimum": 1038.8920082446637,
+          "maximum": 1057.0143069827056,
+          "start": 1038.8920082446637,
+          "end": 1057.0143069827056
+        },
+        "X-averaged negative electrode lithium plating reaction overpotential [V]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 0.08453614527346658,
+          "maximum": 0.08453614527346658,
+          "start": 0.08453614527346658,
+          "end": 0.08453614527346658
+        },
+        "X-averaged negative electrode lithium plating interfacial current density [A.m-2]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": -0.29051560161723805,
+          "maximum": -0.29051560161723805,
+          "start": -0.29051560161723805,
+          "end": -0.29051560161723805
+        },
+        "X-averaged negative electrode interfacial current density [A.m-2]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 0.25318665150949,
+          "maximum": 0.25318665150949,
+          "start": 0.25318665150949,
+          "end": 0.25318665150949
+        },
+        "X-averaged negative electrode SEI interfacial current density [A.m-2]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": -4.508314029215538e-05,
+          "maximum": -4.508314029215538e-05,
+          "start": -4.508314029215538e-05,
+          "end": -4.508314029215538e-05
+        },
+        "Volume-averaged negative lithium plating concentration [mol.m-3]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 1982.8143838139194,
+          "maximum": 1982.8143838139194,
+          "start": 1982.8143838139194,
+          "end": 1982.8143838139194
+        },
+        "Loss of capacity to negative lithium plating [A.h]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 0.44724474572017797,
+          "maximum": 0.44724474572017797,
+          "start": 0.44724474572017797,
+          "end": 0.44724474572017797
+        },
+        "Volume-averaged negative SEI thickness [m]": {
+          "available": true,
+          "finite": true,
+          "shape": [],
+          "minimum": 3.0849613401696436e-08,
+          "maximum": 3.0849613401696436e-08,
+          "start": 3.0849613401696436e-08,
+          "end": 3.0849613401696436e-08
+        }
+      },
+      "cv_cutoff_a": 0.12
+    },
+    {
+      "status": "PARTIAL_FAILURE",
+      "profile": {
+        "name": "certified_charge",
+        "rtol": 1e-05,
+        "atol": 1e-07,
+        "dt_init_s": 1e-08,
+        "max_step_s": 1.0,
+        "max_num_steps": 200000,
+        "max_error_test_failures": 30,
+        "max_order_bdf": 3,
+        "suppress_algebraic_error": true
+      },
+      "requested_cv_duration_s": null,
+      "wall_clock_s": 2.0232893000356853,
+      "step_count": 1,
+      "step_durations_s": [
+        13.882800404082849
+      ],
+      "step_terminations": [
+        "event: Voltage > 4.0 [V] [experiment]"
+      ],
+      "step_point_counts": [
+        98
+      ],
+      "cv_cutoff_a": 0.1
+    },
+    {
+      "status": "PARTIAL_FAILURE",
+      "profile": {
+        "name": "certified_charge_retry",
+        "rtol": 1e-05,
+        "atol": 1e-07,
+        "dt_init_s": 1e-08,
+        "max_step_s": 1.0,
+        "max_num_steps": 200000,
+        "max_error_test_failures": 100,
+        "max_order_bdf": 2,
+        "suppress_algebraic_error": true
+      },
+      "requested_cv_duration_s": null,
+      "wall_clock_s": 3.432968500070274,
+      "step_count": 1,
+      "step_durations_s": [
+        13.882586257134928
+      ],
+      "step_terminations": [
+        "event: Voltage > 4.0 [V] [experiment]"
+      ],
+      "step_point_counts": [
+        124
+      ],
+      "cv_cutoff_a": 0.1
+    }
+  ],
+  "algebraic_error_control_interventions": [
+    {
+      "status": "PARTIAL_FAILURE",
+      "profile": {
+        "name": "diagnostic_bdf3_include_algebraic_error",
+        "rtol": 1e-05,
+        "atol": 1e-07,
+        "dt_init_s": 1e-08,
+        "max_step_s": 1.0,
+        "max_num_steps": 200000,
+        "max_error_test_failures": 30,
+        "max_order_bdf": 3,
+        "suppress_algebraic_error": false
+      },
+      "requested_cv_duration_s": null,
+      "wall_clock_s": 1.4200095001142472,
+      "step_count": 1,
+      "step_durations_s": [
+        13.882800404082849
+      ],
+      "step_terminations": [
+        "event: Voltage > 4.0 [V] [experiment]"
+      ],
+      "step_point_counts": [
+        98
+      ]
+    },
+    {
+      "status": "PARTIAL_FAILURE",
+      "profile": {
+        "name": "diagnostic_bdf2_include_algebraic_error",
+        "rtol": 1e-05,
+        "atol": 1e-07,
+        "dt_init_s": 1e-08,
+        "max_step_s": 1.0,
+        "max_num_steps": 200000,
+        "max_error_test_failures": 100,
+        "max_order_bdf": 2,
+        "suppress_algebraic_error": false
+      },
+      "requested_cv_duration_s": null,
+      "wall_clock_s": 1.4168494001496583,
+      "step_count": 1,
+      "step_durations_s": [
+        13.882586257134928
+      ],
+      "step_terminations": [
+        "event: Voltage > 4.0 [V] [experiment]"
+      ],
+      "step_point_counts": [
+        124
+      ]
+    }
+  ]
+}

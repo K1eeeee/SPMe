@@ -1,0 +1,73 @@
+{
+  "anchor_nodes": [
+    0
+  ],
+  "calibration_nodes": [
+    25,
+    75,
+    122,
+    146,
+    148,
+    151,
+    159,
+    188
+  ],
+  "calibration_capacities_ah": {
+    "0": 4.865884391243259,
+    "25": 4.833606268780099,
+    "75": 4.7646875130550725,
+    "122": 4.701306329021851,
+    "146": 4.645463840266069,
+    "148": 4.6345717183500525,
+    "151": 4.591890117459827,
+    "159": 4.553861576128337,
+    "188": 4.544085416901443
+  },
+  "input_inventory": [
+    {
+      "cycle": 0,
+      "path": "W10_capacity_diagnostic_01.csv",
+      "sha256": "d49c856df7bc8bf8bb03ea2b1e5cf7b42860c37c57d49fe1143855f451a70632"
+    },
+    {
+      "cycle": 25,
+      "path": "W10_capacity_diagnostic_02.csv",
+      "sha256": "dbfe40239d8d5c20b9fc0123196b21f1308009ac71007fd089da10e02b0795cf"
+    },
+    {
+      "cycle": 75,
+      "path": "W10_capacity_diagnostic_03.csv",
+      "sha256": "2fba49bbb6a2c07080095ab8969917b01602db333e21863a6f666a379e7af5d8"
+    },
+    {
+      "cycle": 122,
+      "path": "W10_capacity_diagnostic_04.csv",
+      "sha256": "d96fb65d632581d9459156d91bdaa6b981b4050556c7b9701b87025088eb1b8a"
+    },
+    {
+      "cycle": 146,
+      "path": "W10_capacity_diagnostic_05.csv",
+      "sha256": "2858ff2522f45f55ca460be13165010d48456a0a6f169219ee57784ed75786c3"
+    },
+    {
+      "cycle": 148,
+      "path": "W10_capacity_diagnostic_06.csv",
+      "sha256": "b0a799d168de51242944745279f84937493e33de9740e254a0b9cac943e16705"
+    },
+    {
+      "cycle": 151,
+      "path": "W10_capacity_diagnostic_07.csv",
+      "sha256": "3e5f8099d68dea82af4118212258b5be51a6363bf392cd03cc5d5e0db0efa866"
+    },
+    {
+      "cycle": 159,
+      "path": "W10_capacity_diagnostic_08.csv",
+      "sha256": "0851e986f4fdb2c9150a11af4048ed1bb4f4cf2bee34ca6b094dc06f2847ef85"
+    },
+    {
+      "cycle": 188,
+      "path": "W10_capacity_diagnostic_09.csv",
+      "sha256": "fbb78aa36beefbb329039128cc0a49de4c85cbeb2e3fdde3a6dd2e91719c4ceb"
+    }
+  ]
+}

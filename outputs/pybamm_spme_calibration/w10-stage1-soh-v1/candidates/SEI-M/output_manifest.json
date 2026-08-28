@@ -1,0 +1,509 @@
+{
+  "commit": {
+    "transaction": 78,
+    "append_files": {
+      "cycle_summary.csv": {
+        "relative_path": "cycle_summary.csv",
+        "byte_offset": 98287,
+        "data_rows": 75,
+        "prefix_sha256": "cc42569c983f514d59f3125ca4fd2effc8a75e7980fc5449832317615fbfe436"
+      },
+      "rpt_summary.csv": {
+        "relative_path": "rpt_summary.csv",
+        "byte_offset": 1597,
+        "data_rows": 3,
+        "prefix_sha256": "536fbb3596108a15b52cd2b28d011370da208092622da41b944798acd2fe9b9f"
+      },
+      "degradation_summary.csv": {
+        "relative_path": "degradation_summary.csv",
+        "byte_offset": 34335,
+        "data_rows": 75,
+        "prefix_sha256": "04a1043abab3f3401300bef48cb83d45ca69d2973227ad1f17f348f4885698d0"
+      },
+      "charge_efficiency_summary.csv": {
+        "relative_path": "charge_efficiency_summary.csv",
+        "byte_offset": 84200,
+        "data_rows": 75,
+        "prefix_sha256": "cbb5c9627f99c2e8d7758f2a12ae1723af0c27e81e07565c1f2f4ed81ee2d7db"
+      },
+      "charge_efficiency_soc_bins.csv": {
+        "relative_path": "charge_efficiency_soc_bins.csv",
+        "byte_offset": 231180,
+        "data_rows": 300,
+        "prefix_sha256": "19af36dffe65d0f9c98fe2db676c92d4f7d57f5b35c34ee0883e7defd28b24a9"
+      },
+      "udds_cycle_validation.jsonl": {
+        "relative_path": "udds_cycle_validation.jsonl",
+        "byte_offset": 31324,
+        "data_rows": 75,
+        "prefix_sha256": "c48f7c0bd5554626d87c8633bd331bf2360bcaa006801acf418696f5d0b6c76b"
+      },
+      "solver_attempts.jsonl": {
+        "relative_path": "solver_attempts.jsonl",
+        "byte_offset": 15957,
+        "data_rows": 75,
+        "prefix_sha256": "0fcbc36dd37ce09c45cb70ac65f741d6ab43cb2b1c9fc5a9ebd0c91c36218249"
+      },
+      "run.log": {
+        "relative_path": "run.log",
+        "byte_offset": 2935,
+        "data_rows": 77,
+        "prefix_sha256": "61b658149659be430e241edb1e100ee879ac3d279cda49f5b2e7100a6d60cb62"
+      }
+    },
+    "artifacts": {
+      "candidate_parameters.json": {
+        "relative_path": "candidate_parameters.json",
+        "size": 932,
+        "sha256": "c6204f7ef69e55c501a3d654af034a94965e3b71d846ca00772133b689ef6990"
+      },
+      "charge_efficiency_variable_inventory.json": {
+        "relative_path": "charge_efficiency_variable_inventory.json",
+        "size": 14769,
+        "sha256": "e7d82d21f6fe7463908f975275468aa5c1fc5de8f7b1ec04ffea5b5cd990d7b5"
+      },
+      "charge_timeseries/cycle-001.csv": {
+        "relative_path": "charge_timeseries/cycle-001.csv",
+        "size": 1756460,
+        "sha256": "abcc617028bcadd575c95b7880e732adfcd0cfdaeb95b8bbb5078487e3166a2f"
+      },
+      "charge_timeseries/cycle-002.csv": {
+        "relative_path": "charge_timeseries/cycle-002.csv",
+        "size": 1721121,
+        "sha256": "bd3ab7d8f89ab33ce4d5b9bf09d69bf654fadf5a25d579e5ad0f2bdd5fb78fb5"
+      },
+      "charge_timeseries/cycle-003.csv": {
+        "relative_path": "charge_timeseries/cycle-003.csv",
+        "size": 1749860,
+        "sha256": "9848fb7dfdc546df1834f91bf588fc5c7f4a0d58fb18f4e769cf79f637b053c4"
+      },
+      "charge_timeseries/cycle-004.csv": {
+        "relative_path": "charge_timeseries/cycle-004.csv",
+        "size": 1719310,
+        "sha256": "fdbb8240e791b251a7e6de39397182c2fb9f149cbb17d3e3b524ac3d8336f4ed"
+      },
+      "charge_timeseries/cycle-005.csv": {
+        "relative_path": "charge_timeseries/cycle-005.csv",
+        "size": 1736451,
+        "sha256": "5a6221166accbeb4f60c17b449615f447adc419873f176a736c6787c64c34ce4"
+      },
+      "charge_timeseries/cycle-006.csv": {
+        "relative_path": "charge_timeseries/cycle-006.csv",
+        "size": 1760243,
+        "sha256": "07f43912e6e28f2de18ecf7470c28884f1f49f55e5ea110aeb0f0f1e3f3eec3f"
+      },
+      "charge_timeseries/cycle-007.csv": {
+        "relative_path": "charge_timeseries/cycle-007.csv",
+        "size": 1745683,
+        "sha256": "e070991c48d516b0d992536ab21761f35f80a5cc2dc19e67b998f35c22febffc"
+      },
+      "charge_timeseries/cycle-008.csv": {
+        "relative_path": "charge_timeseries/cycle-008.csv",
+        "size": 1748254,
+        "sha256": "6398268f554c59d06b0fc6f917bbb9625cc652e4ca8be7aa2a341179c0b581f5"
+      },
+      "charge_timeseries/cycle-009.csv": {
+        "relative_path": "charge_timeseries/cycle-009.csv",
+        "size": 1752676,
+        "sha256": "26bb7d7719dea908dd00b3ed4fad2b128ff933c2a7fda9079a881a9d093143c9"
+      },
+      "charge_timeseries/cycle-010.csv": {
+        "relative_path": "charge_timeseries/cycle-010.csv",
+        "size": 1758531,
+        "sha256": "3bb911df0fdd69f670882446a2e4997fd5caa52f0141a51b73860ccc3588587e"
+      },
+      "charge_timeseries/cycle-011.csv": {
+        "relative_path": "charge_timeseries/cycle-011.csv",
+        "size": 1762283,
+        "sha256": "549a41df894ce667a0aa2499612d88f4840248cf580fb5c14f2b1f7ef5ce4433"
+      },
+      "charge_timeseries/cycle-012.csv": {
+        "relative_path": "charge_timeseries/cycle-012.csv",
+        "size": 1771229,
+        "sha256": "cdad05bc1a2fc67f0477b1467b69147b087fb13b7f742a40927eb5610ebf9fea"
+      },
+      "charge_timeseries/cycle-013.csv": {
+        "relative_path": "charge_timeseries/cycle-013.csv",
+        "size": 1770905,
+        "sha256": "4e0fcc14849740ccb86efe5d31e32fc51063c7f2054d1275544e5f4c5b419530"
+      },
+      "charge_timeseries/cycle-014.csv": {
+        "relative_path": "charge_timeseries/cycle-014.csv",
+        "size": 1774915,
+        "sha256": "028ff439a9e37986e338dc263ad0d5d02289ae9b1fecc77b5929a8c3c1fac299"
+      },
+      "charge_timeseries/cycle-015.csv": {
+        "relative_path": "charge_timeseries/cycle-015.csv",
+        "size": 1781777,
+        "sha256": "0c2269fa6f4bb563f03e2d24cc0bef5b9026cbe3d596a5ae1f04d778e8592a88"
+      },
+      "charge_timeseries/cycle-016.csv": {
+        "relative_path": "charge_timeseries/cycle-016.csv",
+        "size": 1789065,
+        "sha256": "d96288c8033d1f4df5e04d62a1fca2794016897acec4c6485930ba7fbbd259ac"
+      },
+      "charge_timeseries/cycle-017.csv": {
+        "relative_path": "charge_timeseries/cycle-017.csv",
+        "size": 1787985,
+        "sha256": "e666fcbe1d13470bd25a943569e71b373154a31190acef076de7c4d76f24d13a"
+      },
+      "charge_timeseries/cycle-018.csv": {
+        "relative_path": "charge_timeseries/cycle-018.csv",
+        "size": 1781928,
+        "sha256": "61a7233352fba1bb3ec6e7a55456eb7a966d701deea6df7b53f43c22c671f474"
+      },
+      "charge_timeseries/cycle-019.csv": {
+        "relative_path": "charge_timeseries/cycle-019.csv",
+        "size": 1796341,
+        "sha256": "565e2840c1b924aa78069420ca684614c7e1526d38eee4184ffee33c46e939a3"
+      },
+      "charge_timeseries/cycle-020.csv": {
+        "relative_path": "charge_timeseries/cycle-020.csv",
+        "size": 1789245,
+        "sha256": "f6f0b7efbc31d440dad92eda95d4fd050acdb04453ed3a04a6ca0f6c4a8fa034"
+      },
+      "charge_timeseries/cycle-021.csv": {
+        "relative_path": "charge_timeseries/cycle-021.csv",
+        "size": 1792237,
+        "sha256": "0396f22a203c9803b7c51e112ac39918401c2f180e9ff05710b27e700437318f"
+      },
+      "charge_timeseries/cycle-022.csv": {
+        "relative_path": "charge_timeseries/cycle-022.csv",
+        "size": 1804363,
+        "sha256": "ab66ed6c672c4c19529fa0804bcee3a731779d181cb3b7f57a715527976d7a06"
+      },
+      "charge_timeseries/cycle-023.csv": {
+        "relative_path": "charge_timeseries/cycle-023.csv",
+        "size": 1802454,
+        "sha256": "b347f9a09aa2462633cc99919e44c75c87335419694504ac41673e086cce1fd7"
+      },
+      "charge_timeseries/cycle-024.csv": {
+        "relative_path": "charge_timeseries/cycle-024.csv",
+        "size": 1794802,
+        "sha256": "f28d9d9358472a6bae627b66e5ce96ea5ecc0e736eac3e6c4087e5a99e34eaf5"
+      },
+      "charge_timeseries/cycle-025.csv": {
+        "relative_path": "charge_timeseries/cycle-025.csv",
+        "size": 1813082,
+        "sha256": "3d0658636c03c31f480da9b435017fe88bf7ea2daa303ca9e7629ddad29e07d5"
+      },
+      "charge_timeseries/cycle-026.csv": {
+        "relative_path": "charge_timeseries/cycle-026.csv",
+        "size": 1812387,
+        "sha256": "99191c3bb959916be519f54216913474d8e26cc1c1887bcfe0e21878b332aa34"
+      },
+      "charge_timeseries/cycle-027.csv": {
+        "relative_path": "charge_timeseries/cycle-027.csv",
+        "size": 1829062,
+        "sha256": "aa14ea53bb22ed8ab1f80dafd85a4abeac038fa7699ba34734200a8c95436a41"
+      },
+      "charge_timeseries/cycle-028.csv": {
+        "relative_path": "charge_timeseries/cycle-028.csv",
+        "size": 1828516,
+        "sha256": "389912c549cca0aff9e3fe2c4886446a7762cf38bec9486894b696d3f37450e6"
+      },
+      "charge_timeseries/cycle-029.csv": {
+        "relative_path": "charge_timeseries/cycle-029.csv",
+        "size": 1834323,
+        "sha256": "4bfa09f395d4e8d0f197633431b879007f9c194d36840dfb6058d68f275a5d59"
+      },
+      "charge_timeseries/cycle-030.csv": {
+        "relative_path": "charge_timeseries/cycle-030.csv",
+        "size": 1840475,
+        "sha256": "71df76ce824da6edb82ee889982b6b79236f18f17f7c2e66d746b54152fd5bd9"
+      },
+      "charge_timeseries/cycle-031.csv": {
+        "relative_path": "charge_timeseries/cycle-031.csv",
+        "size": 1836755,
+        "sha256": "86ba7bc2898222ff5afd27e9c9138b4714500c3361f47685e0ca4c5212e629a0"
+      },
+      "charge_timeseries/cycle-032.csv": {
+        "relative_path": "charge_timeseries/cycle-032.csv",
+        "size": 1844505,
+        "sha256": "97e2ada836885f2014bae84c5d9f74d621fa7ddb3d2fcdc67525be2e6890e782"
+      },
+      "charge_timeseries/cycle-033.csv": {
+        "relative_path": "charge_timeseries/cycle-033.csv",
+        "size": 1853790,
+        "sha256": "2a9f0e2d108d4ef645c4f906bcdeb98137d2acd3cdafcc67229afe6d760cfbab"
+      },
+      "charge_timeseries/cycle-034.csv": {
+        "relative_path": "charge_timeseries/cycle-034.csv",
+        "size": 1859799,
+        "sha256": "4dda3036aa447283836cd1dafda21f419d5b2ca12bdb5dbccbae6b229b2e6509"
+      },
+      "charge_timeseries/cycle-035.csv": {
+        "relative_path": "charge_timeseries/cycle-035.csv",
+        "size": 1859866,
+        "sha256": "67ee14d1e59cdc4cbc740fcfb7c31e9aca47d30080ed5166599277104e6d609c"
+      },
+      "charge_timeseries/cycle-036.csv": {
+        "relative_path": "charge_timeseries/cycle-036.csv",
+        "size": 1864744,
+        "sha256": "d3e9757f8e030dffbe66abb099dedff43cfd00bc1d8360eaa395434bc8641206"
+      },
+      "charge_timeseries/cycle-037.csv": {
+        "relative_path": "charge_timeseries/cycle-037.csv",
+        "size": 1881154,
+        "sha256": "d11ed1e3025b9293daa9322ba5955c9d22669bc840121a187ebea70b2b52c069"
+      },
+      "charge_timeseries/cycle-038.csv": {
+        "relative_path": "charge_timeseries/cycle-038.csv",
+        "size": 1877984,
+        "sha256": "9a3305b59be04aea9bf520b7cf3b46c91b56455197dfa80089bbec516073258b"
+      },
+      "charge_timeseries/cycle-039.csv": {
+        "relative_path": "charge_timeseries/cycle-039.csv",
+        "size": 1882377,
+        "sha256": "dfa56d3a21824e95f7215a617e106e1039a76249ba756e973b1d02bb5c2a439d"
+      },
+      "charge_timeseries/cycle-040.csv": {
+        "relative_path": "charge_timeseries/cycle-040.csv",
+        "size": 1889570,
+        "sha256": "ed4154633e41fcf2fbd81d22e309eea8a3fd09fce85714b3d1a3d28fba55757d"
+      },
+      "charge_timeseries/cycle-041.csv": {
+        "relative_path": "charge_timeseries/cycle-041.csv",
+        "size": 1973370,
+        "sha256": "06a89f1353a8ac9464d1cfafbb01b83ac9f6e275dc41dd28168ed4c83942858f"
+      },
+      "charge_timeseries/cycle-042.csv": {
+        "relative_path": "charge_timeseries/cycle-042.csv",
+        "size": 1899409,
+        "sha256": "accdd286fd88eda71cd2ac21a251e3c07deca95037beac3fa01c1cd8b15e9c85"
+      },
+      "charge_timeseries/cycle-043.csv": {
+        "relative_path": "charge_timeseries/cycle-043.csv",
+        "size": 1893347,
+        "sha256": "d35c3d3544a58b034578e9e288659646d7a5d3e463a4d276f60cbb3d03262904"
+      },
+      "charge_timeseries/cycle-044.csv": {
+        "relative_path": "charge_timeseries/cycle-044.csv",
+        "size": 1989341,
+        "sha256": "e135ffee0e9b51a379484c6312dcd6c94e4539040b55401f30ef4a17ef572622"
+      },
+      "charge_timeseries/cycle-045.csv": {
+        "relative_path": "charge_timeseries/cycle-045.csv",
+        "size": 1899702,
+        "sha256": "4ebb98fab3d43f2f5b708059bfa86c867b4e3bc385763219ab5e3f231f7b01fd"
+      },
+      "charge_timeseries/cycle-046.csv": {
+        "relative_path": "charge_timeseries/cycle-046.csv",
+        "size": 1914612,
+        "sha256": "d12ed0026308dea6b9c19890c7701d03f528601d8aa835cd06ce96acd78429f1"
+      },
+      "charge_timeseries/cycle-047.csv": {
+        "relative_path": "charge_timeseries/cycle-047.csv",
+        "size": 2462060,
+        "sha256": "f0d13543387d416ad8054f3d25d5fb5319abf0206f0c428dda2e35c119293b2f"
+      },
+      "charge_timeseries/cycle-048.csv": {
+        "relative_path": "charge_timeseries/cycle-048.csv",
+        "size": 1928490,
+        "sha256": "9f40907702ee2e810fea2e82ec4cc1c92a4e7b8507969d302741202ce9cc17f9"
+      },
+      "charge_timeseries/cycle-049.csv": {
+        "relative_path": "charge_timeseries/cycle-049.csv",
+        "size": 1935705,
+        "sha256": "8ba5f035d9158edc5f1058c26f3e7bfa0e7afe989d4b23aa18a280ab01c0d3cb"
+      },
+      "charge_timeseries/cycle-050.csv": {
+        "relative_path": "charge_timeseries/cycle-050.csv",
+        "size": 1935469,
+        "sha256": "7bb6299a5281405ea6f82bac07c261273d9fe31d59fbd6bd264a868011c39c25"
+      },
+      "charge_timeseries/cycle-051.csv": {
+        "relative_path": "charge_timeseries/cycle-051.csv",
+        "size": 1936134,
+        "sha256": "fc2faef1df1b2145596677fb0d7f48df1d0b69d6476538b890acfb1cff1fdc8c"
+      },
+      "charge_timeseries/cycle-052.csv": {
+        "relative_path": "charge_timeseries/cycle-052.csv",
+        "size": 1938668,
+        "sha256": "a009e5fa561047b6a868942478a68811cb01891735f9cd1780619774b8d69369"
+      },
+      "charge_timeseries/cycle-053.csv": {
+        "relative_path": "charge_timeseries/cycle-053.csv",
+        "size": 1937947,
+        "sha256": "c9fd72032782e612d6aefb08623f00125060ed45d178cc0b0226f1aab291bdf1"
+      },
+      "charge_timeseries/cycle-054.csv": {
+        "relative_path": "charge_timeseries/cycle-054.csv",
+        "size": 1952091,
+        "sha256": "bf90d5f87c2deb0a739ae7b13f3a268f6e2df0a813a598fa8cd2e12fff477fbb"
+      },
+      "charge_timeseries/cycle-055.csv": {
+        "relative_path": "charge_timeseries/cycle-055.csv",
+        "size": 1946254,
+        "sha256": "2a9b941ddad07c7546528f3ee1ee046e0748d49bfb9a6312cb502a588431eec4"
+      },
+      "charge_timeseries/cycle-056.csv": {
+        "relative_path": "charge_timeseries/cycle-056.csv",
+        "size": 1955928,
+        "sha256": "e33bf17c082155dd5b540f1017919803116c772cbf9335e050ae164d8f38f98f"
+      },
+      "charge_timeseries/cycle-057.csv": {
+        "relative_path": "charge_timeseries/cycle-057.csv",
+        "size": 1967978,
+        "sha256": "7a8d974aaafab51f71a7be44da05246c5012bd4c97c281361e4b469cd651e188"
+      },
+      "charge_timeseries/cycle-058.csv": {
+        "relative_path": "charge_timeseries/cycle-058.csv",
+        "size": 1968638,
+        "sha256": "8c1ef8f868a27c73d8b68db467b0fcf25712a50d49cd309d50331615cc39a8a8"
+      },
+      "charge_timeseries/cycle-059.csv": {
+        "relative_path": "charge_timeseries/cycle-059.csv",
+        "size": 1964969,
+        "sha256": "fb951a65f0a50f856345ee84ad630da6f0559b1a93eca0427170400130d78ecf"
+      },
+      "charge_timeseries/cycle-060.csv": {
+        "relative_path": "charge_timeseries/cycle-060.csv",
+        "size": 2177927,
+        "sha256": "e43791dcc7120a09222e35c735b88794cda76a706947d0fcf6da57f4b2d712e5"
+      },
+      "charge_timeseries/cycle-061.csv": {
+        "relative_path": "charge_timeseries/cycle-061.csv",
+        "size": 2095189,
+        "sha256": "b097df6a12fa25f2436548193bf8adef6be55f4393635fb1e0b0aa6b0039e94f"
+      },
+      "charge_timeseries/cycle-062.csv": {
+        "relative_path": "charge_timeseries/cycle-062.csv",
+        "size": 2042424,
+        "sha256": "2ac0033c3a786f1e9f6f27a6f2af0a4a2ec642f07c614c1fc40939892ccd1af8"
+      },
+      "charge_timeseries/cycle-063.csv": {
+        "relative_path": "charge_timeseries/cycle-063.csv",
+        "size": 2001684,
+        "sha256": "4f3b545046da3aa2e81539296e0cf1f9d7c0da212bfce10174cb0a01e3e31dcd"
+      },
+      "charge_timeseries/cycle-064.csv": {
+        "relative_path": "charge_timeseries/cycle-064.csv",
+        "size": 2086887,
+        "sha256": "55ec6db5d5271fd68416d85bcd799abb5ca95bc91de6e1691ef28739037b2e64"
+      },
+      "charge_timeseries/cycle-065.csv": {
+        "relative_path": "charge_timeseries/cycle-065.csv",
+        "size": 2107465,
+        "sha256": "cb6be1c863904025935817b2129bafc1a78f8ac07455608397007bc4e381b154"
+      },
+      "charge_timeseries/cycle-066.csv": {
+        "relative_path": "charge_timeseries/cycle-066.csv",
+        "size": 2016457,
+        "sha256": "cd34237097df87180ff6aafc773d0a37ab8d5dd42951d0f285bc9c888962fd49"
+      },
+      "charge_timeseries/cycle-067.csv": {
+        "relative_path": "charge_timeseries/cycle-067.csv",
+        "size": 2020050,
+        "sha256": "0e37a0dd6d1decb7f0f3144f76cfb04584af0ff9a0adf07c65281a3da9d04f30"
+      },
+      "charge_timeseries/cycle-068.csv": {
+        "relative_path": "charge_timeseries/cycle-068.csv",
+        "size": 2018474,
+        "sha256": "4048ec7aeee6bff4042a7c7a1e517e84796b0db250b476a89612e27eb7f3d17e"
+      },
+      "charge_timeseries/cycle-069.csv": {
+        "relative_path": "charge_timeseries/cycle-069.csv",
+        "size": 2014987,
+        "sha256": "41c8f5945ad757a8737f412ade413d6375b2cf7fcac266d6a53db701be8cf2fc"
+      },
+      "charge_timeseries/cycle-070.csv": {
+        "relative_path": "charge_timeseries/cycle-070.csv",
+        "size": 2038746,
+        "sha256": "17e6b8cb80f2c83d2c7875340d64f167ab398c500246e334c39b984bd69cdf9a"
+      },
+      "charge_timeseries/cycle-071.csv": {
+        "relative_path": "charge_timeseries/cycle-071.csv",
+        "size": 2027373,
+        "sha256": "eecfc971fdf0d9d1817c6eb5d33645773c3419e3c1d408216e8c495a663bea40"
+      },
+      "charge_timeseries/cycle-072.csv": {
+        "relative_path": "charge_timeseries/cycle-072.csv",
+        "size": 2034038,
+        "sha256": "b5bab740eb0cb4f3323d6f865ffce0ef79071fd4ecb2e5b64095a5683e175d53"
+      },
+      "charge_timeseries/cycle-073.csv": {
+        "relative_path": "charge_timeseries/cycle-073.csv",
+        "size": 2040203,
+        "sha256": "68fa9ec68c353d3aaaeeab13e79eb5fe2695cce07279ce4b2fb8a5578c778f9d"
+      },
+      "charge_timeseries/cycle-074.csv": {
+        "relative_path": "charge_timeseries/cycle-074.csv",
+        "size": 2034687,
+        "sha256": "898cb3ac8c7e1f0e1a366413f69d433454e98437986c73c07211cccb9f50ac4e"
+      },
+      "charge_timeseries/cycle-075.csv": {
+        "relative_path": "charge_timeseries/cycle-075.csv",
+        "size": 2039408,
+        "sha256": "d98468226f20eda70efae909b8616747c57082a76c0af3931911cb800afb9a8c"
+      },
+      "effective_parameters.json": {
+        "relative_path": "effective_parameters.json",
+        "size": 3901,
+        "sha256": "fdef509ce0fd76115a98897450a96e9ae15928bebd1753c96d95ca700743936e"
+      },
+      "environment.json": {
+        "relative_path": "environment.json",
+        "size": 1540,
+        "sha256": "d009c63d8c330d29787e85b992e262ad9a9c2a4e729c428fea67e8d61c29e7d5"
+      },
+      "initial_state.json": {
+        "relative_path": "initial_state.json",
+        "size": 925,
+        "sha256": "0dba0fe1699bfdc1327e7a01c9c6fd299d5a9461d3c5d4bb828ed34a8f97b336"
+      },
+      "run_config.json": {
+        "relative_path": "run_config.json",
+        "size": 2848,
+        "sha256": "0e930be8eb96b8d8cf2e2dcb30b66e0895d13cb3de853b4ecf5e0a84ad7120b6"
+      },
+      "timeseries/cycle-001.csv": {
+        "relative_path": "timeseries/cycle-001.csv",
+        "size": 18275796,
+        "sha256": "88a5624edf12aa18f46f0b4beb94d8b3d075368795d4f3b761cf6fdb8c6cf650"
+      },
+      "timeseries/cycle-025.csv": {
+        "relative_path": "timeseries/cycle-025.csv",
+        "size": 18691933,
+        "sha256": "50873e51e50066b26aa918890ac58b5107b78f71f06b2adc7e7867b6dcb6194d"
+      },
+      "timeseries/cycle-075.csv": {
+        "relative_path": "timeseries/cycle-075.csv",
+        "size": 19535276,
+        "sha256": "6881759ffd8c67a6658c29a27be1acb4014bacd54d03e8bb9b5974bb90b5084d"
+      },
+      "timeseries/rpt-node-000.csv": {
+        "relative_path": "timeseries/rpt-node-000.csv",
+        "size": 7054128,
+        "sha256": "14a0ee7cd3cce9aa8eef7a6871f3d6a9a353d67c0b3968a152ade65b9b465579"
+      },
+      "timeseries/rpt-node-025.csv": {
+        "relative_path": "timeseries/rpt-node-025.csv",
+        "size": 7055923,
+        "sha256": "144771ce74191b28cd3490fb477c0cb6e05d33a805194bae7cdb527e7f6fb4d9"
+      },
+      "timeseries/rpt-node-075.csv": {
+        "relative_path": "timeseries/rpt-node-075.csv",
+        "size": 7088209,
+        "sha256": "27fb48560c3320151e7122f86c74ef43aef7876585e7ff43efaf7cc41cb774db"
+      },
+      "udds_profile.csv": {
+        "relative_path": "udds_profile.csv",
+        "size": 68050,
+        "sha256": "6a267192724fdba7dc7ebf1281cf0ead759a51c1f8a4b28f2d1d26614f9dafca"
+      },
+      "udds_validation.json": {
+        "relative_path": "udds_validation.json",
+        "size": 76262,
+        "sha256": "f3fb566e377924b2866864253379947d18c330202aa1c9764f903212b18ad4f9"
+      }
+    },
+    "last_completed_cycle": 75,
+    "last_rpt_node": 75,
+    "last_charge_efficiency_cycle": 75,
+    "last_complete_soc_bin_cycle": 75
+  },
+  "audit": {
+    "checkpoint": "cycle-075.pkl"
+  }
+}

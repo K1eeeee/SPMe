@@ -1,0 +1,30 @@
+{
+  "stage": "COMBINATION",
+  "candidate_id": "B",
+  "scales": [
+    10.0,
+    2.044760292534257,
+    10.0
+  ],
+  "cycle": 22,
+  "solver_attempt": 1,
+  "solver_profile": "general_protocol",
+  "elapsed_wall_clock_s": 97467.18800000031,
+  "elapsed_cycle_samples_s": [
+    162.60999999986961,
+    162.9529999999795,
+    164.46900000004098,
+    164.9680000001099,
+    166.39099999982864,
+    166.76600000006147,
+    165.56199999991804,
+    177.9220000000205,
+    175.2970000000205,
+    201.01500000013039
+  ],
+  "recent_cycle_wall_clock_s": 170.79529999999795,
+  "current_stage_eta_s": 17079.529999999795,
+  "full_workflow_eta_s": 91033.89489999891,
+  "estimated_completion_utc": "2026-08-28T20:28:32.600235+00:00",
+  "latest_soh_residual_pp": 0.0
+}

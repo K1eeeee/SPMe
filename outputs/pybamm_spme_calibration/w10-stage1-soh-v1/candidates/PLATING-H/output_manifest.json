@@ -1,0 +1,109 @@
+{
+  "commit": {
+    "transaction": 1,
+    "append_files": {
+      "cycle_summary.csv": {
+        "relative_path": "cycle_summary.csv",
+        "byte_offset": 0,
+        "data_rows": 0,
+        "prefix_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rpt_summary.csv": {
+        "relative_path": "rpt_summary.csv",
+        "byte_offset": 724,
+        "data_rows": 1,
+        "prefix_sha256": "75d959de70d8926f266095d83ed0267b8e603901fba7d7568919e15a92b848a4"
+      },
+      "degradation_summary.csv": {
+        "relative_path": "degradation_summary.csv",
+        "byte_offset": 0,
+        "data_rows": 0,
+        "prefix_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "charge_efficiency_summary.csv": {
+        "relative_path": "charge_efficiency_summary.csv",
+        "byte_offset": 0,
+        "data_rows": 0,
+        "prefix_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "charge_efficiency_soc_bins.csv": {
+        "relative_path": "charge_efficiency_soc_bins.csv",
+        "byte_offset": 0,
+        "data_rows": 0,
+        "prefix_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "udds_cycle_validation.jsonl": {
+        "relative_path": "udds_cycle_validation.jsonl",
+        "byte_offset": 0,
+        "data_rows": 0,
+        "prefix_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "solver_attempts.jsonl": {
+        "relative_path": "solver_attempts.jsonl",
+        "byte_offset": 0,
+        "data_rows": 0,
+        "prefix_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "run.log": {
+        "relative_path": "run.log",
+        "byte_offset": 24,
+        "data_rows": 1,
+        "prefix_sha256": "f49349b59fc2c0c599488db0e7952b0b7b4cb737d227fa21189ddb69371254b5"
+      }
+    },
+    "artifacts": {
+      "candidate_parameters.json": {
+        "relative_path": "candidate_parameters.json",
+        "size": 932,
+        "sha256": "de5b231b9db3b8de902ba62bfee1e8a51b4e04d885d931d83e437eaa815023bf"
+      },
+      "charge_efficiency_variable_inventory.json": {
+        "relative_path": "charge_efficiency_variable_inventory.json",
+        "size": 14769,
+        "sha256": "e7d82d21f6fe7463908f975275468aa5c1fc5de8f7b1ec04ffea5b5cd990d7b5"
+      },
+      "effective_parameters.json": {
+        "relative_path": "effective_parameters.json",
+        "size": 3902,
+        "sha256": "5fe1d985ec2109b7e8e035d7c24fdcd0dd0d747782d667ae9ef997f37a46db7d"
+      },
+      "environment.json": {
+        "relative_path": "environment.json",
+        "size": 1540,
+        "sha256": "d009c63d8c330d29787e85b992e262ad9a9c2a4e729c428fea67e8d61c29e7d5"
+      },
+      "initial_state.json": {
+        "relative_path": "initial_state.json",
+        "size": 925,
+        "sha256": "93d812fa97f3a036419a7c4d7a617eeb3e90072d0c699a7a9d1f242f7534d183"
+      },
+      "run_config.json": {
+        "relative_path": "run_config.json",
+        "size": 2856,
+        "sha256": "578f043344f3ea293426644e938fd4df442987b676e219094e5568bb631e9652"
+      },
+      "timeseries/rpt-node-000.csv": {
+        "relative_path": "timeseries/rpt-node-000.csv",
+        "size": 7121361,
+        "sha256": "314f13067e592dadc938da59322fa5a63316d6d4de0ef8e81cd7df304b2f461c"
+      },
+      "udds_profile.csv": {
+        "relative_path": "udds_profile.csv",
+        "size": 68050,
+        "sha256": "6a267192724fdba7dc7ebf1281cf0ead759a51c1f8a4b28f2d1d26614f9dafca"
+      },
+      "udds_validation.json": {
+        "relative_path": "udds_validation.json",
+        "size": 76262,
+        "sha256": "f3fb566e377924b2866864253379947d18c330202aa1c9764f903212b18ad4f9"
+      }
+    },
+    "last_completed_cycle": 0,
+    "last_rpt_node": 0,
+    "last_charge_efficiency_cycle": null,
+    "last_complete_soc_bin_cycle": null
+  },
+  "audit": {
+    "checkpoint": "cycle-000.pkl"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "initial_soc": 0.2,
+  "method": "pybamm.Simulation.build(initial_soc=...)",
+  "method_arguments": {
+    "initial_soc": 0.2,
+    "direction": null,
+    "inputs": null
+  },
+  "state_size": 188,
+  "state_sha256": "163796434bae0dba4bacfa52e9b943cec89b92ef127644cba72eeac64de5b389",
+  "model_sha256": "c14c1b0766a3d4ab9173a83410948bc0fc0f6c4e6e1eb8ceb767afe9b16da88b",
+  "parameter_sha256": "2b7ef7e0c63a05f63741fdeffd45a6e110ff904744cbceadabcf720577910e88",
+  "mesh_sha256": "000b18c0085d9ebef76ed8d1697d9478b721e049d21b9af6722a87ae9bca05d1",
+  "main_time_s": 0.0,
+  "calendar_time_s": 0.0,
+  "discharge_capacity_ah": 0.0,
+  "negative_stoichiometry": 0.20558835275767592,
+  "positive_stoichiometry": 0.7343550506278042,
+  "versions": {
+    "python": "3.12.13",
+    "pybamm": "26.7.1.0",
+    "casadi": "3.7.2",
+    "platform": "win32"
+  },
+  "fingerprint": "f83daf8ac3c2357a6976423d02c8dca0179d9bd9b6d3f75ef60843ea4708c7eb"
+}
