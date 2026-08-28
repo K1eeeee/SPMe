@@ -1,7 +1,5 @@
 from __future__ import annotations
 
-from dataclasses import replace
-
 from pybamm_w10.config import RunConfig
 from pybamm_w10.model import (
     build_solver,
@@ -37,7 +35,7 @@ def test_solver_profiles_preserve_tolerances_and_only_harden_integration() -> No
     assert solver.options["suppress_algebraic_error"] is True
 
 
-def test_charge_profiles_are_fixed_and_retry_preserves_charge_settings() -> None:
+def test_charge_retry_is_uniformly_more_conservative_without_relaxing_tolerances() -> None:
     config = RunConfig()
     charge = certified_charge_solver_profile(config)
     retry = conservative_charge_solver_profile(config)
@@ -54,4 +52,10 @@ def test_charge_profiles_are_fixed_and_retry_preserves_charge_settings() -> None
         charge.max_num_steps,
     ) == (1e-5, 1e-7, 1e-8, 1.0, 3, True, 30, 200_000)
     assert retry.name == "certified_charge_retry"
-    assert retry == replace(charge, name="certified_charge_retry")
+    assert (retry.rtol, retry.atol) == (charge.rtol, charge.atol)
+    assert retry.dt_init_s == charge.dt_init_s == 1e-8
+    assert retry.max_step_s == charge.max_step_s == 1.0
+    assert retry.max_order_bdf == 2
+    assert retry.max_error_test_failures == 100
+    assert retry.suppress_algebraic_error is True
+    assert retry.max_num_steps == charge.max_num_steps

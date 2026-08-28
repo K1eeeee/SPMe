@@ -147,3 +147,51 @@ def test_cli_evaluates_completed_run_without_starting_model(monkeypatch, capsys)
     assert str(observed["run_dir"]).endswith(r"outputs\pybamm_spme\completed-run")
     assert str(observed["data_root"]) == r"E:\battery\data"
     assert "SOH_EVALUATED" in capsys.readouterr().out
+
+
+def test_cli_exposes_only_explicit_stage1_aging_action(monkeypatch, capsys) -> None:
+    import pybamm_w10.cli as cli
+
+    observed: dict[str, object] = {}
+    parameters = CalibrationParameters(
+        calibration_status="CAPACITY_CALIBRATED",
+        capacity_scale_factor=0.95630859375,
+    )
+
+    class FakeStage1:
+        def __init__(self, config, workspace, output_dir, calibration_parameters):
+            observed.update(config=config, workspace=workspace, output_dir=output_dir, parameters=calibration_parameters)
+
+        def run(self):
+            return {"status": "COMPLETED", "winner": "A", "backup": "B"}
+
+    monkeypatch.setattr(cli, "load_calibration_parameters", lambda path: parameters)
+    monkeypatch.setattr(cli, "Stage1AgingCalibration", FakeStage1)
+    code = main(
+        [
+            "--workspace", r"E:\SPMe",
+            "--data-root", r"E:\battery\data",
+            "--calibrate-soh-stage1",
+            "--calibration-params", r"E:\SPMe\inputs\spme_transferred_parameters.json",
+        ]
+    )
+    assert code == 0
+    assert observed["config"].mode == "virtual"
+    assert str(observed["output_dir"]).endswith(r"outputs\pybamm_spme_calibration\w10-stage1-soh-v1")
+    assert observed["parameters"] == parameters
+    assert "COMPLETED" in capsys.readouterr().out
+
+
+def test_cli_rejects_stage1_capacity_scale_that_is_not_the_frozen_value(monkeypatch, capsys) -> None:
+    path = r"E:\SPMe\inputs\spme_transferred_parameters.json"
+    bad = CalibrationParameters(calibration_status="CAPACITY_CALIBRATED", capacity_scale_factor=0.9563)
+    import pybamm_w10.cli as cli
+
+    monkeypatch.setattr(cli, "load_calibration_parameters", lambda _: bad)
+    code = main([
+        "--workspace", r"E:\SPMe", "--data-root", r"E:\battery\data",
+        "--calibrate-soh-stage1", "--calibration-params", path,
+    ])
+
+    assert code == 2
+    assert "capacity_scale_factor" in capsys.readouterr().out

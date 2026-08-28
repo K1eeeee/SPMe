@@ -4,9 +4,12 @@ import numpy as np
 import pytest
 
 from pybamm_w10.calibration.objectives import (
+    CandidateScore,
     CAPACITY_TARGET_AH,
     ObjectiveError,
     capacity_objective,
+    rank_candidates,
+    soh_metrics,
     voltage_curve_metrics,
 )
 
@@ -41,3 +44,31 @@ def test_voltage_objective_labels_failure_and_rejects_nonmonotonic_input() -> No
             np.array([0.0, 0.8, 0.4]), np.array([4.2, 3.5, 2.5]),
             np.array([0.0, 1.0]), np.array([4.2, 2.5]),
         )
+
+
+def test_soh_metrics_normalise_both_cycle_zero_capacities_and_rank_deterministically() -> None:
+    targets = {0: 5.0, 25: 4.5, 75: 4.0}
+    metrics = soh_metrics({0: 10.0, 25: 9.0, 75: 8.0}, targets, (0, 25, 75))
+    assert metrics.rmse_pp == pytest.approx(0.0)
+    # Near-equal RMSE uses max error, then endpoint error rather than input order.
+    worse_peak = soh_metrics({0: 10.0, 25: 8.98, 75: 8.0}, targets, (0, 25, 75))
+    ordered = rank_candidates(
+        [
+            CandidateScore("B", worse_peak, (0.0, 0.0, 0.0)),
+            CandidateScore("A", metrics, (0.0, 0.0, 0.0)),
+            CandidateScore("C", None, (0.0, 0.0, 0.0), numerically_censored=True),
+        ]
+    )
+    assert [item.candidate_id for item in ordered] == ["A", "B"]
+
+
+def test_soh_metrics_use_cycle_zero_only_as_the_normalisation_anchor() -> None:
+    metrics = soh_metrics(
+        {0: 10.0, 25: 8.8, 75: 7.8},
+        {0: 5.0, 25: 4.5, 75: 4.0},
+        (0, 25, 75),
+    )
+
+    assert [node.signed_error_pp for node in metrics.nodes] == pytest.approx([0.0, -2.0, -2.0])
+    assert metrics.rmse_pp == pytest.approx(2.0)
+    assert metrics.max_absolute_error_pp == pytest.approx(2.0)

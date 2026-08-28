@@ -10,6 +10,7 @@ import re
 
 class RunStatus(StrEnum):
     COMPLETED = "COMPLETED"
+    PAUSED = "PAUSED"
     PHYSICAL_PROTOCOL_FAILURE = "PHYSICAL_PROTOCOL_FAILURE"
     NUMERICAL_FAILURE = "NUMERICAL_FAILURE"
 
@@ -530,3 +531,4 @@ class Checkpoint:
     last_charge_efficiency_cycle: int | None = None
     last_complete_soc_bin_cycle: int | None = None
     solver_execution_version: str = ""
+    run_context_fingerprint: str = ""

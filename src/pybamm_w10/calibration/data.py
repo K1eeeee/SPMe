@@ -14,7 +14,9 @@ from .artifacts import write_calibration_json
 
 
 W10_DIAGNOSTIC_NODES = (0, 25, 75, 122, 146, 148, 151, 159, 188, 225, 250, 275, 300, 325, 350)
-PUBLIC_CALIBRATION_NODES = W10_DIAGNOSTIC_NODES[:10]
+ANCHOR_NODES = (0,)
+CALIBRATION_NODES = (25, 75, 122, 146, 148, 151, 159, 188)
+PUBLIC_CALIBRATION_NODES = ANCHOR_NODES + CALIBRATION_NODES
 CAPACITY_COLUMNS = ("diagnostic_number", "cell_id", "time_s", "current_a", "voltage_v", "capacity_ah")
 CYCLING_COLUMNS = (
     "I_full_vec_M1_NMC25degC",
@@ -193,10 +195,9 @@ def build_diagnostic_inventory(data_root: Path) -> dict[str, object]:
         _validate_cycling_csv_header(path)
     readme_nodes = _readme_w10_nodes(readme_path)
 
-    # Only W10-specific HPPC/EIS artifacts satisfy the aging-calibration gate.
+    # Stage 1 uses only capacity/cycling data.  HPPC/EIS belongs to stage 2.
     hppc = sorted(capacity_root.glob("W10*HPPC*"))
     eis = sorted(capacity_root.glob("W10*EIS*"))
-    gate_reason = None if hppc and eis else "MISSING_W10_HPPC_EIS"
     return {
         "inventory_schema_version": 1,
         "cell_id": "W10",
@@ -215,8 +216,8 @@ def build_diagnostic_inventory(data_root: Path) -> dict[str, object]:
         "cycling_mat": [_inventory_file(path, root) for path in cycling_mat_files],
         "cycling_csv": [_inventory_file(path, root) for path in cycling_csv_files],
         "aging_calibration_gate": {
-            "status": "AGING_CALIBRATION_READY" if gate_reason is None else "AGING_DATA_INCOMPLETE",
-            "reason": gate_reason,
+            "status": "AGING_CALIBRATION_READY",
+            "reason": None,
             "w10_hppc_files": [_inventory_file(path, root) for path in hppc],
             "w10_eis_files": [_inventory_file(path, root) for path in eis],
         },

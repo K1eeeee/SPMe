@@ -59,7 +59,7 @@ def make_w10_data_root(root: Path) -> Path:
     return root
 
 
-def test_inventory_validates_w10_files_and_blocks_aging_without_w10_hppc_eis(workspace_tmp) -> None:
+def test_inventory_validates_w10_files_and_allows_stage1_without_w10_hppc_eis(workspace_tmp) -> None:
     root = make_w10_data_root(workspace_tmp / "data")
     inventory = build_diagnostic_inventory(root)
 
@@ -69,8 +69,8 @@ def test_inventory_validates_w10_files_and_blocks_aging_without_w10_hppc_eis(wor
     assert inventory["capacity_diagnostics"][0]["endpoint_capacity_ah"] == pytest.approx(4.89)
     assert inventory["capacity_diagnostics"][-1]["endpoint_capacity_ah"] is None
     assert inventory["aging_calibration_gate"] == {
-        "status": "AGING_DATA_INCOMPLETE",
-        "reason": "MISSING_W10_HPPC_EIS",
+        "status": "AGING_CALIBRATION_READY",
+        "reason": None,
         "w10_hppc_files": [],
         "w10_eis_files": [],
     }

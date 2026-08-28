@@ -329,10 +329,26 @@ def _charge_window_local_traces(
 
         relative_time = local_time - local_time[0]
         analysis_time = elapsed_s + relative_time
+        analysis_diff = np.diff(analysis_time)
+        if np.any(analysis_diff < 0):
+            raise ValueError(f"{trace.stage_name} rebased trace time moved backwards")
+        if np.any(analysis_diff == 0):
+            # Adding an elapsed stage duration can collapse adjacent IDAKLU
+            # samples that are less than one ULP apart on the rebased axis.
+            # Such pairs span exactly zero representable time; retain the last
+            # value just as stage-boundary de-duplication does.
+            keep = np.concatenate((analysis_diff > 0, np.asarray([True])))
+            analysis_time = analysis_time[keep]
+            analysis_values = {
+                key: tuple(np.asarray(values)[keep])
+                for key, values in trace.values.items()
+            }
+        else:
+            analysis_values = trace.values
         normalized.append(ChargeStageTrace(
             trace.stage_name,
             tuple(float(value) for value in analysis_time),
-            trace.values,
+            analysis_values,
             global_time_offset_s=global_origin_s,
         ))
         elapsed_s = float(analysis_time[-1])

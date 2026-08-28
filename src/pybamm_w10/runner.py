@@ -4,13 +4,14 @@ from __future__ import annotations
 
 from dataclasses import asdict, dataclass, replace
 from datetime import datetime
+import csv
 from hashlib import sha256
 import json
 import os
 from pathlib import Path
 import sys
 import traceback
-from typing import Any
+from typing import Any, Callable
 
 from .backend import PyBaMMBackend, construct_initial_state_record
 from .calibration.parameters import CalibrationParameters
@@ -78,6 +79,12 @@ def _fingerprint(value: Any) -> str:
     return sha256(json.dumps(value, sort_keys=True, default=str).encode("utf-8")).hexdigest()
 
 
+def _canonical_fingerprint(value: Any) -> str:
+    return sha256(
+        json.dumps(value, sort_keys=True, default=str, separators=(",", ":")).encode("utf-8")
+    ).hexdigest()
+
+
 def should_evaluate_full_soh(config: RunConfig) -> bool:
     """Return true only when the complete W10 RPT schedule was requested."""
     return (
@@ -91,6 +98,85 @@ def ensure_required_interpreter(config: RunConfig) -> None:
     expected = os.path.normcase(str(config.required_python.resolve()))
     if actual != expected:
         raise NumericalFailure(f"formal run requires interpreter {expected}; current interpreter is {actual}")
+
+
+def checkpoint_reaches_stop(
+    run_dir: Path,
+    checkpoint: Checkpoint,
+    stop_after_cycle: int,
+    rpt_nodes: tuple[int, ...],
+) -> bool:
+    """Prove a validated committed checkpoint already satisfies a requested stop."""
+    manifest = checkpoint.output_manifest
+    if checkpoint.aging_cycle < stop_after_cycle or manifest.last_completed_cycle < stop_after_cycle:
+        return False
+    if stop_after_cycle > 0 and checkpoint.protocol_phase == ProtocolPhase.INITIAL_RPT:
+        return False
+    if stop_after_cycle not in rpt_nodes:
+        return True
+    if manifest.last_rpt_node is None or manifest.last_rpt_node < stop_after_cycle:
+        return False
+    if checkpoint.aging_cycle == stop_after_cycle and checkpoint.protocol_phase in {
+        ProtocolPhase.RPT_PRECONDITIONING,
+        ProtocolPhase.RPT_CAPACITY_DISCHARGE,
+    }:
+        return False
+    commit = manifest.append_files.get("rpt_summary.csv")
+    path = run_dir / "rpt_summary.csv"
+    if commit is None or commit.byte_offset <= 0 or not path.is_file():
+        return False
+    with path.open("rb") as handle:
+        committed = handle.read(commit.byte_offset).decode("utf-8")
+    rows = csv.DictReader(committed.splitlines())
+    try:
+        return any(int(row["node"]) == stop_after_cycle for row in rows)
+    except (KeyError, TypeError, ValueError):
+        return False
+
+
+def validate_selected_output_manifest(
+    run_dir: Path, checkpoint_path: Path, checkpoint: Checkpoint
+) -> None:
+    """Require the public commit pointer to select the checkpoint being resumed."""
+    path = run_dir / "output_manifest.json"
+    if not path.is_file():
+        raise NumericalFailure("resume requires output_manifest.json")
+    try:
+        manifest = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        raise NumericalFailure("resume output_manifest.json is not readable") from exc
+    if manifest.get("audit", {}).get("checkpoint") != checkpoint_path.name:
+        raise NumericalFailure("output manifest does not select the requested checkpoint")
+    if manifest.get("commit") != asdict(checkpoint.output_manifest):
+        raise NumericalFailure("output manifest commit does not match the requested checkpoint")
+
+
+def validate_current_effective_parameters(
+    saved_audit: dict[str, object], current_audit: dict[str, object]
+) -> str:
+    """Reject a resume when the rebuilt model no longer has the committed parameters."""
+    saved_fingerprint = effective_parameters_fingerprint(saved_audit)
+    current_fingerprint = effective_parameters_fingerprint(current_audit)
+    if saved_audit.get("fingerprint") != saved_fingerprint:
+        raise NumericalFailure("effective parameter audit fingerprint is invalid")
+    if current_audit.get("fingerprint") != current_fingerprint:
+        raise NumericalFailure("current effective parameter audit fingerprint is invalid")
+    if saved_fingerprint != current_fingerprint:
+        raise NumericalFailure("current effective parameters do not match the checkpoint run")
+    return current_fingerprint
+
+
+def validate_current_charge_inventory(
+    saved_inventory: dict[str, object], current_inventory: ResolvedChargeVariables
+) -> None:
+    """Compare the currently resolved model-variable roles with the committed inventory."""
+    saved_payload = {key: value for key, value in saved_inventory.items() if key != "inventory_sha256"}
+    current_payload = current_inventory.to_json()
+    current_hash = _canonical_fingerprint(current_payload)
+    if saved_inventory.get("inventory_sha256") != _canonical_fingerprint(saved_payload):
+        raise NumericalFailure("charge-efficiency variable inventory fingerprint is invalid")
+    if saved_payload != current_payload or saved_inventory.get("inventory_sha256") != current_hash:
+        raise NumericalFailure("current charge-efficiency variable inventory does not match the checkpoint run")
 
 
 @dataclass
@@ -159,6 +245,7 @@ class W10Runner:
             effective_parameters_fingerprint=effective_parameters_fingerprint,
             charge_efficiency_algorithm_version=self.config.charge_efficiency_algorithm_version,
             solver_execution_version=self.config.solver_execution_version,
+            run_context_fingerprint=self.config.run_context_fingerprint or "",
             charge_efficiency_variable_inventory_sha256=charge_efficiency_inventory_sha256,
             last_charge_efficiency_cycle=last_charge_efficiency_cycle,
             last_complete_soc_bin_cycle=last_complete_soc_bin_cycle,
@@ -173,8 +260,13 @@ class W10Runner:
         output_dir: Path | None = None,
         *,
         resume_checkpoint: Path | None = None,
+        stop_after_cycle: int | None = None,
+        progress_callback: Callable[[ProgressState], None] | None = None,
+        postprocess_full_soh: bool = True,
     ) -> RunStatus:
         """Run only after an explicit CLI run/resume request."""
+        if stop_after_cycle is not None and not 0 <= stop_after_cycle <= self.config.protocol.max_aging_cycles:
+            raise ValueError("stop_after_cycle must be within the configured cycle range")
         self.config = self.config.normalized(self.workspace)
         if resume_checkpoint is not None:
             checkpoint_path = resume_checkpoint.resolve()
@@ -201,7 +293,14 @@ class W10Runner:
                 prepare_run_directory(run_dir)
                 if lock.stale_metadata and lock.stale_metadata.get("released_at_utc") is None:
                     append_json_line(run_dir / "lock_recovery_audit.jsonl", lock.stale_metadata)
-                status = self._run_locked(run_dir, checkpoint_path, heartbeat)
+                status = self._run_locked(
+                    run_dir,
+                    checkpoint_path,
+                    heartbeat,
+                    stop_after_cycle=stop_after_cycle,
+                    progress_callback=progress_callback,
+                    postprocess_full_soh=postprocess_full_soh,
+                )
                 terminal_status = status
                 lock.set_business_status(status)
                 return status
@@ -222,7 +321,14 @@ class W10Runner:
                 heartbeat.terminate(terminal_status.value)
 
     def _run_locked(
-        self, run_dir: Path, checkpoint_path: Path | None, heartbeat: Heartbeat
+        self,
+        run_dir: Path,
+        checkpoint_path: Path | None,
+        heartbeat: Heartbeat,
+        *,
+        stop_after_cycle: int | None = None,
+        progress_callback: Callable[[ProgressState], None] | None = None,
+        postprocess_full_soh: bool = True,
     ) -> RunStatus:
         ensure_required_interpreter(self.config)
         if not self.config.w10_mat_path.is_file():
@@ -236,6 +342,12 @@ class W10Runner:
             write_charge_efficiency_variable_inventory(inventory_path, charge_inventory)
         elif not inventory_path.is_file():
             raise NumericalFailure("resume requires charge_efficiency_variable_inventory.json")
+        else:
+            try:
+                saved_charge_inventory = json.loads(inventory_path.read_text(encoding="utf-8"))
+            except (OSError, json.JSONDecodeError) as exc:
+                raise NumericalFailure("resume charge-efficiency variable inventory is not readable") from exc
+            validate_current_charge_inventory(saved_charge_inventory, charge_inventory)
         charge_inventory_sha256 = _hash_file(inventory_path)
         environment = environment_metadata(artifacts)
         environment_fingerprint = _fingerprint(environment)
@@ -278,8 +390,7 @@ class W10Runner:
             solver_attempt: int = 1,
             solver_profile: str = "general_protocol",
         ) -> None:
-            heartbeat.update(
-                ProgressState(
+            progress = ProgressState(
                     phase=value.value,
                     stage=stage,
                     completed_cycles=completed_cycle,
@@ -288,7 +399,9 @@ class W10Runner:
                     solver_attempt=solver_attempt,
                     solver_profile=solver_profile,
                 )
-            )
+            heartbeat.update(progress)
+            if progress_callback is not None:
+                progress_callback(progress)
 
         protocol = ProtocolStateMachine(
             self.config,
@@ -338,6 +451,16 @@ class W10Runner:
                 effective_parameters_fingerprint=effective_parameters_fingerprint_value,
                 charge_efficiency_inventory_sha256=charge_inventory_sha256,
             )
+            current_audit = effective_parameters_audit(
+                artifacts,
+                self.config,
+                cycle_0_capacity_ah=checkpoint.initial_capacity_ah,
+                calibration_parameters=self.calibration_parameters,
+            )
+            effective_parameters_fingerprint_value = validate_current_effective_parameters(
+                audit, current_audit
+            )
+            validate_selected_output_manifest(run_dir, checkpoint_path, checkpoint)
             rollback_to_checkpoint(run_dir, checkpoint_path, checkpoint)
             backend.restore(checkpoint.state)
             q_ref, q_ref_node = checkpoint.q_ref_ah, checkpoint.q_ref_node
@@ -353,6 +476,14 @@ class W10Runner:
             )
             if phase == ProtocolPhase.RUN_COMPLETED:
                 return RunStatus.COMPLETED
+            if stop_after_cycle is not None and checkpoint_reaches_stop(
+                run_dir, checkpoint, stop_after_cycle, self.config.protocol.rpt_nodes
+            ):
+                append_log(
+                    run_dir / "run.log",
+                    f"validated checkpoint already reaches requested stop cycle={stop_after_cycle}",
+                )
+                return self._pause(run_dir, completed_cycle, transaction)
 
         try:
             if phase == ProtocolPhase.INITIAL_RPT:
@@ -390,6 +521,8 @@ class W10Runner:
                     effective_parameters_fingerprint=effective_parameters_fingerprint_value,
                     charge_efficiency_inventory_sha256=charge_inventory_sha256,
                 )
+                if stop_after_cycle == 0:
+                    return self._pause(run_dir, completed_cycle, transaction)
 
             pending_recovery: tuple[float, dict[str, float], dict[str, float]] | None = None
             if phase == ProtocolPhase.RPT_PRECONDITIONING:
@@ -405,6 +538,7 @@ class W10Runner:
                     transaction, last_rpt_node, run_dir, input_fingerprint,
                     initial_state_fingerprint, environment_fingerprint,
                     effective_parameters_fingerprint_value, charge_inventory_sha256, heartbeat,
+                    progress_callback,
                 )
             if phase == ProtocolPhase.POST_RPT_RECOVERY:
                 report_phase(
@@ -479,11 +613,14 @@ class W10Runner:
                         transaction, last_rpt_node, run_dir, input_fingerprint,
                         initial_state_fingerprint, environment_fingerprint,
                         effective_parameters_fingerprint_value, charge_inventory_sha256, heartbeat,
+                        progress_callback,
                     )
                     if phase == ProtocolPhase.POST_RPT_RECOVERY:
                         pending_recovery = self._post_rpt_recovery(
                             backend, completed_cycle, charge_inventory
                         )
+                    if stop_after_cycle == cycle:
+                        return self._pause(run_dir, completed_cycle, transaction)
                 elif cycle % self.config.checkpoint_every_cycles == 0:
                     self._checkpoint(
                         backend, cycle, q_ref, q_ref_node, initial_capacity, targets, base_udds,
@@ -496,9 +633,11 @@ class W10Runner:
                         last_charge_efficiency_cycle=cycle,
                         last_complete_soc_bin_cycle=cycle,
                     )
+                    if stop_after_cycle == cycle:
+                        return self._pause(run_dir, completed_cycle, transaction)
                 cycle += 1
 
-            if should_evaluate_full_soh(self.config):
+            if postprocess_full_soh and should_evaluate_full_soh(self.config):
                 from .evaluation import evaluate_soh_comparison
                 from .figures import generate_figures
 
@@ -611,6 +750,16 @@ class W10Runner:
             )
             return RunStatus.NUMERICAL_FAILURE
 
+    @staticmethod
+    def _pause(run_dir: Path, completed_cycle: int, transaction: int) -> RunStatus:
+        write_status(
+            run_dir / "run_status.json",
+            RunStatus.PAUSED,
+            completed_aging_cycles=completed_cycle,
+            transaction=transaction,
+        )
+        return RunStatus.PAUSED
+
     def _run_rpt_transaction(
         self,
         backend: PyBaMMBackend,
@@ -628,17 +777,19 @@ class W10Runner:
         effective_parameters_fingerprint_value: str = "",
         charge_efficiency_inventory_sha256: str = "",
         heartbeat: Heartbeat | None = None,
+        progress_callback: Callable[[ProgressState], None] | None = None,
     ) -> tuple[float | None, int | None, CapacityTargets | None, int, int, ProtocolPhase]:
         if heartbeat is not None:
-            heartbeat.update(
-                ProgressState(
+            progress = ProgressState(
                     phase=ProtocolPhase.RPT_PRECONDITIONING.value,
                     stage="rpt_preconditioning",
                     completed_cycles=node,
                     transaction=transaction,
                     current_cycle=node,
                 )
-            )
+            heartbeat.update(progress)
+            if progress_callback is not None:
+                progress_callback(progress)
         rpt = run_capacity_rpt(
             backend,
             node,
@@ -674,15 +825,16 @@ class W10Runner:
             last_complete_soc_bin_cycle=node if node else None,
         )
         if heartbeat is not None:
-            heartbeat.update(
-                ProgressState(
+            progress = ProgressState(
                     phase=phase.value,
                     stage="post_rpt_recovery" if phase == ProtocolPhase.POST_RPT_RECOVERY else "rpt_completed",
                     completed_cycles=node,
                     transaction=transaction,
                     current_cycle=node,
                 )
-            )
+            heartbeat.update(progress)
+            if progress_callback is not None:
+                progress_callback(progress)
         return q_ref, q_ref_node, targets, transaction, last_rpt_node, phase
 
     def _post_rpt_recovery(

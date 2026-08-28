@@ -651,6 +651,7 @@ def load_checkpoint(
             checkpoint.solver_execution_version,
             config.solver_execution_version,
         ),
+        "run context": (checkpoint.run_context_fingerprint, config.run_context_fingerprint or ""),
         "charge efficiency variable inventory": (
             checkpoint.charge_efficiency_variable_inventory_sha256,
             charge_efficiency_inventory_sha256,
@@ -757,7 +758,12 @@ def rollback_to_checkpoint(
         "rollback_archive": str(archive_root.relative_to(run_dir)) if (truncated or moved) else None,
         "performed_at_utc": datetime.now(timezone.utc).isoformat(),
     }
-    write_output_manifest(run_dir / "output_manifest.json", manifest, rollback=audit)
+    write_output_manifest(
+        run_dir / "output_manifest.json",
+        manifest,
+        checkpoint=checkpoint_path.name,
+        rollback=audit,
+    )
     append_json_line(run_dir / "resume_audit.jsonl", audit)
     return audit
 

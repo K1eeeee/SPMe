@@ -13,6 +13,7 @@ from .calibration.parameters import (
     require_formal_run_ready,
 )
 from .calibration.capacity import CapacityCalibrationError, run_capacity_calibration
+from .calibration.aging import AgingCalibrationError, STAGE1_DIRNAME, Stage1AgingCalibration
 from .backend import construct_initial_state_record
 from .model import build_spme, environment_metadata
 from .output import RunDirectoryBusy, write_json
@@ -46,6 +47,7 @@ def main(argv: list[str] | None = None) -> int:
     actions.add_argument("--smoke", action="store_true", help="run the short real-PyBaMM readiness smoke test")
     actions.add_argument("--charge-efficiency-smoke", action="store_true", help="run only the real four-stage charge-efficiency smoke test")
     actions.add_argument("--calibrate-capacity", action="store_true", help="run isolated strict-W10 cycle-0 capacity calibration")
+    actions.add_argument("--calibrate-soh-stage1", action="store_true", help="run resumable W10 stage-1 SOH aging calibration")
     actions.add_argument(
         "--evaluate-soh",
         type=Path,
@@ -96,6 +98,25 @@ def main(argv: list[str] | None = None) -> int:
         return 0
 
     runner = W10Runner(config, workspace, calibration_parameters)
+    if args.calibrate_soh_stage1:
+        if calibration_parameters is None:
+            print("ERROR: --calibrate-soh-stage1 requires --calibration-params")
+            return 2
+        if (
+            calibration_parameters.calibration_status not in {"CAPACITY_CALIBRATED", "TRANSFERRED_FROM_DFN"}
+            or calibration_parameters.degradation_parameter_status != "not_calibrated"
+            or calibration_parameters.capacity_scale_factor != 0.95630859375
+        ):
+            print("ERROR: stage-1 requires capacity_scale_factor=0.95630859375 and uncalibrated degradation scales")
+            return 2
+        output_dir = args.output_dir or workspace / "outputs" / "pybamm_spme_calibration" / STAGE1_DIRNAME
+        try:
+            result = Stage1AgingCalibration(config, workspace, output_dir, calibration_parameters).run()
+        except (AgingCalibrationError, RunDirectoryBusy, ValueError, RuntimeError) as exc:
+            print(f"STAGE-1 CALIBRATION FAILED: {exc}")
+            return 2
+        print({key: result[key] for key in ("status", "winner", "validated_candidate", "backup", "calibration", "holdout") if key in result})
+        return 0 if result.get("status") == "COMPLETED" else 1
     if args.run or args.resume:
         if calibration_parameters is None:
             print("ERROR: formal run requires --calibration-params with PARAMETERS_FROZEN status")

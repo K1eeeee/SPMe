@@ -13,7 +13,7 @@ def test_charge_efficiency_v3_constants_are_fingerprinted() -> None:
     assert config.output_schema_version == 3
     assert config.checkpoint_schema_version == 6
     assert config.protocol_algorithm_version == "w10-window-v3-charge-efficiency"
-    assert config.solver_execution_version == "stage-local-time-v1"
+    assert config.solver_execution_version == "stage-local-time-v2-robust-charge"
     assert config.solver_profile_policy_version == "phase-fixed-v1"
     assert config.solver_attempt_audit_version == "solver-attempt-v1"
     assert (config.solver.rtol, config.solver.atol, config.solver.max_step_s) == (1e-5, 1e-7, 1.0)

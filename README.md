@@ -129,3 +129,16 @@ normalised by its own cycle-0 capacity. The run directory receives:
 Re-evaluate an existing completed run without repeating the aging simulation:
 
     C:\Users\Lenovo\anaconda3\envs\battery\python.exe scripts\run_pybamm_w10.py --workspace E:\SPMe --data-root E:\battery\data --evaluate-soh E:\SPMe\outputs\pybamm_spme\RUN_DIRECTORY
+# W10 SPMe aging model
+
+## Stage-1 SOH calibration
+
+The only command that starts the long stage-1 workflow is explicit; rerun the same command to resume from its committed checkpoints:
+
+```powershell
+C:\Users\Lenovo\anaconda3\envs\battery\python.exe -B scripts\run_pybamm_w10.py --workspace E:\SPMe --data-root E:\SPMe\data --calibrate-soh-stage1 --calibration-params E:\SPMe\inputs\spme_transferred_parameters.json --output-dir E:\SPMe\outputs\pybamm_spme_calibration\w10-stage1-soh-v1
+```
+
+The first real numerical step is the independent baseline cycle 0--30 regression gate; a failure there stops the workflow before cycle 75 and before every mechanism probe. `stage1_progress.json` shows the active candidate, all three scales, latest SOH residual and ETA, while `stage1_progress_history.jsonl` retains the append-only history. `stage1_report.json` is written after frozen-parameter validation and links the SOH comparison, residual and model-internal mechanism-trend artifacts. The command never auto-stops solely because its elapsed time exceeds the planning estimate.
+
+Rerun the exact same command to resume. Do not edit the input data, parameter file, relevant source files, environment, or committed candidate outputs during the run: the current fingerprints and public output manifest are revalidated before every checkpoint reuse.

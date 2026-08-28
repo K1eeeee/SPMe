@@ -81,17 +81,17 @@ def certified_charge_solver_profile(config: RunConfig) -> SolverProfile:
 
 
 def conservative_charge_solver_profile(config: RunConfig) -> SolverProfile:
-    """Audited retry retaining the certified charge tolerances and step cap."""
+    """Audited bounded retry retaining tolerances and all step sizes."""
     certified = certified_charge_solver_profile(config)
     return SolverProfile(
         name="certified_charge_retry",
         rtol=certified.rtol,
         atol=certified.atol,
-        dt_init_s=1e-8,
+        dt_init_s=certified.dt_init_s,
         max_step_s=certified.max_step_s,
         max_num_steps=certified.max_num_steps,
-        max_error_test_failures=30,
-        max_order_bdf=3,
+        max_error_test_failures=100,
+        max_order_bdf=2,
         suppress_algebraic_error=True,
     )
 

@@ -73,3 +73,39 @@ def test_charge_analysis_preserves_local_points_when_global_float_times_collide(
     assert bundle.summary.values["time_end_s"] == global_origin_s + 4.0
     output_times = tuple(float(row["time_s"]) for row in bundle.trace_rows)
     assert all(right > left for left, right in zip(output_times, output_times[1:]))
+
+
+def test_charge_analysis_collapses_only_zero_width_points_created_by_stage_rebasing() -> None:
+    first_end_s = 10.919976585681004
+    second_start_s = 10.919976585681006
+    close_left_s = 89.66602386945912
+    close_right_s = 89.66602386945914
+    rebased = first_end_s + (
+        np.asarray((close_left_s, close_right_s), dtype=float) - second_start_s
+    )
+    assert rebased[0] == rebased[1]
+
+    traces = (
+        _trace("3c_cc", (0.0, first_end_s), global_time_offset_s=0.0),
+        _trace(
+            "4v_cv",
+            (second_start_s, close_left_s, close_right_s, 100.0),
+            global_time_offset_s=0.0,
+        ),
+        _trace("c4_cc", (100.0, 101.0), global_time_offset_s=0.0),
+        _trace("4p2v_cv", (101.0, 102.0), global_time_offset_s=0.0),
+    )
+
+    bundle = build_charge_analysis_bundle(
+        traces,
+        cycle=33,
+        mode="virtual",
+        q_ref_ah=4.0,
+        q_ref_node=25,
+        q_ref_initial_ah=4.0,
+        configured_charge_current_a=14.55,
+        nominal_capacity_ah=4.85,
+    )
+
+    output_times = tuple(float(row["time_s"]) for row in bundle.trace_rows)
+    assert all(right > left for left, right in zip(output_times, output_times[1:]))

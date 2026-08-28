@@ -69,11 +69,11 @@ def test_cycle122_resume_is_restricted_to_matching_run_checkpoint(
 
 
 def test_cycle122_comparator_writes_normalized_node122_error(
-    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+    workspace_tmp: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     module = _script_module("compare_w10_cycle122_capacity.py")
-    run_dir = tmp_path / "run"
-    data_root = tmp_path / "data"
+    run_dir = workspace_tmp / "run"
+    data_root = workspace_tmp / "data"
     run_dir.mkdir()
     (run_dir / "run_status.json").write_text('{"status":"COMPLETED"}', encoding="utf-8")
     (run_dir / "rpt_summary.csv").write_text(

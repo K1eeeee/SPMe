@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 import math
+from typing import Mapping, Sequence
 
 import numpy as np
 
@@ -12,6 +13,9 @@ CAPACITY_TARGET_AH = 4.865884391243259
 CAPACITY_RELATIVE_TOLERANCE = 0.002
 VOLTAGE_GRID_POINTS = 1001
 VOLTAGE_FULL_RMSE_LIMIT_V = 0.050
+CALIBRATION_RMSE_LIMIT_PP = 1.0
+HOLDOUT_RMSE_LIMIT_PP = 3.0
+CYCLE_350_ABS_LIMIT_PP = 4.0
 
 
 class ObjectiveError(ValueError):
@@ -39,6 +43,41 @@ class VoltageCurveMetrics:
     experimental_voltage_v: np.ndarray
 
 
+@dataclass(frozen=True)
+class SohNodeMetric:
+    cycle: int
+    simulated_capacity_ah: float
+    experimental_capacity_ah: float
+    simulated_soh_pct: float
+    experimental_soh_pct: float
+    signed_error_pp: float
+    absolute_error_pp: float
+
+
+@dataclass(frozen=True)
+class SohMetrics:
+    nodes: tuple[SohNodeMetric, ...]
+    rmse_pp: float
+    max_absolute_error_pp: float
+    endpoint_absolute_error_pp: float
+
+
+@dataclass(frozen=True)
+class Stage1Acceptance:
+    calibration_passed: bool
+    holdout_passed: bool | None
+    cycle_350_passed: bool | None
+
+
+@dataclass(frozen=True)
+class CandidateScore:
+    candidate_id: str
+    metrics: SohMetrics | None
+    log10_scales: tuple[float, float, float]
+    retry_count: int = 0
+    numerically_censored: bool = False
+
+
 def capacity_objective(
     simulated_capacity_ah: float,
     target_ah: float = CAPACITY_TARGET_AH,
@@ -53,6 +92,89 @@ def capacity_objective(
         absolute_error_ah=absolute_error,
         relative_error=relative_error,
         passed=relative_error <= CAPACITY_RELATIVE_TOLERANCE,
+    )
+
+
+def soh_metrics(
+    simulated_capacities: Mapping[int, float],
+    experimental_capacities: Mapping[int, float],
+    nodes: Sequence[int],
+) -> SohMetrics:
+    """Compute independently normalised SOH errors for exactly ``nodes``."""
+    required = tuple(nodes)
+    if len(required) < 2 or len(set(required)) != len(required) or required[0] != 0:
+        raise ObjectiveError("SOH nodes must be unique, start with cycle 0, and include a scored node")
+    if set(simulated_capacities) != set(required) or set(experimental_capacities) != set(required):
+        raise ObjectiveError("SOH capacities must contain exactly the requested nodes")
+    values = tuple(simulated_capacities.values()) + tuple(experimental_capacities.values())
+    if not all(math.isfinite(value) and value > 0 for value in values):
+        raise ObjectiveError("SOH capacities must be finite and positive")
+    q_sim0, q_exp0 = simulated_capacities[0], experimental_capacities[0]
+    result = tuple(
+        SohNodeMetric(
+            cycle=cycle,
+            simulated_capacity_ah=simulated_capacities[cycle],
+            experimental_capacity_ah=experimental_capacities[cycle],
+            simulated_soh_pct=100.0 * simulated_capacities[cycle] / q_sim0,
+            experimental_soh_pct=100.0 * experimental_capacities[cycle] / q_exp0,
+            signed_error_pp=100.0 * simulated_capacities[cycle] / q_sim0 - 100.0 * experimental_capacities[cycle] / q_exp0,
+            absolute_error_pp=abs(100.0 * simulated_capacities[cycle] / q_sim0 - 100.0 * experimental_capacities[cycle] / q_exp0),
+        )
+        for cycle in required
+    )
+    scored = result[1:]
+    errors = np.asarray([item.signed_error_pp for item in scored], dtype=float)
+    return SohMetrics(
+        nodes=result,
+        rmse_pp=float(np.sqrt(np.mean(errors**2))),
+        max_absolute_error_pp=max(item.absolute_error_pp for item in scored),
+        endpoint_absolute_error_pp=result[-1].absolute_error_pp,
+    )
+
+
+def assess_stage1(
+    calibration: SohMetrics,
+    holdout: SohMetrics | None = None,
+) -> Stage1Acceptance:
+    """Apply the three fixed thresholds, with boundary equality accepted."""
+    if holdout is None:
+        return Stage1Acceptance(calibration.rmse_pp <= CALIBRATION_RMSE_LIMIT_PP, None, None)
+    cycle_350 = next((node for node in holdout.nodes if node.cycle == 350), None)
+    if cycle_350 is None:
+        raise ObjectiveError("holdout metrics must include cycle 350")
+    return Stage1Acceptance(
+        calibration.rmse_pp <= CALIBRATION_RMSE_LIMIT_PP,
+        holdout.rmse_pp <= HOLDOUT_RMSE_LIMIT_PP,
+        cycle_350.absolute_error_pp <= CYCLE_350_ABS_LIMIT_PP,
+    )
+
+
+def rank_candidates(candidates: Sequence[CandidateScore]) -> tuple[CandidateScore, ...]:
+    """Return deterministic stage-1 calibration ranking without censored runs."""
+    valid = [item for item in candidates if not item.numerically_censored and item.metrics is not None]
+    valid.sort(key=lambda item: (item.metrics.rmse_pp, item.candidate_id))
+    if not valid:
+        return ()
+    # RMSE values within 0.1 pp are a tie group; compare only its prescribed breakers.
+    groups: list[list[CandidateScore]] = []
+    for item in valid:
+        if not groups or item.metrics.rmse_pp - groups[-1][0].metrics.rmse_pp > 0.1:
+            groups.append([item])
+        else:
+            groups[-1].append(item)
+    return tuple(
+        candidate
+        for group in groups
+        for candidate in sorted(
+            group,
+            key=lambda item: (
+                item.metrics.max_absolute_error_pp,
+                item.metrics.endpoint_absolute_error_pp,
+                sum(value * value for value in item.log10_scales),
+                item.retry_count,
+                item.candidate_id,
+            ),
+        )
     )
 
 

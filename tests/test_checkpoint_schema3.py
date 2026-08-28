@@ -25,6 +25,7 @@ def _checkpoint(config: RunConfig, manifest, *, schema: int = 6) -> Checkpoint:
         effective_parameters_fingerprint="",
         charge_efficiency_algorithm_version=config.charge_efficiency_algorithm_version,
         solver_execution_version=config.solver_execution_version,
+        run_context_fingerprint=config.run_context_fingerprint or "",
     )
 
 
@@ -65,3 +66,42 @@ def test_schema5_and_failure_snapshots_are_explicitly_rejected(workspace_tmp) ->
     save_checkpoint(old, _checkpoint(config, manifest, schema=5))
     with pytest.raises(NumericalFailure, match="UNSUPPORTED_CHECKPOINT_SCHEMA"):
         load_checkpoint(old, config, "udds")
+
+
+@pytest.mark.parametrize(
+    ("label", "kwargs"),
+    (
+        ("UDDS", {"udds_fingerprint": "changed"}),
+        ("input", {"input_fingerprint": "changed"}),
+        ("initial state", {"initial_state_fingerprint": "changed"}),
+        ("environment", {"environment_fingerprint": "changed"}),
+        ("effective parameters", {"effective_parameters_fingerprint": "changed"}),
+    ),
+)
+def test_current_resume_fingerprints_reject_changed_inputs(workspace_tmp, label, kwargs) -> None:
+    config = RunConfig()
+    manifest = build_output_manifest(workspace_tmp, 0, 0, None)
+    path = workspace_tmp / "checkpoint.pkl"
+    save_checkpoint(path, _checkpoint(config, manifest))
+    expected = {
+        "udds_fingerprint": "udds",
+        "input_fingerprint": "input",
+        "initial_state_fingerprint": "initial",
+        "environment_fingerprint": "environment",
+        "effective_parameters_fingerprint": "",
+    }
+    expected.update(kwargs)
+
+    with pytest.raises(NumericalFailure, match=label):
+        load_checkpoint(path, config, **expected)
+
+
+def test_current_run_context_rejects_checkpoint_reuse(workspace_tmp) -> None:
+    original = RunConfig(run_context_fingerprint="a" * 64)
+    current = RunConfig(run_context_fingerprint="b" * 64)
+    manifest = build_output_manifest(workspace_tmp, 0, 0, None)
+    path = workspace_tmp / "checkpoint.pkl"
+    save_checkpoint(path, replace(_checkpoint(original, manifest), config_fingerprint=current.fingerprint()))
+
+    with pytest.raises(NumericalFailure, match="run context"):
+        load_checkpoint(path, current, "udds")

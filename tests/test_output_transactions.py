@@ -81,6 +81,8 @@ def test_uncommitted_tails_and_artifacts_are_archived_then_rollback_is_idempoten
     second = rollback_to_checkpoint(run_dir, selected, checkpoint)
     assert second["truncated_bytes"] == {}
     assert second["moved_files"] == []
+    public_manifest = __import__("json").loads((run_dir / "output_manifest.json").read_text(encoding="utf-8"))
+    assert public_manifest["audit"]["checkpoint"] == selected.name
 
 
 def test_committed_prefix_modification_is_rejected_not_truncated(workspace_tmp) -> None:

@@ -30,7 +30,7 @@ from pybamm_w10.calibration.parameters import load_calibration_parameters
 from pybamm_w10.charge_efficiency import build_charge_analysis_bundle
 from pybamm_w10.charge_variables import preflight_charge_variables
 from pybamm_w10.config import RunConfig
-from pybamm_w10.model import build_spme, conservative_charge_solver_profile
+from pybamm_w10.model import build_spme, certified_charge_solver_profile
 from pybamm_w10.output import append_json_line, write_json
 from pybamm_w10.runner import ensure_required_interpreter
 from pybamm_w10.types import Checkpoint, SolverStepFailure
@@ -65,7 +65,7 @@ CURVE_METRICS = (
 
 def fixed_conservative_profile(config: RunConfig):
     """Return exactly the user-requested IDAKLU standard-charge profile."""
-    return replace(conservative_charge_solver_profile(config), name=FIXED_PROFILE_NAME)
+    return replace(certified_charge_solver_profile(config), name=FIXED_PROFILE_NAME)
 
 
 def checkpoint_for_charge(source_run: Path, cycle: int) -> Path:

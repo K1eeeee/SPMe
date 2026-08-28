@@ -90,7 +90,7 @@ class RunConfig:
     output_schema_version: int = 3
     checkpoint_schema_version: int = 6
     charge_efficiency_algorithm_version: str = "charge-efficiency-v1"
-    solver_execution_version: str = "stage-local-time-v1"
+    solver_execution_version: str = "stage-local-time-v2-robust-charge"
     solver_profile_policy_version: str = "phase-fixed-v1"
     solver_attempt_audit_version: str = "solver-attempt-v1"
     soc_definition: str = "NEGATIVE_PARTICLE_LITHIUM_DELTA_OVER_FROZEN_Q_REF_V1"
@@ -115,6 +115,7 @@ class RunConfig:
     udds_period_max_s: int = 2800
     required_python: Path = Path("C:/Users/Lenovo/anaconda3/envs/battery/python.exe")
     calibration_parameters_path: Path | None = None
+    run_context_fingerprint: str | None = None
 
     @property
     def cycling_root(self) -> Path:
@@ -156,6 +157,10 @@ class RunConfig:
             raise ValueError("charge-efficiency tolerances and Faraday constant must be positive")
         if not self.charge_balance_pass_limit_pct < self.charge_balance_failure_limit_pct:
             raise ValueError("charge balance pass limit must be less than failure limit")
+        if self.run_context_fingerprint is not None:
+            if len(self.run_context_fingerprint) != 64:
+                raise ValueError("run_context_fingerprint must be a SHA-256 digest")
+            int(self.run_context_fingerprint, 16)
 
     def normalized(self, workspace: Path) -> "RunConfig":
         workspace = workspace.resolve()
@@ -213,6 +218,7 @@ class RunConfig:
             udds_period_max_s=self.udds_period_max_s,
             required_python=self.required_python.resolve(),
             calibration_parameters_path=calibration_parameters_path,
+            run_context_fingerprint=self.run_context_fingerprint,
         )
 
     def fingerprint(self) -> str:
@@ -224,6 +230,7 @@ class RunConfig:
         payload["calibration_parameters_path"] = (
             None if payload["calibration_parameters_path"] is None else str(payload["calibration_parameters_path"])
         )
+        payload["run_context_fingerprint"] = self.run_context_fingerprint
         return sha256(json.dumps(payload, sort_keys=True, ensure_ascii=False).encode()).hexdigest()
 
     def guard_fingerprint(self) -> str:
@@ -251,4 +258,5 @@ class RunConfig:
         value["calibration_parameters_path"] = (
             None if value["calibration_parameters_path"] is None else str(value["calibration_parameters_path"])
         )
+        value["run_context_fingerprint"] = self.run_context_fingerprint
         return value
